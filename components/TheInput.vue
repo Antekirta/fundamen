@@ -1,10 +1,11 @@
 <template>
   <div class="the-input">
+    <label>
+      <span class="the-input__label-text">Pretty label</span>
+      <input type="text" v-model="value">
+    </label>
+
     {{ value }}
-
-    <br>
-
-    <input type="text" v-model="value">
   </div>
 </template>
 
@@ -17,3 +18,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.the-input__label-text {
+  display: block;
+  margin-bottom: 8px;
+}
+</style>
