@@ -12,6 +12,9 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
     "@nuxtjs/storybook": "^7.0.0",
     "@storybook/addon-essentials": "^7.4.5",
     "@storybook/addon-interactions": "^7.4.5",
