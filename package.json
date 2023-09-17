@@ -24,6 +24,8 @@
     "@storybook/vue3": "^7.4.5",
     "@storybook/vue3-vite": "^7.4.5",
     "nuxt": "^3.7.3",
+    "sass": "^1.67.0",
+    "sass-loader": "^13.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.4.5",
