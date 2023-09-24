@@ -8,7 +8,7 @@ const config = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/storybook-addon-nuxt", // added this like turotial says
+    'storybook-addon-nuxt',
   ],
   framework: {
     name: "@storybook/vue3-vite",
