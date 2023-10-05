@@ -2,7 +2,10 @@
   <div class="the-input">
     <label>
       <span class="the-input__label-text">Pretty label</span>
-      <input type="text" v-model="value">
+      <input
+        v-model="value"
+        type="text"
+      >
     </label>
 
     {{ value }}
@@ -11,7 +14,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       value: ''
     }
