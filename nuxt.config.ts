@@ -3,6 +3,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/storybook'],
   css: [
-      '@/assets/global.scss'
-  ]
+    '@/assets/global.scss'
+  ],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {}
+    }
+  }
 })
