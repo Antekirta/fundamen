@@ -37,5 +37,8 @@
     "style-loader": "^3.3.3",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "tailwind-merge": "^1.14.0"
   }
 }
