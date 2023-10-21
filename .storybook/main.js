@@ -21,6 +21,12 @@ const config = {
   async viteFinal(config, { configType }) {
     // return the customized config
     return mergeConfig(config, {
+      resolve: {
+        alias: {
+          // Make Nuxt aliases work in Storybook environment
+          '@': '../'
+        }
+      },
       css: {
         preprocessorOptions: {
           scss: {
