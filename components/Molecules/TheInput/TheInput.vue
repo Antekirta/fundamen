@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import TheIcon from './TheIcon.vue'
+import TheIcon from '@/components/Atoms/TheIcon/TheIcon.vue'
 import { TailwindHelper } from '@/utils/TailwindHelper'
 
 const INPUT_SIZES = {
@@ -259,4 +259,3 @@ export default {
   }
 }
 </script>
-

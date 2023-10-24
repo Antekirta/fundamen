@@ -2,6 +2,16 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/storybook'],
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        baseUrl: './',
+        paths: {
+          '@/*': './*'
+        }
+      }
+    }
+  },
   css: [
     '@/assets/global.scss'
   ],

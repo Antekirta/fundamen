@@ -5,6 +5,7 @@ const config = {
   stories: [
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
     "@storybook/addon-links",
@@ -26,15 +27,7 @@ const config = {
           // Make Nuxt aliases work in Storybook environment
           '@': '../'
         }
-      },
-      css: {
-        preprocessorOptions: {
-          scss: {
-            // Next line will prepend the import in all you scss files as you did with your vite.config.js file
-            additionalData: `@import "../dist/global.css";`,
-          },
-        },
-      },
+      }
     });
   }
 };

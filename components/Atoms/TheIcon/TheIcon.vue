@@ -46,7 +46,7 @@ export default {
     }
   },
   async created () {
-    this.svg = await import(`../assets/icons/${this.icon}.svg?raw`)
+    this.svg = await import(`../../../assets/icons/${this.icon}.svg?raw`)
   }
 }
 </script>
