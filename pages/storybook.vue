@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import TheInput from '@/components/Molecules/TheInput/TheInput.vue'
+
 export default {
 }
 </script>
