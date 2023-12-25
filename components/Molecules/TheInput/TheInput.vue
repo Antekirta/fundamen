@@ -80,7 +80,8 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref, computed } from 'vue'
 import TheIcon from '@/components/Atoms/TheIcon/TheIcon.vue'
 import { TailwindHelper } from '@/utils/TailwindHelper'
 
@@ -101,161 +102,110 @@ const BORDER_TYPES = {
   BOTTOM: 'bottom'
 }
 
-export default {
-  components: {
-    TheIcon
+const props = defineProps({
+  label: {
+    type: String,
+    default: ''
   },
-  props: {
-    label: {
-      type: String,
-      default: ''
-    },
-    cornerHint: {
-      type: String,
-      default: ''
-    },
-    labelType: {
-      type: String,
-      validator () {
-        return Object.values(LABEL_TYPES)
-      },
-      default: LABEL_TYPES.DEFAULT
-    },
-    borderType: {
-      type: String,
-      validator () {
-        return Object.values(BORDER_TYPES)
-      },
-      default: BORDER_TYPES.DEFAULT
-    },
-    helpText: {
-      type: String,
-      default: ''
-    },
-    errors: {
-      type: Array,
-      default: () => []
-    },
-    type: {
-      type: String,
-      default: 'text'
-    },
-    size: {
-      type: String,
-      validator () {
-        return Object.values(INPUT_SIZES)
-      },
-      default: INPUT_SIZES.SMALL
-    },
-    placeholder: {
-      type: String,
-      default: 'placeholder'
-    },
-    addon: {
-      type: String,
-      default: ''
-    },
-    prependIcon: {
-      type: String,
-      default: ''
-    },
-    appendIcon: {
-      type: String,
-      default: ''
-    },
-    inputExtraClasses: {
-      type: String,
-      default: ''
-    },
-    pill: Boolean,
-    inline: Boolean,
-    required: Boolean,
-    disabled: Boolean
+  cornerHint: {
+    type: String,
+    default: ''
   },
-  data () {
-    return {
-      value: ''
-    }
+  // labelType: {
+  //   type: String,
+  //   validator () {
+  //     return Object.values(LABEL_TYPES)
+  //   },
+  //   default: LABEL_TYPES.DEFAULT
+  // },
+  // borderType: {
+  //   type: String,
+  //   validator () {
+  //     return Object.values(BORDER_TYPES)
+  //   },
+  //   default: BORDER_TYPES.DEFAULT
+  // },
+  helpText: {
+    type: String,
+    default: ''
   },
-  computed: {
-    rootClasses () {
-      const classes = []
+  errors: {
+    type: Array,
+    default: () => []
+  },
+  type: {
+    type: String,
+    default: 'text'
+  },
+  // size: {
+  //   type: String,
+  //   validator () {
+  //     return Object.values(INPUT_SIZES)
+  //   },
+  //   default: INPUT_SIZES.SMALL
+  // },
+  placeholder: {
+    type: String,
+    default: 'placeholder'
+  },
+  addon: {
+    type: String,
+    default: ''
+  },
+  prependIcon: {
+    type: String,
+    default: ''
+  },
+  appendIcon: {
+    type: String,
+    default: ''
+  },
+  inputExtraClasses: {
+    type: String,
+    default: ''
+  },
+  pill: Boolean,
+  inline: Boolean,
+  required: Boolean,
+  disabled: Boolean
+})
 
-      if (this.inline) {
-        classes.push('relative flex flex-wrap items-start')
-      }
+const value = ref('')
 
-      return classes
-    },
-    labelClasses () {
-      const classes = [
-        'relative z-10 flex justify-between p-1 w-auto',
-        'font-semibold',
-        'text-sm text-slate-700'
-      ]
+const rootClasses = computed(() => {
+  const classes = []
 
-      switch (this.labelType) {
-        case LABEL_TYPES.OVERLAPPING: classes.push('inline-flex bg-white px-2 pb-1 translate-x-3 translate-y-3  text-xs'); break
-        case LABEL_TYPES.INSET: classes.push('text-xs translate-y-7 px-2 pb-1'); break
-      }
+  if (props.inline) {
+    classes.push('relative flex flex-wrap items-start')
+  }
 
-      switch (this.size) {
-        case INPUT_SIZES.SMALL: classes.push('text-sm'); break
-        case INPUT_SIZES.MEDIUM: classes.push('text-base'); break
-        case INPUT_SIZES.LARGE: classes.push('text-lg'); break
-      }
+  return classes
+})
 
-      if (this.inline) {
-        if (this.inline) {
-          classes.push('pr-2')
-        }
-      }
+const labelClasses = computed(() => {
+  const classes = [
+    'relative z-10 flex justify-between p-1 w-auto',
+    'font-semibold',
+    'text-sm text-slate-700'
+  ]
 
-      return TailwindHelper.merge(classes)
-    },
-    inputClasses () {
-      const classes = [
-        'block w-auto',
-        'px-2 py-1',
-        'text-sm',
-        'disabled:bg-slate-100'
-      ]
+  switch (props.labelType) {
+    case 'over': classes.push('inline-flex bg-white px-2 pb-1 translate-x-3 translate-y-3  text-xs'); break
+    case LABEL_TYPES.INSET: classes.push('text-xs translate-y-7 px-2 pb-1'); break
+  }
 
-      if (!this.inline) {
-        classes.push('w-full')
-      }
+  switch (props.size) {
+    case INPUT_SIZES.SMALL: classes.push('text-sm'); break
+    case INPUT_SIZES.MEDIUM: classes.push('text-base'); break
+    case INPUT_SIZES.LARGE: classes.push('text-lg'); break
+  }
 
-      if (this.pill) {
-        classes.push('rounded-full')
-      }
-
-      switch (this.borderType) {
-        case BORDER_TYPES.BOTTOM: classes.push('outline-0 focus:outline-0  border-slate-400 border-0 border-b-2'); break
-        default: classes.push('outline outline-2 outline-slate-300 focus:outline-slate-400 rounded')
-      }
-
-      if (this.addon) {
-        classes.push('rounded-l-none')
-      }
-
-      switch (this.labelType) {
-        case LABEL_TYPES.OVERLAPPING: classes.push('pt-3'); break
-        case LABEL_TYPES.INSET: classes.push('pt-7')
-      }
-
-      if (this.prependIcon) {
-        classes.push('pl-8')
-      }
-
-      if (this.errors.length) {
-        classes.push('outline-red-300 focus:outline-red-300')
-      }
-
-      return TailwindHelper.merge([...classes, this.inputExtraClasses])
-    },
-    id () {
-      return `the_input_${Math.random()}`
+  if (props.inline) {
+    if (props.inline) {
+      classes.push('pr-2')
     }
   }
-}
+
+  return TailwindHelper.merge(classes)
+})
 </script>

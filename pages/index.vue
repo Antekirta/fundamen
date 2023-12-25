@@ -4,6 +4,17 @@
 
     <p>Let's start</p>
 
-    <h3></h3>
+    <TheInput />
+
+    <h3 />
   </div>
 </template>
+<script>
+import TheInput from '@/components/Molecules/TheInput/TheInput.vue'
+
+export default {
+  components: {
+    TheInput
+  }
+}
+</script>
