@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/storybook',
-    '@nuxtjs/tailwindcss'
+    '@nuxt/ui'
   ],
   typescript: {
     tsConfig: {
