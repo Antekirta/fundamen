@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c04295b-c424-400b-91b7-9a26314d9ea4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/client/.eslintrc.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.npmrc" beforeDir="false" afterPath="$PROJECT_DIR$/client/.npmrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/.storybook/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/.storybook/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/.storybook/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/preview.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/.storybook/preview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/preview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/.storybook/preview.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/app.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/arrow-top-right.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/icons/arrow-top-right.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/envelope.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/icons/envelope.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Atoms/TheIcon/TheIcon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Atoms/TheIcon/TheIcon.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecules/TheInput/TheInput.stories.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Molecules/TheInput/TheInput.stories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecules/TheInput/TheInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Molecules/TheInput/TheInput.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecules/TheInput/TheInputOld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Molecules/TheInput/TheInputOld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/nuxt.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/about.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/storybook.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/storybook.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpStorm.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/phpStorm.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Button.stories.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/Button.stories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Button.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/Button.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Configure.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/Configure.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Header.stories.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/Header.stories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Page.stories.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/Page.stories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Page.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/Page.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/accessibility.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/accessibility.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/accessibility.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/accessibility.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/addon-library.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/addon-library.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/assets.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/assets.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/context.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/context.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/discord.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/discord.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/docs.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/docs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/figma-plugin.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/figma-plugin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/github.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/github.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/share.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/share.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/styling.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/styling.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/testing.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/testing.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/theming.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/theming.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/tutorials.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/tutorials.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/youtube.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/assets/youtube.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/page.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/stories/page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/TailwindHelper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/utils/TailwindHelper.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2VP33E0emOuV9451KzOBU3yZn63" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/projects/fundamen/client/phpStorm.config.js&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.webpack&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\projects\\fundamen\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\fundamen\components\Molecules\TheInput" />
+      <recent name="D:\projects\fundamen\.storybook" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\fundamen" />
+      <recent name="D:\projects\fundamen\client" />
+      <recent name="D:\projects\fundamen\components\Molecules\TheInput" />
+      <recent name="D:\projects\fundamen\components\Atoms" />
+      <recent name="D:\projects\fundamen\components\Molecules" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c04295b-c424-400b-91b7-9a26314d9ea4" name="Changes" comment="" />
+      <created>1694723686661</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694723686661</updated>
+      <workItem from="1694723687840" duration="4657000" />
+      <workItem from="1694859660707" duration="9029000" />
+      <workItem from="1694896935104" duration="4016000" />
+      <workItem from="1694900992934" duration="4329000" />
+      <workItem from="1694950640968" duration="2515000" />
+      <workItem from="1696514939097" duration="49316000" />
+      <workItem from="1696936208648" duration="5466000" />
+      <workItem from="1697016739845" duration="129000" />
+      <workItem from="1697139639484" duration="69000" />
+      <workItem from="1697140785416" duration="1011000" />
+      <workItem from="1697189711855" duration="5000" />
+      <workItem from="1697225923383" duration="441000" />
+      <workItem from="1697226373737" duration="11827000" />
+      <workItem from="1697314274898" duration="8504000" />
+      <workItem from="1697367212198" duration="14474000" />
+      <workItem from="1697453381105" duration="5000" />
+      <workItem from="1697645096651" duration="2655000" />
+      <workItem from="1697838229704" duration="19314000" />
+      <workItem from="1698056166607" duration="168000" />
+      <workItem from="1698166582075" duration="7493000" />
+      <workItem from="1698227918738" duration="3000" />
+      <workItem from="1698256205635" duration="7000000" />
+      <workItem from="1698442948029" duration="598000" />
+      <workItem from="1698452635119" duration="34000" />
+      <workItem from="1698452986776" duration="1944000" />
+      <workItem from="1698595779801" duration="2220000" />
+      <workItem from="1698606037758" duration="6576000" />
+      <workItem from="1698657904116" duration="2072000" />
+      <workItem from="1703530951615" duration="3187000" />
+      <workItem from="1703613289022" duration="15787000" />
+      <workItem from="1703774858511" duration="1031000" />
+    </task>
+    <task id="LOCAL-00001" summary="README / Stick to npm">
+      <created>1694726242883</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694726242883</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add homemade storybook and very basic TheInput.vue component">
+      <created>1694726735575</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694726735575</updated>
+    </task>
+    <task id="LOCAL-00003" summary="FUN-1 FE / components / Create TheInput component">
+      <created>1694859838544</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694859838544</updated>
+    </task>
+    <task id="LOCAL-00004" summary="FUN-2 FE / Install typescript as a dev dependency">
+      <created>1694893768918</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694893768918</updated>
+    </task>
+    <task id="LOCAL-00005" summary="FUN-2 FE / Install eslint">
+      <created>1694896407614</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694896407614</updated>
+    </task>
+    <task id="LOCAL-00006" summary="FUN-2 FE / Add raw version of sandbox">
+      <created>1694908884079</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694908884079</updated>
+    </task>
+    <task id="LOCAL-00007" summary="FUN-2 FE / Add global styles">
+      <created>1694908900762</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694908900762</updated>
+    </task>
+    <task id="LOCAL-00008" summary="FUN-2 FE / Add eslint">
+      <created>1694909554129</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694909554129</updated>
+    </task>
+    <task id="LOCAL-00009" summary="FUN-2 FE / Install sass">
+      <created>1694950955566</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1694950955566</updated>
+    </task>
+    <task id="LOCAL-00010" summary="FUN-2 FE / Create TheSandbox component">
+      <created>1696515799924</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1696515799924</updated>
+    </task>
+    <task id="LOCAL-00011" summary="FUN-2 FE / Create TheSandbox component">
+      <created>1696515809323</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1696515809323</updated>
+    </task>
+    <task id="LOCAL-00012" summary="FUN-2 FE / Install typescript as a dev dependency">
+      <created>1696526930647</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1696526930647</updated>
+    </task>
+    <task id="LOCAL-00013" summary="FUN-2 FE / Add global styles">
+      <created>1696527060026</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1696527060026</updated>
+    </task>
+    <task id="LOCAL-00014" summary="FUN-2 FE / Add eslint">
+      <created>1696527090871</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1696527090871</updated>
+    </task>
+    <task id="LOCAL-00015" summary="FUN-2 FE / Install sass">
+      <created>1696527110930</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1696527110930</updated>
+    </task>
+    <task id="LOCAL-00016" summary="FUN-3 FE / Update package-lock.json">
+      <created>1696527872121</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1696527872121</updated>
+    </task>
+    <task id="LOCAL-00017" summary="FUN-3 FE / Add storybook config">
+      <created>1696527915163</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1696527915163</updated>
+    </task>
+    <task id="LOCAL-00018" summary="FUN-1 FE / TheInput.vue  / Clean up">
+      <created>1696539284806</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1696539284806</updated>
+    </task>
+    <task id="LOCAL-00019" summary="FUN-1 FE / Install Tailwind and make it available for Storybook, too">
+      <created>1696761067527</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1696761067527</updated>
+    </task>
+    <task id="LOCAL-00020" summary="FUN-1 FE / Install Tailwind and make it available for Storybook, too">
+      <created>1696761229349</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1696761229349</updated>
+    </task>
+    <task id="LOCAL-00021" summary="FUN-1 FE / TheUnput.stories.js / Init">
+      <created>1696765505761</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1696765505761</updated>
+    </task>
+    <task id="LOCAL-00022" summary="FUN-1 FE package.json / Concurrently run &quot;npm run dev&quot; and generate global.scss for storybook">
+      <created>1697922793752</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1697922793752</updated>
+    </task>
+    <task id="LOCAL-00023" summary="FUN-1 FE Install tailwind-merge">
+      <created>1697922818966</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1697922818966</updated>
+    </task>
+    <task id="LOCAL-00024" summary="FUN-1 FE / tailwind.config.cjs / Change the extension and import type in order to import it rfeely across the app">
+      <created>1697922870606</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1697922870606</updated>
+    </task>
+    <task id="LOCAL-00025" summary="FUN-1 FE / global.scss / Change global font to &quot;Inter&quot;">
+      <created>1697923100961</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1697923100961</updated>
+    </task>
+    <task id="LOCAL-00026" summary="FUN-1 FE / .storybook/main.js / Make Nuxt aliases work in Storybook environment">
+      <created>1697923143334</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1697923143334</updated>
+    </task>
+    <task id="LOCAL-00027" summary="FUN-1 FE / assets/icons / Add arrow-top-right and envelope svg icons">
+      <created>1697923177643</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1697923177643</updated>
+    </task>
+    <task id="LOCAL-00028" summary="FUN-1 FE / utils/TailwindHelper.js / Create TailwindHelper static class">
+      <created>1697923231605</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1697923231605</updated>
+    </task>
+    <task id="LOCAL-00029" summary="FUN-1 FE / Create TheIcon component">
+      <created>1697923264011</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1697923264011</updated>
+    </task>
+    <task id="LOCAL-00030" summary="FUN-1 FE / TheInput.vue / Develop workink version in Vue2 syntax">
+      <created>1697923329694</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1697923329694</updated>
+    </task>
+    <task id="LOCAL-00031" summary="FUN-1 FE / TheInput.stories.js / Add decorator">
+      <created>1697923388982</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1697923388982</updated>
+    </task>
+    <task id="LOCAL-00032" summary="FUN-1 FE / TheInput.stories.js / Create basic stories">
+      <created>1697923418758</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1697923418758</updated>
+    </task>
+    <task id="LOCAL-00033" summary="FUN-1 FE / Provide ability to put stories in the same folder as a component">
+      <created>1698172183590</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1698172183590</updated>
+    </task>
+    <task id="LOCAL-00034" summary="FUN-1 FE phpStorm.config.js / Set alias">
+      <created>1698606293817</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1698606293817</updated>
+    </task>
+    <task id="LOCAL-00035" summary="FUN-1 FE / WIP">
+      <created>1703544101487</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1703544101487</updated>
+    </task>
+    <task id="LOCAL-00036" summary="FUN-4 FE / Add @nuxtjs/tailwindcss">
+      <created>1703544790078</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1703544790078</updated>
+    </task>
+    <task id="LOCAL-00037" summary="FUN-4 FE / Add Nuxt UI">
+      <created>1703624458759</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1703624458760</updated>
+    </task>
+    <task id="LOCAL-00038" summary="FUN-4 FE / Clean index page">
+      <created>1703684005605</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1703684005605</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="FUN-1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="FUN-1" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="SB-Nuxt3" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="FUN-2" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="FUN-2 FE / Add global styles" />
+    <MESSAGE value="FUN-2 FE / Add eslint" />
+    <MESSAGE value="FUN-2 FE / Install sass" />
+    <MESSAGE value="FUN-3 FE / Update package-lock.json" />
+    <MESSAGE value="FUN-3 FE / Add storybook config" />
+    <MESSAGE value="FUN-1 FE / TheInput.vue  / Clean up" />
+    <MESSAGE value="FUN-1 FE / Install Tailwind and make it available for Storybook, too" />
+    <MESSAGE value="FUN-1 FE / TheUnput.stories.js / Init" />
+    <MESSAGE value="FUN-1 FE package.json / Concurrently run &quot;npm run dev&quot; and generate global.scss for storybook" />
+    <MESSAGE value="FUN-1 FE Install tailwind-merge" />
+    <MESSAGE value="FUN-1 FE / tailwind.config.cjs / Change the extension and import type in order to import it rfeely across the app" />
+    <MESSAGE value="FUN-1 FE / global.scss / Change global font to &quot;Inter&quot;" />
+    <MESSAGE value="FUN-1 FE / .storybook/main.js / Make Nuxt aliases work in Storybook environment" />
+    <MESSAGE value="FUN-1 FE / assets/icons / Add arrow-top-right and envelope svg icons" />
+    <MESSAGE value="FUN-1 FE / utils/TailwindHelper.js / Create TailwindHelper static class" />
+    <MESSAGE value="FUN-1 FE / Create TheIcon component" />
+    <MESSAGE value="FUN-1 FE / TheInput.vue / Develop workink version in Vue2 syntax" />
+    <MESSAGE value="FUN-1 FE / TheInput.stories.js / Add decorator" />
+    <MESSAGE value="FUN-1 FE / TheInput.stories.js / Create basic stories" />
+    <MESSAGE value="FUN-1 FE / Provide ability to put stories in the same folder as a component" />
+    <MESSAGE value="FUN-1 FE phpStorm.config.js / Set alias" />
+    <MESSAGE value="FUN-1 FE / WIP" />
+    <MESSAGE value="FUN-4 FE / Add @nuxtjs/tailwindcss" />
+    <MESSAGE value="FUN-4 FE / Add Nuxt UI" />
+    <MESSAGE value="FUN-4 FE / Clean index page" />
+    <option name="LAST_COMMIT_MESSAGE" value="FUN-4 FE / Clean index page" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
