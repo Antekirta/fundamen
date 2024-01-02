@@ -1,22 +1,17 @@
 version: '3.8'
 
 services:
+  nest:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    command: "npm run start:prod"
   nuxt:
     build:
       context: ./client
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - ./client:/app
-    command: ["nuxt", "dev"]
-
-  nest:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
-    ports:
-      - "5000:3000"
-    volumes:
-      - ./server:/app
-    command: ["npm", "run", "start"]
+    command: "node .output/server/index.mjs"
