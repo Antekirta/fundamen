@@ -14,3 +14,21 @@ jobs:
         
       - name: Build the Docker image
         run: docker-compose build
+
+      - name: Log in to Docker Hub
+        run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+
+      - name: Tag the Docker nuxt image
+        run: docker tag my-image theantekirta/fundamen-nuxt:latest
+
+      - name: Tag the Docker nest image
+        run: docker tag my-image theantekirta/fundamen-nest:latest
+
+      - name: Push the Docker nuxt image
+        run: docker push theantekirta/fundamen-nuxt:latest
+
+      - name: Push the Docker nest image
+        run: docker push theantekirta/fundamen-nest:latest  
+  
+ 
+
