@@ -1,2 +1,2 @@
 docker-compose pull
-docker-compose -d --no-build
+docker-compose up -d --no-build
