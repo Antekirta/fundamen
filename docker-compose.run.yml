@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   nest:
+    image: theantekirta/fundamen_nest
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -9,6 +10,7 @@ services:
       - "80:3002"
     command: "npm run start:prod"
   nuxt:
+    image: theantekirta/fundamen_nuxt
     build:
       context: ./client
       dockerfile: Dockerfile
