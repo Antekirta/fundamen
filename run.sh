@@ -1,2 +1,2 @@
-docker-compose pull -f docker-compose.run.yml
-docker-compose -f docker-compose.run.yml up -d --no-build
+docker-compose pull
+docker-compose -d --no-build
