@@ -19,16 +19,16 @@ jobs:
         run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
 
       - name: Tag the Docker nuxt image
-        run: docker tag fundamen-nuxt theantekirta/fundamen-nuxt:latest
+        run: docker tag fundamen-nuxt theantekirta/fundamen-nuxt
 
       - name: Tag the Docker nest image
-        run: docker tag fundamen-nest theantekirta/fundamen-nest:latest
+        run: docker tag fundamen-nest theantekirta/fundamen-nest
 
       - name: Push the Docker nuxt image
-        run: docker push theantekirta/fundamen-nuxt:latest
+        run: docker push theantekirta/fundamen-nuxt
 
       - name: Push the Docker nest image
-        run: docker push theantekirta/fundamen-nest:latest  
+        run: docker push theantekirta/fundamen-nest  
   
  
 
