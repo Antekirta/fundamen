@@ -10,14 +10,8 @@
 <script setup lang="ts">
 /* global useFetch, useRuntimeConfig  */
 import { ref, onMounted, onServerPrefetch } from 'vue'
-const config = useRuntimeConfig()
 
-if (process.server) {
-  console.log('process.env: ', process.env)
-}
-
-console.log('config: ', config)
-console.log('config.FUN_HOST: ', config.FUN_HOST)
+console.log('process.env: ', process.env)
 
 const text = 'Default'
 const response = ref(null)
