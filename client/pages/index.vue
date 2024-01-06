@@ -10,11 +10,11 @@
 <script setup lang="ts">
 /* global useFetch, useRuntimeConfig  */
 import { ref, onMounted, onServerPrefetch } from 'vue'
-const config = useRuntimeConfig()
-
-console.log('process.env: ', process.env)
-
-console.log('config: ', config)
+const {
+  public: {
+    API_BASE_URL
+  }
+} = useRuntimeConfig()
 
 const text = 'Default'
 const response = ref(null)
@@ -22,7 +22,7 @@ const data = ref(null)
 
 // Server-side fetch
 async function fetchData () {
-  const { data: fetchedData } = await useFetch('http://nest:3002')
+  const { data: fetchedData } = await useFetch(`http://${API_BASE_URL}:3002`)
   data.value = fetchedData
 }
 
@@ -34,7 +34,7 @@ if (process.server) {
 // Client-side fetch
 onMounted(async () => {
   if (process.client) {
-    response.value = await $fetch('http://localhost:3002/test')
+    response.value = await $fetch(`http://${API_BASE_URL}:3002/test`)
   }
 })
 </script>
