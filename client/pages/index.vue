@@ -12,10 +12,8 @@
 import { ref, onMounted, onServerPrefetch } from 'vue'
 const config = useRuntimeConfig()
 
-console.log('process: ', process)
-
 if (process.server) {
-  console.log('process.env: ', process.server)
+  console.log('process.env: ', process.env)
 }
 
 console.log('config: ', config)

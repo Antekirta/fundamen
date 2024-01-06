@@ -19,5 +19,5 @@ services:
     env_file:
       - .env
     environment:
-      - FUN_HOST=${FUN_HOST}
+      - NUXT_PUBLIC_API_BASE_URL=${NUXT_PUBLIC_API_BASE_URL}
     command: "node .output/server/index.mjs"
