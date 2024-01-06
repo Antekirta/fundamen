@@ -8,6 +8,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:3002"
+    environment:
+      - HOST=${HOST}
     command: "npm run start:prod"
   nuxt:
     image: theantekirta/fundamen_nuxt
