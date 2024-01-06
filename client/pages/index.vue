@@ -8,8 +8,11 @@
 </template>
 
 <script setup lang="ts">
-/* global useFetch  */
+/* global useFetch, useRuntimeConfig  */
 import { ref, onMounted, onServerPrefetch } from 'vue'
+const config = useRuntimeConfig()
+
+console.log('config: ', config)
 
 const text = 'Default'
 const response = ref(null)

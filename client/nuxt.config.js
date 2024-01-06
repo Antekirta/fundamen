@@ -7,6 +7,11 @@ export default defineNuxtConfig({
     // '@nuxtjs/storybook',
     '@nuxt/ui'
   ],
+  runtimeConfig: {
+    public: {
+      HOST: process.env.HOST
+    }
+  },
   typescript: {
     tsConfig: {
       compilerOptions: {
