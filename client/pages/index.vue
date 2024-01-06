@@ -13,6 +13,7 @@ import { ref, onMounted, onServerPrefetch } from 'vue'
 const config = useRuntimeConfig()
 
 console.log('config: ', config)
+console.log('config.HOST: ', config.HOST)
 
 const text = 'Default'
 const response = ref(null)
