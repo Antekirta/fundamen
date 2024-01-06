@@ -1,5 +1,5 @@
 #!/bin/bash
-CONTAINERS=$(docker ps -q)
+CONTAINERS=$(docker ps -qa)
 
 if [ -n "$CONTAINERS" ]; then
     docker stop $CONTAINERS
