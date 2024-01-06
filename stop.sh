@@ -1,2 +1,10 @@
-docker stop $(docker ps -q)
-docker rm $(docker ps -aq)
+#!/bin/bash
+CONTAINERS=$(docker ps -q)
+
+if [ -n "$CONTAINERS" ]; then
+    docker stop $CONTAINERS
+    docker rm $CONTAINERS
+
+else
+    echo "No running containers to stop."
+fi
