@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      HOST: process.env.HOST
+      FUN_HOST: process.env.FUN_HOST
     }
   },
   typescript: {
