@@ -7,6 +7,12 @@ export default defineNuxtConfig({
     // '@nuxtjs/storybook',
     '@nuxt/ui'
   ],
+  runtimeConfig: {
+    public: {
+      NUXT_PUBLIC_API_BASE_URL: process.env.NUXT_PUBLIC_API_BASE_URL,
+      API_BASE_URL: process.env.API_BASE_URL
+    }
+  },
   typescript: {
     tsConfig: {
       compilerOptions: {
