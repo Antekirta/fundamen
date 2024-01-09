@@ -14,4 +14,9 @@ export class AppController {
   getTest(): string {
     return 'test endpoint works well!';
   }
+
+  @Get('/products')
+  getProducts(): any {
+    return this.appService.getFromDb();
+  }
 }
