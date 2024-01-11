@@ -9,7 +9,10 @@ import {
   Query,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
-import { ProductInterface, ProductToAddInterface } from './product.interface';
+import {
+  ProductInterface,
+  ProductToAddInterface,
+} from './product.interface';
 
 @Controller('/products')
 export class ProductController {
@@ -34,7 +37,6 @@ export class ProductController {
 
   @Post()
   async createProduct(@Body() product: ProductToAddInterface): Promise<void> {
-    console.log('productL ', product);
     await this.productService.addProduct(product);
   }
 

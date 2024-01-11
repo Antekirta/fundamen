@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from 'nest-knexjs';
 import { Knex } from 'knex';
-import { ProductInterface, ProductToAddInterface } from './product.interface';
+import {
+  ProductInterface,
+  ProductToAddInterface,
+} from './product.interface';
 
 const DB = {
   TABLE_NAME: 'products',
