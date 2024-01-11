@@ -13,3 +13,8 @@ export interface ProductInterface {
 
 export interface ProductToAddInterface
   extends Omit<ProductInterface, 'id' | 'slug' | 'added_at' | 'updated_at'> {}
+
+export interface ProductsToCategoriesInterface {
+  category_id: number;
+  product_id: number;
+}
