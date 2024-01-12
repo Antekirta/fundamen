@@ -18,3 +18,12 @@ export interface ProductsToCategoriesInterface {
   category_id: number;
   product_id: number;
 }
+
+export interface CategoryInterface {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+export interface CategoryToAddInterface
+  extends Omit<CategoryInterface, 'id' | 'slug'> {}

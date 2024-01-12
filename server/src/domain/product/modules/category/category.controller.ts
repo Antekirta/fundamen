@@ -11,7 +11,7 @@ import { CategoryService } from './category.service';
 import {
   CategoryInterface,
   CategoryToAddInterface,
-} from './category.interface';
+} from '../../product.domain.interface';
 
 @Controller('/categories')
 export class CategoryController {
