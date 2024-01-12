@@ -19,15 +19,17 @@ export class ProductToCategoryService {
     categoryId: number,
     searchParams?: Partial<ProductInterface>,
   ): Promise<ProductInterface[]> {
+    const filtered = 'filtered_ptc';
+
     const response = this.knex
       .select('*')
       .from(function () {
         this.select('*')
           .from(PTC)
           .where('category_id', categoryId)
-          .as('filtered_ptc');
+          .as(filtered);
       })
-      .innerJoin(P, 'filtered_ptc.product_id', `${P}.id`);
+      .innerJoin(P, `${filtered}.product_id`, `${P}.id`);
 
     if (searchParams) {
       return response.where({ ...searchParams });
