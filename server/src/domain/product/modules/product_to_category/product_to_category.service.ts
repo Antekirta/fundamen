@@ -15,10 +15,10 @@ const {
 export class ProductToCategoryService {
   constructor(@InjectConnection() private readonly knex: Knex) {}
 
-  async getProductsFromCategory(
+  async getProductsOfCategory(
     categoryId: number,
     searchParams?: Partial<ProductInterface>,
-  ): Promise<any> {
+  ): Promise<ProductInterface[]> {
     const response = this.knex
       .select('*')
       .from(function () {

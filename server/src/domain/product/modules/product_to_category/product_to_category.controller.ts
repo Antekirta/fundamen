@@ -7,11 +7,11 @@ export class ProductToCategoryController {
   constructor(private productToCategoryService: ProductToCategoryService) {}
 
   @Get('category/:category_id')
-  async getProductsFromCategory(
+  async getProductsOfCategory(
     @Param('category_id') category_id: number,
     @Query() searchParams: Partial<ProductInterface>,
   ): Promise<ProductInterface[]> {
-    return await this.productToCategoryService.getProductsFromCategory(
+    return await this.productToCategoryService.getProductsOfCategory(
       category_id,
       searchParams,
     );
