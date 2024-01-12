@@ -27,3 +27,8 @@ export interface CategoryInterface {
 
 export interface CategoryToAddInterface
   extends Omit<CategoryInterface, 'id' | 'slug'> {}
+
+export interface CategoryToCategoriesInterface {
+  category_id: number;
+  subcategory_id: number;
+}
