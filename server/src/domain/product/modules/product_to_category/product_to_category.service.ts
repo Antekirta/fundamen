@@ -61,4 +61,13 @@ export class ProductToCategoryService {
       } as ProductsToCategoriesInterface)
       .delete();
   }
+
+  async deleteAllProductsFromCategory(categoryId: number) {
+    await this.knex
+      .table(PTC)
+      .where({
+        category_id: categoryId,
+      } as ProductsToCategoriesInterface)
+      .delete();
+  }
 }

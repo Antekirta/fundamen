@@ -6,6 +6,7 @@ import {
   CategoryToAddInterface,
 } from '../../product.domain.interface';
 import { DB } from '../../product.domain.registry';
+import { ProductToCategoryService } from '../product_to_category/product_to_category.service';
 
 const {
   TABLES: { C },
@@ -13,7 +14,10 @@ const {
 
 @Injectable()
 export class CategoryService {
-  constructor(@InjectConnection() private readonly knex: Knex) {}
+  constructor(
+    @InjectConnection() private readonly knex: Knex,
+    private readonly productToCategoryService: ProductToCategoryService,
+  ) {}
 
   async getCategories(): Promise<CategoryInterface[]> {
     return this.knex.table(C);
@@ -40,6 +44,8 @@ export class CategoryService {
   }
 
   async deleteCategory(id: number): Promise<void> {
+    await this.productToCategoryService.deleteAllProductsFromCategory(id);
+
     await this.knex.table(C).where({ id }).delete();
   }
 }

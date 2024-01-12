@@ -16,7 +16,7 @@ const {
 export class ProductService {
   constructor(
     @InjectConnection() private readonly knex: Knex,
-    private readonly productToCategoryService: ProductToCategoryService,
+    private readonly productToCategoryService: ProductToCategoryService
   ) {}
 
   async getProductById(id: number): Promise<ProductInterface> {
@@ -45,7 +45,7 @@ export class ProductService {
   }
 
   async deleteProduct(id: number): Promise<void> {
-    this.productToCategoryService.deleteProductFromAllCategories(id);
+    await this.productToCategoryService.deleteProductFromAllCategories(id);
 
     await this.knex.table(P).where({ id }).delete();
   }
