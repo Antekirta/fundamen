@@ -4,9 +4,17 @@ import { AppService } from './app.service';
 import { DatabaseModule } from './modules/database/database.module';
 import { ProductModule } from './domain/product/modules/product/product.module';
 import { CategoryModule } from './domain/product/modules/category/category.module';
+import { ProductToCategoryModule } from './domain/product/modules/product_to_category/product_to_category.module';
+import { CategoryToCategoryModule } from './domain/product/modules/category_to_category/category_to_category.module';
 
 @Module({
-  imports: [DatabaseModule, ProductModule, CategoryModule],
+  imports: [
+    DatabaseModule,
+    ProductModule,
+    CategoryModule,
+    ProductToCategoryModule,
+    CategoryToCategoryModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

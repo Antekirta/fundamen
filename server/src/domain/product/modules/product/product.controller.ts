@@ -13,8 +13,9 @@ import {
   ProductInterface,
   ProductToAddInterface,
 } from '../../product.domain.interface';
+import { ROUTES } from '../../product.domain.registry';
 
-@Controller('/products')
+@Controller(ROUTES.PRODUCTS.BASE)
 export class ProductController {
   constructor(private productService: ProductService) {}
 
@@ -25,12 +26,12 @@ export class ProductController {
     return await this.productService.getProducts(searchParams);
   }
 
-  @Get('id/:id')
+  @Get(`${ROUTES.PRODUCTS.ID}/:id`)
   async getProductById(@Param('id') id: number): Promise<ProductInterface> {
     return await this.productService.getProductById(id);
   }
 
-  @Get(':slug')
+  @Get(`${ROUTES.PRODUCTS.SLUG}/:slug`)
   async getProduct(@Param('slug') slug: string): Promise<ProductInterface[]> {
     return await this.productService.getProducts({ slug });
   }

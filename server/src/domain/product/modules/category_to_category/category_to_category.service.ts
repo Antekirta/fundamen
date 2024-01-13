@@ -2,10 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectConnection } from 'nest-knexjs';
 import { Knex } from 'knex';
 import { DB } from '../../product.domain.registry';
-import {
-  CategoryToCategoriesInterface,
-  ProductsToCategoriesInterface,
-} from '../../product.domain.interface';
+import { CategoryToCategoriesInterface } from '../../product.domain.interface';
 
 const {
   TABLES: { C, CTC },

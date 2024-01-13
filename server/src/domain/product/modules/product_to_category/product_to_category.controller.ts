@@ -1,8 +1,9 @@
 import { Controller, Delete, Get, Param, Post, Query } from '@nestjs/common';
 import { ProductInterface } from '../../product.domain.interface';
 import { ProductToCategoryService } from './product_to_category.service';
+import { ROUTES } from '../../product.domain.registry';
 
-@Controller()
+@Controller(ROUTES.PRODUCTS_TO_CATEGORIES.BASE)
 export class ProductToCategoryController {
   constructor(private productToCategoryService: ProductToCategoryService) {}
 

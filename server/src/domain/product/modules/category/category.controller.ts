@@ -12,8 +12,9 @@ import {
   CategoryInterface,
   CategoryToAddInterface,
 } from '../../product.domain.interface';
+import { ROUTES } from '../../product.domain.registry';
 
-@Controller('/categories')
+@Controller(ROUTES.CATEGORIES.BASE)
 export class CategoryController {
   constructor(private categoryService: CategoryService) {}
 
@@ -22,13 +23,16 @@ export class CategoryController {
     return await this.categoryService.getCategories();
   }
 
-  @Get('id/:id')
+  @Get(`${ROUTES.CATEGORIES.ID}/:id`)
   async getCategoryById(@Param('id') id: number): Promise<CategoryInterface> {
+    console.log('id: ', id);
     return await this.categoryService.getCategoryById(id);
   }
 
-  @Get(':slug')
-  async getCategory(@Param('slug') slug: string): Promise<CategoryInterface> {
+  @Get(`${ROUTES.CATEGORIES.SLUG}/:slug`)
+  async getCategoryBySlug(
+    @Param('slug') slug: string,
+  ): Promise<CategoryInterface> {
     return await this.categoryService.getCategoryBySlug(slug);
   }
 

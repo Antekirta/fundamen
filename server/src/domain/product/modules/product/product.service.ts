@@ -16,7 +16,7 @@ const {
 export class ProductService {
   constructor(
     @InjectConnection() private readonly knex: Knex,
-    private readonly productToCategoryService: ProductToCategoryService
+    private readonly productToCategoryService: ProductToCategoryService,
   ) {}
 
   async getProductById(id: number): Promise<ProductInterface> {

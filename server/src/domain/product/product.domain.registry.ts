@@ -8,3 +8,22 @@ enum TABLES {
 export const DB = {
   TABLES,
 };
+
+export const ROUTES = {
+  PRODUCTS: {
+    BASE: 'products',
+    ID: 'id',
+    SLUG: 'slug',
+  },
+  CATEGORIES: {
+    BASE: 'categories',
+    ID: 'id',
+    SLUG: 'slug',
+  },
+  PRODUCTS_TO_CATEGORIES: {
+    BASE: 'products-to-categories',
+  },
+  CATEGORIES_TO_CATEGORIES: {
+    BASE: 'categories-to-categories',
+  },
+};
