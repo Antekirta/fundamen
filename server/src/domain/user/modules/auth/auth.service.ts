@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { UserService } from '../user/user.service';
-import { UserInterface } from '../../user.interface.domain';
+import {
+  UserInterface,
+  UserSecureInterface,
+} from '../../user.interface.domain';
 
 @Injectable()
 export class AuthService {
@@ -9,7 +12,7 @@ export class AuthService {
   async validateUser(
     username: string,
     providedPassword: string,
-  ): Promise<Omit<UserInterface, 'password'> | null> {
+  ): Promise<UserSecureInterface | null> {
     const user = (
       await this.userService.getUsers({ name: username })
     )?.[0] as UserInterface;

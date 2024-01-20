@@ -7,6 +7,10 @@ export const DB = {
 };
 
 export const ROUTES = {
+  AUTH: {
+    BASE: 'auth',
+    LOGIN: 'login',
+  },
   USERS: {
     BASE: 'users',
     ID: 'id',

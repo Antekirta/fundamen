@@ -8,3 +8,5 @@ export interface UserInterface {
 
 export interface UserToAddInterface
   extends Omit<UserInterface, 'id' | 'created_date'> {}
+
+export interface UserSecureInterface extends Omit<UserInterface, 'password'> {}
