@@ -4,10 +4,14 @@ import {
   UserInterface,
   UserSecureInterface,
 } from '../../user.interface.domain';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private jwtService: JwtService,
+  ) {}
 
   async validateUser(
     username: string,
@@ -25,5 +29,12 @@ export class AuthService {
     }
 
     return null;
+  }
+
+  async login(user: UserSecureInterface) {
+    const payload = { username: user.name, sub: user.id };
+    return {
+      access_token: this.jwtService.sign(payload),
+    };
   }
 }
