@@ -5,6 +5,7 @@ import {
   UserSecureInterface,
 } from '../../user.interface.domain';
 import { JwtService } from '@nestjs/jwt';
+import { isMatch } from '../../user.utils.domain';
 
 @Injectable()
 export class AuthService {
@@ -21,7 +22,7 @@ export class AuthService {
       await this.userService.getUsers({ name: username })
     )?.[0] as UserInterface;
 
-    if (user && user.password === providedPassword) {
+    if (user && (await isMatch(providedPassword, user.password))) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { password, ...result } = user;
 
