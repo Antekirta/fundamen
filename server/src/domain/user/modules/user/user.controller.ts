@@ -41,6 +41,14 @@ export class UserController {
     await this.userService.updateUser(id, user);
   }
 
+  @Put(`${ROUTES.USERS.PASSWORD}/:id`)
+  async updateUserPassword(
+    @Param('id') id: number,
+    @Body() user: Pick<UserToAddInterface, 'password'>,
+  ): Promise<void> {
+    await this.userService.updateUserPassword(id, user.password);
+  }
+
   @Delete(':id')
   async deleteProduct(@Param('id') id: number): Promise<void> {
     await this.userService.deleteUser(id);

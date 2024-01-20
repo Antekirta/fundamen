@@ -14,5 +14,6 @@ export const ROUTES = {
   USERS: {
     BASE: 'users',
     ID: 'id',
+    PASSWORD: 'password',
   },
 };
