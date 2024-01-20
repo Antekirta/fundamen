@@ -8,6 +8,7 @@ import { ProductToCategoryModule } from './domain/product/modules/product_to_cat
 import { CategoryToCategoryModule } from './domain/product/modules/category_to_category/category_to_category.module';
 import { UserModule } from './domain/user/modules/user/user.module';
 import { OrderModule } from './domain/order/modules/order.module';
+import { AuthModule } from './domain/user/modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { OrderModule } from './domain/order/modules/order.module';
     CategoryToCategoryModule,
     UserModule,
     OrderModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
