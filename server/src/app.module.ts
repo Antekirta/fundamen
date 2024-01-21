@@ -9,6 +9,7 @@ import { CategoryToCategoryModule } from './domain/product/modules/category_to_c
 import { UserModule } from './domain/user/modules/user/user.module';
 import { OrderModule } from './domain/order/modules/order.module';
 import { AuthModule } from './domain/user/modules/auth/auth.module';
+import { StripeModule } from './domain/payment/modules/stripe/stripe.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { AuthModule } from './domain/user/modules/auth/auth.module';
     UserModule,
     OrderModule,
     AuthModule,
+    StripeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
