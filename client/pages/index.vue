@@ -34,7 +34,7 @@ if (process.server) {
 // Client-side fetch
 onMounted(async () => {
   if (process.client) {
-    response.value = await $fetch(`http://${API_BASE_URL}:3002/test`)
+    response.value = await $fetch(`${API_BASE_URL}/test`)
   }
 })
 </script>

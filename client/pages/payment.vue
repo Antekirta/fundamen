@@ -1,4 +1,3 @@
-<!--suppress TypeScriptUnresolvedVariable, TypeScriptUnresolvedFunction -->
 <template>
   <h1>Payment page</h1>
 
@@ -23,7 +22,7 @@
 <script setup lang="ts">
 /* global useHead, Stripe */
 useHead({
-  title: 'Payment paaage!',
+  title: 'Payment',
   script: [
     {
       src: 'https://js.stripe.com/v3/'
@@ -31,8 +30,15 @@ useHead({
   ]
 })
 
+const {
+  public: {
+    API_BASE_URL,
+    STRIPE_PUBLIC_KEY
+  }
+} = useRuntimeConfig()
+
 if (process.client) {
-  const stripe = Stripe('pk_test_51OanaKKPeRJ7GNXe4TewshesNUdVM8PknzFjjDfEzgjVsxuBDhIHK3o4R4KUNT04HnDBO1EEvNjZW7ax4iXk1sKE00mPw2S7Fs')
+  const stripe = Stripe(STRIPE_PUBLIC_KEY)
 
   // The items the customer wants to buy
   const items = [{ id: 'xl-tshirt' }]
@@ -48,7 +54,9 @@ if (process.client) {
 
   // Fetches a payment intent and captures the client secret
   async function initialize () {
-    const response = await fetch('http://localhost:3002/create-payment-intent', {
+    console.log('API_BASE_URL: ', API_BASE_URL)
+
+    const response = await fetch(`${API_BASE_URL}/create-payment-intent`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ items })
