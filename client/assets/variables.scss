@@ -1,0 +1,8 @@
+:root {
+	// GRID
+	--the-grid__cols-number: 24;
+	--the-grid__cols-number--half: calc(var(--the-grid__cols-number) / 2);
+	--the-grid__cols-number--third: calc(var(--the-grid__cols-number) / 3);
+	--the-grid__cols-number--quarter: calc(var(--the-grid__cols-number) / 4);
+	--the-grid__cols-lines-number: calc(var(--the-grid__cols-number) + 1);
+}

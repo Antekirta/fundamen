@@ -1,7 +1,46 @@
 <template>
-  <div>
-    <h2>List layout!</h2>
+  <div class="layout-list">
+    <TheMainHeader class="layout-list__header" />
 
-    <slot></slot>
+    <TheMainSidePanel class="layout-list__sidebar" />
+
+    <TheMainContent class="layout-list__content">
+      <slot />
+    </TheMainContent>
+
+    <TheMainFooter class="layout-list__footer" />
   </div>
 </template>
+
+<script setup lang="ts">
+import TheMainHeader from '@/components/Organisms/TheMainHeader'
+import TheMainSidePanel from '@/components/Organisms/TheMainSidePanel'
+import TheMainContent from '@/components/Organisms/TheMainContent'
+import TheMainFooter from '@/components/Organisms/TheMainFooter'
+</script>
+
+<style lang="scss">
+.layout-list {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: [header] 150px [content] 1fr [footer] 300px;
+
+  &__header {
+    grid-column: 1 / var(--the-grid__cols-lines-number);
+    outline: solid 1px #222;
+  }
+  &__sidebar {
+    grid-column: 1 / var(--the-grid__cols-number--quarter);
+    outline: solid 1px #222;
+  }
+  &__content {
+    grid-column: var(--the-grid__cols-number--quarter) / var(--the-grid__cols-lines-number);
+    outline: solid 1px #222;
+  }
+  &__footer {
+    grid-column: 1 / var(--the-grid__cols-lines-number);
+    outline: solid 1px #222;
+  }
+}
+</style>
