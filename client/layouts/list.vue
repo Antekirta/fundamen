@@ -28,19 +28,18 @@ import TheMainFooter from '@/components/Organisms/TheMainFooter'
 
   &__header {
     grid-column: 1 / var(--the-grid__cols-lines-number);
-    outline: solid 1px #222;
   }
+
   &__sidebar {
     grid-column: 1 / var(--the-grid__cols-number--quarter);
-    outline: solid 1px #222;
   }
+
   &__content {
     grid-column: var(--the-grid__cols-number--quarter) / var(--the-grid__cols-lines-number);
-    outline: solid 1px #222;
   }
+
   &__footer {
     grid-column: 1 / var(--the-grid__cols-lines-number);
-    outline: solid 1px #222;
   }
 }
 </style>
