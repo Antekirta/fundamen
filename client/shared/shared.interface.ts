@@ -7,13 +7,17 @@ export interface ListItemInterface {
     icon?: Component,
 }
 
-export interface FormItemInterface {
+export interface FormItemInterface<T=string> {
     text: string,
-    value: string | boolean,
+    value: T,
     name: string,
     description?: string
 }
 
 export interface DropdownItemInterface extends FormItemInterface{
     icon?: Component
+}
+
+export interface InputInterface extends FormItemInterface<string>{
+    placeholder?: string
 }

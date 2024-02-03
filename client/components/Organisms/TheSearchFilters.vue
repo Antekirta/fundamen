@@ -21,7 +21,7 @@
     <Disclosure v-slot="{ open }">
       <DisclosureButton class="flex w-full items-center justify-start bg-white py-3 text-gray-400 hover:text-gray-500">
         <span class="font-medium text-gray-900">Checkboxes</span>
-        <span class="ml-6 flex items-center">
+        <span class="ml-4 flex items-center">
           <component
             :is="open ? MinusIcon : PlusIcon"
             class="w-5 h-5"
@@ -33,11 +33,63 @@
       <DisclosurePanel>
         <div class="pl-4">
           <the-checkbox
-            v-for="(checkbox) in checkboxes"
-            :key="checkbox.name"
-            v-model="checkboxesModel[checkbox.name]"
-            :text="checkbox.text"
-            :name="checkbox.name"
+            v-for="(input) in checkboxFields"
+            :key="input.name"
+            v-model="checkboxesModel[input.name]"
+            :text="input.text"
+            :name="input.name"
+          />
+        </div>
+      </DisclosurePanel>
+    </Disclosure>
+
+    <Disclosure v-slot="{ open }">
+      <DisclosureButton class="flex w-full items-center justify-start bg-white py-3 text-gray-400 hover:text-gray-500">
+        <span class="font-medium text-gray-900">Inputs</span>
+        <span class="ml-4 flex items-center">
+          <component
+            :is="open ? MinusIcon : PlusIcon"
+            class="w-5 h-5"
+            aria-hidden="true"
+          />
+        </span>
+      </DisclosureButton>
+
+      <DisclosurePanel>
+        <div class="pl-4">
+          <the-input
+            v-for="(input) in inputFields"
+            :key="input.name"
+            v-model="inputsModel[input.name]"
+            :name="input.name"
+            :placeholder="input.text"
+            class="mb-2"
+          />
+        </div>
+      </DisclosurePanel>
+    </Disclosure>
+
+    <Disclosure v-slot="{ open }">
+      <DisclosureButton class="flex w-full items-center justify-start bg-white py-3 text-gray-400 hover:text-gray-500">
+        <span class="font-medium text-gray-900">Radios</span>
+        <span class="ml-4 flex items-center">
+          <component
+            :is="open ? MinusIcon : PlusIcon"
+            class="w-5 h-5"
+            aria-hidden="true"
+          />
+        </span>
+      </DisclosureButton>
+
+      <DisclosurePanel>
+        <div class="pl-4">
+          <the-radio
+            v-for="(input) in radioFields"
+            :key="input.name"
+            v-model="radiosModel[input.name]"
+            :text="input.text"
+            :name="input.name"
+            class="mb-2"
           />
         </div>
       </DisclosurePanel>
@@ -46,12 +98,14 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronDownIcon, MinusIcon, PlusIcon } from '@heroicons/vue/20/solid'
+import { MinusIcon, PlusIcon } from '@heroicons/vue/20/solid'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import TheListItem from '@/components/Atoms/TheListItem.vue'
-import type { FormItemInterface, ListItemInterface } from '@/shared/shared.interface'
+import type { FormItemInterface, InputInterface, ListItemInterface } from '@/shared/shared.interface'
 import TheCheckbox from '@/components/Atoms/TheCheckbox.vue'
 import TheDisclosure from '@/components/Molecules/TheDisclosure.vue'
+import TheInput from '@/components/Atoms/TheInput/TheInput.vue'
+import TheRadio from '@/components/Atoms/TheRadio.vue'
 
 const categories : ListItemInterface[] = [
   {
@@ -72,7 +126,7 @@ const categories : ListItemInterface[] = [
   }
 ]
 
-const checkboxes : FormItemInterface[] = [
+const checkboxFields : FormItemInterface<boolean>[] = [
   {
     text: 'Apple',
     name: 'apple',
@@ -90,10 +144,51 @@ const checkboxes : FormItemInterface[] = [
   }
 ]
 
-const checkboxesModel = reactive(checkboxes.reduce((acc : Record<string, string | boolean>, { name, value }) => {
+const checkboxesModel = reactive(checkboxFields.reduce((acc : Record<string, boolean>, { name, value }) => {
   return {
     ...acc,
     [name]: value
   }
 }, {}))
+
+const inputFields : InputInterface[] = [
+  {
+    value: '',
+    text: 'Name',
+    name: 'name'
+  },
+  {
+    value: '',
+    text: 'Description',
+    name: 'description'
+  }
+]
+
+const inputsModel = reactive(inputFields.reduce((acc : Record<string, string>, { name, value }) => {
+  return {
+    ...acc,
+    [name]: value
+  }
+}, {}))
+
+const radioFields : FormItemInterface<boolean>[] = [
+  {
+    value: true,
+    text: 'Active',
+    name: 'active'
+  },
+  {
+    value: false,
+    text: 'Discount',
+    name: 'discount'
+  }
+]
+
+const radiosModel = reactive(radioFields.reduce((acc : Record<string, boolean>, { name, value }) => {
+  return {
+    ...acc,
+    [name]: value
+  }
+}, {}))
+
 </script>
