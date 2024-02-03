@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import type { TheCallToActionItemInterface } from '@/components/Molecules/TheMainMenu/the-main-menu.interface'
+import type { ListItemInterface } from '@/shared/shared.interface'
 
 defineProps<{
-  item: TheCallToActionItemInterface
+  item: Omit<ListItemInterface, 'description'>
 }>()
 </script>

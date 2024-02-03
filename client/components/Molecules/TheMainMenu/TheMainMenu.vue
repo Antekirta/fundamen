@@ -7,7 +7,6 @@
       :title="item.title"
       :items="item.items"
       :calls-to-action="item.callsToAction"
-      :is-large="item.isLarge"
     />
   </PopoverGroup>
 </template>
@@ -24,14 +23,14 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon
 } from '@heroicons/vue/24/outline'
-import TheMainMenuItemHorizontal from '@/components/Molecules/TheMainMenu/TheMainMenuItem/TheMainMenuItemHorizontal.vue'
-import TheMainMenuItemVertical from '@/components/Molecules/TheMainMenu/TheMainMenuItem/TheMainMenuItemVertical.vue'
+import TheItemHorizontal from '@/components/Molecules/TheMainMenu/TheItem/TheItemHorizontal.vue'
+import TheItemVertical from '@/components/Molecules/TheMainMenu/TheItem/TheItemVertical.vue'
 
 const props = defineProps<{
   isMobile?: boolean
 }>()
 
-const menuComponent = props.isMobile ? TheMainMenuItemVertical : TheMainMenuItemHorizontal
+const menuComponent = props.isMobile ? TheItemVertical : TheItemHorizontal
 
 const items = [
   {
@@ -68,5 +67,4 @@ const items = [
     ]
   }
 ]
-
 </script>

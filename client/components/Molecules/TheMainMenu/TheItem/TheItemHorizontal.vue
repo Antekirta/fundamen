@@ -21,11 +21,10 @@
         leave-to-class="opacity-0 translate-y-1"
       >
         <PopoverPanel
-          class="absolute -left-8 top-full z-10 mt-3 bg-white shadow-lg ring-1 ring-gray-900/5"
-          :class="isLarge ? ' mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg' : 'w-56 rounded-xl bg-white p-2'"
+          class="absolute -left-8 top-full z-10 mt-3 bg-white shadow-lg ring-1 ring-gray-900/5 w-screen max-w-md overflow-hidden rounded-3xl"
         >
           <div class="p-4">
-            <the-main-menu-sublist-item
+            <the-sub-item
               v-for="item in items"
               :key="item.name"
               :item="item"
@@ -34,7 +33,7 @@
           </div>
 
           <div
-            v-if="callsToAction.length"
+            v-if="callsToAction && callsToAction.length"
             class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50"
           >
             <the-call-to-action
@@ -62,11 +61,14 @@ import {
   PopoverPanel
 } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
-import TheMainMenuSublistItem from '../TheMainMenuSublistItem.vue'
+import TheSubItem from '../TheSubItem.vue'
 import TheCallToAction from '../TheCallToAction.vue'
-import type {
-  TheMainMenuItemPropsInterface
-} from '@/components/Molecules/TheMainMenu/TheMainMenuItem/TheMainMenuItem.interface'
+import type { ListItemInterface } from '@/shared/shared.interface'
 
-defineProps<TheMainMenuItemPropsInterface>()
+defineProps<{
+  title: string,
+  href: string,
+  items?: ListItemInterface[],
+  callsToAction?: ListItemInterface[],
+}>()
 </script>
