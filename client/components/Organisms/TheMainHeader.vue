@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white">
+  <header>
     <nav
       class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       aria-label="Global"
@@ -58,7 +58,7 @@ import {
 } from '@headlessui/vue'
 
 import TheMainLogo from '@/components/Molecules/TheMainLogo'
-import TheMainMenuToggle from '@/components/Molecules/TheMainMenu/TheMainMenuToggle'
+import TheMainMenuToggle from '@/components/Molecules/TheMenuToggle.vue'
 import TheMainMenu from '@/components/Molecules/TheMainMenu/TheMainMenu'
 import TheLoginButton from '@/components/Molecules/TheLoginButton.vue'
 

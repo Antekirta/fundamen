@@ -1,20 +1,40 @@
 <template>
-  <div class="layout-list">
-    <TheMainHeader class="layout-list__header" />
+  <div class="">
+    <TheMainHeader class="bg-gray-50" />
 
-    <TheMainSidePanel class="layout-list__sidebar" />
+    <div class="p-6 m-auto max-w-7xl grid grid-cols-4">
+      <ThePageHeader
+        class="col-span-4 my-6"
+        title="Category title"
+        :breadcrumbs="breabcrumbs"
+      />
 
-    <TheMainContent class="layout-list__content">
-      <slot />
-    </TheMainContent>
+      <TheMainSidePanel class="bg-gray-200 lg:col-span-1 col-span-4" />
+
+      <TheMainContent class="bg-gray-300 lg:col-span-3 col-span-4">
+        <slot />
+      </TheMainContent>
+    </div>
 
     <TheMainFooter class="layout-list__footer" />
   </div>
 </template>
 
 <script setup lang="ts">
-import TheMainHeader from '@/components/Organisms/TheMainHeader'
-import TheMainSidePanel from '@/components/Organisms/TheMainSidePanel'
-import TheMainContent from '@/components/Organisms/TheMainContent'
-import TheMainFooter from '@/components/Organisms/TheMainFooter'
+import TheMainHeader from '@/components/Organisms/TheMainHeader.vue'
+import TheMainSidePanel from '@/components/Organisms/TheMainSidePanel.vue'
+import TheMainContent from '@/components/Organisms/TheMainContent.vue'
+import TheMainFooter from '@/components/Organisms/TheMainFooter.vue'
+import ThePageHeader from '@/components/Molecules/ThePageHeader.vue'
+
+const breabcrumbs = [
+  {
+    label: 'Home',
+    href: '/'
+  },
+  {
+    label: 'Tools',
+    href: '/shop/tools'
+  }
+]
 </script>

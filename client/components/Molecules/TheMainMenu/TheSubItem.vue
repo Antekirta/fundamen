@@ -29,9 +29,9 @@
 </template>
 
 <script setup lang="ts">
-import type { TheMainMenuSublistItemInterface } from '@/components/Molecules/TheMainMenu/the-main-menu.interface'
+import type { ListItemInterface } from '@/shared/shared.interface'
 
 defineProps<{
-  item: TheMainMenuSublistItemInterface
+  item: ListItemInterface
 }>()
 </script>

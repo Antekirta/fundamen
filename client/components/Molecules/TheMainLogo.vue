@@ -4,7 +4,7 @@
       href="#"
       class="-m-1.5 p-1.5"
     >
-      <span class="sr-only">Your Company</span>
+      <span class="sr-only">Fundamen</span>
       <img
         class="h-8 w-auto"
         src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
