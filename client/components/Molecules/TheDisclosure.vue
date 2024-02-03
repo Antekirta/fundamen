@@ -13,18 +13,21 @@
     </DisclosureButton>
 
     <DisclosurePanel class="mt-2 space-y-2">
-      <DisclosureButton
-        v-for="item in items"
-        :key="item.name"
-        as="a"
-        :href="item.href"
-        class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-      >
-        {{ item.name }}
-      </DisclosureButton>
+      <slot>
+        <DisclosureButton
+          v-for="item in items"
+          :key="item.name"
+          as="a"
+          :href="item.href"
+          class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+        >
+          {{ item.name }}
+        </DisclosureButton>
+      </slot>
     </DisclosurePanel>
   </Disclosure>
 </template>
+
 <script setup lang="ts">
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
@@ -32,6 +35,6 @@ import type { ListItemInterface } from '@/shared/shared.interface'
 
 defineProps<{
   title: string
-  items : ListItemInterface[]
+  items?: ListItemInterface[]
 }>()
 </script>

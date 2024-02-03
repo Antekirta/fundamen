@@ -6,3 +6,14 @@ export interface ListItemInterface {
     href?: string,
     icon?: Component,
 }
+
+export interface FormItemInterface {
+    text: string,
+    value: string | boolean,
+    name: string,
+    description?: string
+}
+
+export interface DropdownItemInterface extends FormItemInterface{
+    icon?: Component
+}
