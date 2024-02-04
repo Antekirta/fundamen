@@ -94,6 +94,13 @@
         </div>
       </DisclosurePanel>
     </Disclosure>
+
+    <the-range-slider
+      v-model="rangeSliderModel.price"
+      :text="rangeSliderFields.price.text"
+      :name="rangeSliderFields.price.text"
+      class="mt-4"
+    />
   </form>
 </template>
 
@@ -103,9 +110,9 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import TheListItem from '@/components/Atoms/TheListItem.vue'
 import type { FormItemInterface, InputInterface, ListItemInterface } from '@/shared/shared.interface'
 import TheCheckbox from '@/components/Atoms/TheCheckbox.vue'
-import TheDisclosure from '@/components/Molecules/TheDisclosure.vue'
 import TheInput from '@/components/Atoms/TheInput/TheInput.vue'
 import TheRadio from '@/components/Atoms/TheRadio.vue'
+import TheRangeSlider from '@/components/Atoms/TheRangeSlider.vue'
 
 const categories : ListItemInterface[] = [
   {
@@ -185,6 +192,24 @@ const radioFields : FormItemInterface<boolean>[] = [
 ]
 
 const radiosModel = reactive(radioFields.reduce((acc : Record<string, boolean>, { name, value }) => {
+  return {
+    ...acc,
+    [name]: value
+  }
+}, {}))
+
+const rangeSliderFields : any = {
+  price: {
+    text: 'Price',
+    name: 'price',
+    min: 0,
+    max: 100,
+    step: 1,
+    value: [10, 40]
+  }
+}
+
+const rangeSliderModel = reactive(Object.values(rangeSliderFields).reduce((acc : Record<string, boolean>, { name, value }) => {
   return {
     ...acc,
     [name]: value
