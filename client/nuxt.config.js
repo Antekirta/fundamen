@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
-  // components: false,
   mode: 'universal',
   modules: [
     // '@nuxtjs/storybook',
