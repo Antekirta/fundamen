@@ -109,6 +109,14 @@
       :label="selectFields.people.text"
       :placeholder="selectFields.people.text"
     />
+
+    <the-autocomplete
+      v-model="autocompleteModel.people"
+      class="mt-4"
+      :options="autocompleteFields.people.options"
+      :label="autocompleteFields.people.text"
+      :placeholder="autocompleteFields.people.text"
+    />
   </form>
 </template>
 
@@ -122,6 +130,7 @@ import TheInput from '@/components/Atoms/TheInput/TheInput.vue'
 import TheRadio from '@/components/Atoms/TheRadio.vue'
 import TheRangeSlider from '@/components/Atoms/TheRangeSlider.vue'
 import TheSelect from '@/components/Atoms/TheSelect.vue'
+import TheAutocomplete from '@/components/Atoms/TheAutocomplete.vue'
 
 const categories : ListItemInterface[] = [
   {
@@ -241,11 +250,37 @@ const selectFields = {
       { value: '8', text: 'Mason Heaney' },
       { value: '9', text: 'Claudie Smitham' }
     ],
-    value: { value: '3', text: 'Devon Webb' }
+    value: '3'
   }
 }
 
 const selectsModel = reactive(Object.values(selectFields).reduce((acc : Record<string, any>, { name, value }) => {
+  return {
+    ...acc,
+    [name]: value
+  }
+}, {}))
+
+const autocompleteFields = {
+  people: {
+    text: 'People',
+    name: 'people',
+    options: [
+      { value: '1', text: 'Wade Cooper' },
+      { value: '2', text: 'Arlene Mccoy' },
+      { value: '3', text: 'Devon Webb' },
+      { value: '4', text: 'Tom Cook' },
+      { value: '5', text: 'Tanya Fox' },
+      { value: '6', text: 'Hellen Schmidt' },
+      { value: '7', text: 'Caroline Schultz' },
+      { value: '8', text: 'Mason Heaney' },
+      { value: '9', text: 'Claudie Smitham' }
+    ],
+    value: '5'
+  }
+}
+
+const autocompleteModel = reactive(Object.values(autocompleteFields).reduce((acc : Record<string, any>, { name, value }) => {
   return {
     ...acc,
     [name]: value
