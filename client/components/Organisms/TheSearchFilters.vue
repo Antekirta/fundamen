@@ -101,6 +101,14 @@
       :name="rangeSliderFields.price.text"
       class="mt-4"
     />
+
+    <the-select
+      v-model="selectsModel.people"
+      class="mt-4"
+      :options="selectFields.people.options"
+      :label="selectFields.people.text"
+      :placeholder="selectFields.people.text"
+    />
   </form>
 </template>
 
@@ -113,6 +121,7 @@ import TheCheckbox from '@/components/Atoms/TheCheckbox.vue'
 import TheInput from '@/components/Atoms/TheInput/TheInput.vue'
 import TheRadio from '@/components/Atoms/TheRadio.vue'
 import TheRangeSlider from '@/components/Atoms/TheRangeSlider.vue'
+import TheSelect from '@/components/Atoms/TheSelect.vue'
 
 const categories : ListItemInterface[] = [
   {
@@ -209,11 +218,37 @@ const rangeSliderFields : any = {
   }
 }
 
-const rangeSliderModel = reactive(Object.values(rangeSliderFields).reduce((acc : Record<string, boolean>, { name, value }) => {
+// @ts-ignore TODO: fix this
+const rangeSliderModel = reactive(Object.values(rangeSliderFields).reduce((acc : Record<string, number[]>, { name, value }) => {
   return {
     ...acc,
     [name]: value
   }
 }, {}))
 
+const selectFields = {
+  people: {
+    text: 'People',
+    name: 'people',
+    options: [
+      { value: '1', text: 'Wade Cooper' },
+      { value: '2', text: 'Arlene Mccoy' },
+      { value: '3', text: 'Devon Webb' },
+      { value: '4', text: 'Tom Cook' },
+      { value: '5', text: 'Tanya Fox' },
+      { value: '6', text: 'Hellen Schmidt' },
+      { value: '7', text: 'Caroline Schultz' },
+      { value: '8', text: 'Mason Heaney' },
+      { value: '9', text: 'Claudie Smitham' }
+    ],
+    value: { value: '3', text: 'Devon Webb' }
+  }
+}
+
+const selectsModel = reactive(Object.values(selectFields).reduce((acc : Record<string, any>, { name, value }) => {
+  return {
+    ...acc,
+    [name]: value
+  }
+}, {}))
 </script>

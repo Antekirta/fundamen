@@ -7,6 +7,11 @@ export interface ListItemInterface {
     icon?: Component,
 }
 
+export interface SelectOptionInterface {
+    text: string,
+    value: string
+}
+
 export interface FormItemInterface<T=string> {
     text: string,
     value: T,
