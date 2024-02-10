@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheMainHeader class="bg-gray-50" />
+    <TheMainHeader />
 
     <div class="p-6 m-auto max-w-7xl min-h-screen">
       <TheMainContent class="lg:col-span-6 col-span-4 border-gray-400">
