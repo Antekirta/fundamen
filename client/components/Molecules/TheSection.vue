@@ -16,7 +16,7 @@ import TheSectionHeader from '@/components/Molecules/TheSectionHeader.vue'
 
 defineProps<{
   preheader?: string
-  header: string
+  header?: string
   description?: string
 }>()
 </script>

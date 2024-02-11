@@ -12,9 +12,7 @@
 
     <the-testimonial-section />
 
-    <!--    <the-section>-->
-    <!--      <the-email-section />-->
-    <!--    </the-section>-->
+    <the-email-section />
 
     <!--    <the-section>-->
     <!--      <the-blog-section />-->
