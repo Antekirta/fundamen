@@ -8,8 +8,8 @@
 
     <the-price-section />
 
+    <the-stats-section />
     <!--    <the-section>-->
-    <!--      <the-stats-section />-->
     <!--    </the-section>-->
 
     <!--    <the-section>-->
