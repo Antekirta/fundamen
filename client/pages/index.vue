@@ -1,50 +1,50 @@
 <template>
   <div>
-    <main>
+    <the-section>
       <the-hero-section />
-    </main>
+    </the-section>
 
-    <section>
+    <the-section>
       <the-feature-section />
-    </section>
+    </the-section>
 
-    <section>
+    <the-section>
       <the-price-section />
-    </section>
+    </the-section>
 
-    <section>
+    <the-section>
       <the-stats-section />
-    </section>
+    </the-section>
 
-    <section>
+    <the-section>
       <the-testimonial-section />
-    </section>
+    </the-section>
 
-    <section>
+    <the-section>
       <the-email-section />
-    </section>
+    </the-section>
 
-    <section>
+    <the-section>
       <the-blog-section />
-    </section>
+    </the-section>
 
-    <section>
+    <the-section>
       <the-logo-cloud />
-    </section>
+    </the-section>
 
-    <section>
+    <the-section>
       <the-faq-section />
-    </section>
+    </the-section>
 
-    <section>
+    <the-section>
       <the-cta-section />
-    </section>
+    </the-section>
   </div>
 </template>
 
 <script lang="ts" setup>
 // noinspection TypeScriptUnresolvedFunction
-import TheButton from '@/components/Atoms/TheButton.vue'
+import TheSection from '@/components/TheSection.vue'
 import TheFeatureSection from '@/components/Organisms/MainPage/TheFeatureSection.vue'
 import ThePriceSection from '@/components/Organisms/MainPage/ThePriceSection.vue'
 import TheStatsSection from '@/components/Organisms/MainPage/TheStatsSection.vue'
