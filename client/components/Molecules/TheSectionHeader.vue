@@ -1,8 +1,11 @@
 <template>
-  <div class="mx-auto max-w-4xl text-center">
+  <div class="mx-auto max-w-2xl text-center">
     <the-preheader>{{ preheader }}</the-preheader>
 
-    <the-header as="h2">
+    <the-header
+      as="h2"
+      class="mt-2"
+    >
       {{ header }}
     </the-header>
   </div>

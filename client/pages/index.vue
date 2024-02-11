@@ -9,12 +9,8 @@
     <the-price-section />
 
     <the-stats-section />
-    <!--    <the-section>-->
-    <!--    </the-section>-->
 
-    <!--    <the-section>-->
-    <!--      <the-testimonial-section />-->
-    <!--    </the-section>-->
+    <the-testimonial-section />
 
     <!--    <the-section>-->
     <!--      <the-email-section />-->
@@ -40,7 +36,7 @@
 
 <script lang="ts" setup>
 // noinspection TypeScriptUnresolvedFunction
-import TheSection from '@/components/TheSection.vue'
+import TheSection from '@/components/Molecules/TheSection.vue'
 import TheFeatureSection from '@/components/Organisms/MainPage/TheFeatureSection.vue'
 import ThePriceSection from '@/components/Organisms/MainPage/ThePriceSection.vue'
 import TheStatsSection from '@/components/Organisms/MainPage/TheStatsSection.vue'

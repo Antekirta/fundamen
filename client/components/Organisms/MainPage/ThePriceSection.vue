@@ -31,6 +31,7 @@
 import { ref } from 'vue'
 import TheRadioGroup from '@/components/Atoms/TheRadioGroup.vue'
 import ThePriceBlock from '@/components/Molecules/ThePriceBlock.vue'
+import TheSection from '@/components/Molecules/TheSection.vue'
 
 const frequencies = [
   { value: 'monthly', text: 'Monthly', priceSuffix: '/month' },
