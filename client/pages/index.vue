@@ -1,44 +1,40 @@
 <template>
   <div>
-    <the-section>
+    <section>
       <the-hero-section />
-    </the-section>
+    </section>
 
-    <the-section>
-      <the-feature-section />
-    </the-section>
+    <the-feature-section />
 
-    <the-section>
-      <the-price-section />
-    </the-section>
+    <the-price-section />
 
-    <the-section>
-      <the-stats-section />
-    </the-section>
+    <!--    <the-section>-->
+    <!--      <the-stats-section />-->
+    <!--    </the-section>-->
 
-    <the-section>
-      <the-testimonial-section />
-    </the-section>
+    <!--    <the-section>-->
+    <!--      <the-testimonial-section />-->
+    <!--    </the-section>-->
 
-    <the-section>
-      <the-email-section />
-    </the-section>
+    <!--    <the-section>-->
+    <!--      <the-email-section />-->
+    <!--    </the-section>-->
 
-    <the-section>
-      <the-blog-section />
-    </the-section>
+    <!--    <the-section>-->
+    <!--      <the-blog-section />-->
+    <!--    </the-section>-->
 
-    <the-section>
-      <the-logo-cloud />
-    </the-section>
+    <!--    <the-section>-->
+    <!--      <the-logo-cloud />-->
+    <!--    </the-section>-->
 
-    <the-section>
-      <the-faq-section />
-    </the-section>
+    <!--    <the-section>-->
+    <!--      <the-faq-section />-->
+    <!--    </the-section>-->
 
-    <the-section>
-      <the-cta-section />
-    </the-section>
+    <!--    <the-section>-->
+    <!--      <the-cta-section />-->
+    <!--    </the-section>-->
   </div>
 </template>
 

@@ -12,6 +12,11 @@ export interface SelectOptionInterface {
     value: string
 }
 
+export interface RadioGroupOptionInterface {
+    text: string,
+    value: string
+}
+
 export interface FormItemInterface<T=string> {
     text: string,
     value: T,
