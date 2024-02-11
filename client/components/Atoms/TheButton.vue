@@ -2,6 +2,7 @@
   <component
     :is="as"
     :href="link"
+    class="rounded-md px-3.5 py-2.5 font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
     :class="classes"
     v-bind="$attrs"
   >
@@ -10,32 +11,21 @@
 </template>
 
 <script setup lang="ts">
-import { twMerge } from 'tailwind-merge'
-
 const props = withDefaults(defineProps<{
   as: string
   link: string,
-  className: string[]
+  color: 'indigo' | 'transparent'
 }>(), {
   as: 'a',
   link: '#',
-  className () {
-    return []
-  }
+  color: 'transparent'
 })
 
-const classes = computed(() => twMerge([
-  'rounded-md',
-  'bg-indigo-600',
-  'px-3.5',
-  'py-2.5',
-  'text-sm',
-  'font-semibold',
-  'text-white',
-  'shadow-sm',
-  'hover:bg-indigo-500',
-  'focus-visible:outline',
-  'focus-visible:outline-2',
-  'focus-visible:outline-offset-2',
-  'focus-visible:outline-indigo-600'], props.className))
+const classes = reactive([] as string[])
+
+if (props.color === 'indigo') {
+  classes.push('bg-indigo-600', 'text-white')
+} else if (props.color === 'transparent') {
+  classes.push('bg-transparent', 'text-indigo-600')
+}
 </script>

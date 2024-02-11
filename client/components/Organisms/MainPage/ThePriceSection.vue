@@ -52,11 +52,15 @@
             <span class="text-4xl font-bold tracking-tight text-gray-900">{{ tier.price[frequency.value] }}</span>
             <span class="text-sm font-semibold leading-6 text-gray-600">{{ frequency.priceSuffix }}</span>
           </p>
-          <a
-            :href="tier.href"
-            :aria-describedby="tier.id"
-            :class="[tier.mostPopular ? 'bg-indigo-600 text-white shadow-sm hover:bg-indigo-500' : 'text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300', 'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600']"
-          >Buy plan</a>
+
+          <the-button
+            :link="tier.href"
+            :color="tier.mostPopular ? 'indigo' : 'transparent'"
+            class="inline-block mt-6"
+          >
+            Buy plan
+          </the-button>
+
           <ul
             role="list"
             class="mt-8 space-y-3 text-sm leading-6 text-gray-600"
@@ -83,6 +87,7 @@
 import { ref } from 'vue'
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import { CheckIcon } from '@heroicons/vue/20/solid'
+import TheButton from '@/components/Atoms/TheButton.vue'
 
 const frequencies = [
   { value: 'monthly', label: 'Monthly', priceSuffix: '/month' },

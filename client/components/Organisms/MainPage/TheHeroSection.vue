@@ -56,9 +56,11 @@
               Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in quis cupidatat mollit aute velit. Et labore commodo nulla aliqua proident mollit ullamco exercitation tempor. Sint aliqua anim nulla sunt mollit id pariatur in voluptate cillum.
             </p>
             <div class="mt-10 flex items-center gap-x-6">
-              <the-button>Get started</the-button>
+              <the-button color="indigo">
+                Get started
+              </the-button>
 
-              <the-button>
+              <the-button color="transparent">
                 Live demo <span aria-hidden="true">→</span>
               </the-button>
             </div>
