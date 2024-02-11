@@ -14,7 +14,7 @@
 const props = withDefaults(defineProps<{
   as: string
   link: string,
-  color: 'indigo' | 'transparent'
+  color: 'blue' | 'transparent'
 }>(), {
   as: 'a',
   link: '#',
@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<{
 
 const classes = reactive([] as string[])
 
-if (props.color === 'indigo') {
+if (props.color === 'blue') {
   classes.push('bg-indigo-600', 'text-white')
 } else if (props.color === 'transparent') {
   classes.push('bg-transparent', 'text-indigo-600')

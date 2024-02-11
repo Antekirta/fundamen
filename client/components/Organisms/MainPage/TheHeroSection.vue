@@ -36,12 +36,12 @@
               We’re changing the way people connect.
             </the-header>
 
-            <the-description>
+            <the-description class="mt-6">
               Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in quis cupidatat mollit aute velit. Et labore commodo nulla aliqua proident mollit ullamco exercitation tempor. Sint aliqua anim nulla sunt mollit id pariatur in voluptate cillum.
             </the-description>
 
             <div class="mt-10 flex items-center gap-x-6">
-              <the-button color="indigo">
+              <the-button color="blue">
                 Get started
               </the-button>
 

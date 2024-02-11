@@ -11,59 +11,26 @@
       />
     </div>
     <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
-      <div
+      <the-price-block
         v-for="tier in tiers"
         :key="tier.id"
-        :class="[tier.mostPopular ? 'ring-2 ring-indigo-600' : 'ring-1 ring-gray-200', 'rounded-3xl p-8']"
-      >
-        <h3
-          :id="tier.id"
-          :class="[tier.mostPopular ? 'text-indigo-600' : 'text-gray-900', 'text-lg font-semibold leading-8']"
-        >
-          {{ tier.name }}
-        </h3>
-        <p class="mt-4 text-sm leading-6 text-gray-600">
-          {{ tier.description }}
-        </p>
-        <p class="mt-6 flex items-baseline gap-x-1">
-          <span class="text-4xl font-bold tracking-tight text-gray-900">{{ tier.price[selectedFrequency.value] }}</span>
-          <span class="text-sm font-semibold leading-6 text-gray-600">{{ selectedFrequency.priceSuffix }}</span>
-        </p>
-
-        <the-button
-          :link="tier.href"
-          :color="tier.mostPopular ? 'indigo' : 'transparent'"
-          class="inline-block mt-6"
-        >
-          Buy plan
-        </the-button>
-
-        <ul
-          role="list"
-          class="mt-8 space-y-3 text-sm leading-6 text-gray-600"
-        >
-          <li
-            v-for="feature in tier.features"
-            :key="feature"
-            class="flex gap-x-3"
-          >
-            <CheckIcon
-              class="h-6 w-5 flex-none text-indigo-600"
-              aria-hidden="true"
-            />
-            {{ feature }}
-          </li>
-        </ul>
-      </div>
+        :title="tier.name"
+        :description="tier.description"
+        :price="tier.price[selectedFrequency.value]"
+        :price-suffix="selectedFrequency.priceSuffix"
+        :link="tier.href"
+        :is-recommended="tier.recommended"
+        :is-special="tier.mostPopular"
+        :features="tier.features"
+      />
     </div>
   </the-section>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { CheckIcon } from '@heroicons/vue/20/solid'
-import TheButton from '@/components/Atoms/TheButton.vue'
 import TheRadioGroup from '@/components/Atoms/TheRadioGroup.vue'
+import ThePriceBlock from '@/components/Molecules/ThePriceBlock.vue'
 
 const frequencies = [
   { value: 'monthly', text: 'Monthly', priceSuffix: '/month' },

@@ -8,11 +8,23 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-}>()
+  color: 'gray' | 'blue'
+}>(), {
+  color: 'gray'
+})
 
-const classes = reactive(['font-bold tracking-tight text-gray-900'] as string[])
+const classes = reactive(['font-bold tracking-tight'] as string[])
+
+switch (props.color) {
+  case 'gray':
+    classes.push('text-gray-900')
+    break
+  case 'blue':
+    classes.push('text-indigo-600')
+    break
+}
 
 switch (props.as) {
   case 'h1':
