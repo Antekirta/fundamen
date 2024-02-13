@@ -1,40 +1,43 @@
 <template>
   <div>
-    <h1>Main page</h1>
-    <pre>{{ text }}</pre>
-    <pre>{{ response }}</pre>
-    <pre>{{ data }}</pre>
+    <section>
+      <the-hero-section />
+    </section>
+
+    <the-feature-section />
+
+    <the-price-section />
+
+    <the-stats-section />
+
+    <the-testimonial-section bottom-padding="none" />
+
+    <the-email-section top-padding="none" />
+
+    <the-blog-section />
+
+    <the-logo-cloud />
+
+    <the-faq-section />
+
+    <the-cta-section />
   </div>
 </template>
 
-<script setup lang="ts">
-/* global useFetch, useRuntimeConfig  */
-import { ref, onMounted, onServerPrefetch } from 'vue'
-const {
-  public: {
-    API_BASE_URL
-  }
-} = useRuntimeConfig()
+<script lang="ts" setup>
+// noinspection TypeScriptUnresolvedFunction
+import TheFeatureSection from '@/components/Organisms/MainPage/TheFeatureSection.vue'
+import ThePriceSection from '@/components/Organisms/MainPage/ThePriceSection.vue'
+import TheStatsSection from '@/components/Organisms/MainPage/TheStatsSection.vue'
+import TheTestimonialSection from '@/components/Organisms/MainPage/TheTestimonialSection.vue'
+import TheEmailSection from '@/components/Organisms/MainPage/TheEmailSection.vue'
+import TheBlogSection from '@/components/Organisms/MainPage/TheBlogSection.vue'
+import TheLogoCloud from '@/components/Organisms/MainPage/TheLogoCloud.vue'
+import TheFaqSection from '@/components/Organisms/MainPage/TheFaqSection.vue'
+import TheCtaSection from '@/components/Organisms/MainPage/TheCtaSection.vue'
+import TheHeroSection from '@/components/Organisms/MainPage/TheHeroSection.vue'
 
-const text = 'Default'
-const response = ref(null)
-const data = ref(null)
-
-// Server-side fetch
-async function fetchData () {
-  const { data: fetchedData } = await useFetch(`http://${API_BASE_URL}:3002`)
-  data.value = fetchedData
-}
-
-// Only run on server
-if (process.server) {
-  onServerPrefetch(fetchData)
-}
-
-// Client-side fetch
-onMounted(async () => {
-  if (process.client) {
-    response.value = await $fetch(`${API_BASE_URL}/test`)
-  }
+definePageMeta({
+  layout: 'main'
 })
 </script>
