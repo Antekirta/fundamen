@@ -2,6 +2,7 @@
   <the-section
     preheader="Testimonials"
     header="We have worked with thousands of amazing people"
+    v-bind="$attrs"
   >
     <div class="relative isolate pb-32 pt-6 sm:pt-24">
       <the-bg-vague />

@@ -1,5 +1,5 @@
 <template>
-  <the-section>
+  <the-section v-bind="$attrs">
     <div class="max-w-2xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
       <the-header as="h2">
         Want product news and updates?

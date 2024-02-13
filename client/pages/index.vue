@@ -10,9 +10,9 @@
 
     <the-stats-section />
 
-    <the-testimonial-section />
+    <the-testimonial-section bottom-padding="none" />
 
-    <the-email-section />
+    <the-email-section top-padding="none" />
 
     <!--    <the-section>-->
     <!--      <the-blog-section />-->
