@@ -16,9 +16,7 @@
 
     <the-blog-section />
 
-    <!--    <the-section>-->
-    <!--      <the-logo-cloud />-->
-    <!--    </the-section>-->
+    <the-logo-cloud />
 
     <!--    <the-section>-->
     <!--      <the-faq-section />-->
