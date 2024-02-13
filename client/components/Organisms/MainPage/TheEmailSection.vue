@@ -12,32 +12,21 @@
 
     <form class="mt-10 max-w-md">
       <div class="flex gap-x-4">
-        <label
-          for="email-address"
-          class="sr-only"
-        >Email address</label>
-        <input
-          id="email-address"
+        <the-input
           name="email"
-          type="email"
-          autocomplete="email"
-          required=""
-          class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           placeholder="Enter your email"
-        >
-        <button
-          type="submit"
-          class="flex-none rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
+        />
+
+        <the-button color="blue">
           Subscribe
-        </button>
+        </the-button>
       </div>
-      <p class="mt-4 text-sm leading-6 text-gray-900">
-        We care about your data. Read our <a
-          href="#"
-          class="font-semibold text-indigo-600 hover:text-indigo-500"
-        >privacy&nbsp;policy</a>.
-      </p>
+
+      <the-description>
+        We care about your data. Read our <the-link link="#">
+          privacy policy
+        </the-link>.
+      </the-description>
     </form>
   </the-section>
 </template>
@@ -45,4 +34,8 @@
 <script setup lang="ts">
 import TheSection from '@/components/Molecules/TheSection.vue'
 import TheHeader from '@/components/Atoms/TheHeader.vue'
+import TheInput from '@/components/Atoms/TheInput/TheInput.vue'
+import TheButton from '@/components/Atoms/TheButton.vue'
+import TheLink from '@/components/Atoms/TheLink.vue'
+import TheDescription from '@/components/Atoms/TheDescription.vue'
 </script>
