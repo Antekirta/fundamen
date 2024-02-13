@@ -14,9 +14,7 @@
 
     <the-email-section top-padding="none" />
 
-    <!--    <the-section>-->
-    <!--      <the-blog-section />-->
-    <!--    </the-section>-->
+    <the-blog-section />
 
     <!--    <the-section>-->
     <!--      <the-logo-cloud />-->
