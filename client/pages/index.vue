@@ -20,15 +20,12 @@
 
     <the-faq-section />
 
-    <!--    <the-section>-->
-    <!--      <the-cta-section />-->
-    <!--    </the-section>-->
+    <the-cta-section />
   </div>
 </template>
 
 <script lang="ts" setup>
 // noinspection TypeScriptUnresolvedFunction
-import TheSection from '@/components/Molecules/TheSection.vue'
 import TheFeatureSection from '@/components/Organisms/MainPage/TheFeatureSection.vue'
 import ThePriceSection from '@/components/Organisms/MainPage/ThePriceSection.vue'
 import TheStatsSection from '@/components/Organisms/MainPage/TheStatsSection.vue'

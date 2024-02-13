@@ -3,20 +3,22 @@
     <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
       <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
         <div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <the-header as="h2">
             Our people
-          </h2>
-          <p class="mt-6 text-xl leading-8 text-gray-600">
+          </the-header>
+
+          <the-description class="mt-4">
             Quasi est quaerat. Sit molestiae et. Provident ad dolorem occaecati eos iste. Soluta rerum quidem minus ut molestiae velit error quod. Excepturi quidem expedita molestias quas.
-          </p>
-          <p class="mt-6 text-base leading-7 text-gray-600">
+          </the-description>
+
+          <the-description class="mt-2">
             Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat. Quasi aperiam sit non sit neque reprehenderit.
-          </p>
+          </the-description>
+
           <div class="mt-10 flex">
-            <a
-              href="#"
-              class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >Join our team <span aria-hidden="true">&rarr;</span></a>
+            <the-button color="blue">
+              Join our team <span aria-hidden="true">&rarr;</span>
+            </the-button>
           </div>
         </div>
         <div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
@@ -55,3 +57,8 @@
     </div>
   </div>
 </template>
+<script setup lang="ts">
+import TheButton from '@/components/Atoms/TheButton.vue'
+import TheHeader from '@/components/Atoms/TheHeader.vue'
+import TheDescription from '@/components/Atoms/TheDescription.vue'
+</script>
