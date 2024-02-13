@@ -18,9 +18,7 @@
 
     <the-logo-cloud />
 
-    <!--    <the-section>-->
-    <!--      <the-faq-section />-->
-    <!--    </the-section>-->
+    <the-faq-section />
 
     <!--    <the-section>-->
     <!--      <the-cta-section />-->
