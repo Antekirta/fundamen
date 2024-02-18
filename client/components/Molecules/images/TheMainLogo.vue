@@ -7,7 +7,7 @@
       <span class="sr-only">Fundamen</span>
       <img
         class="h-12 w-auto"
-        src="../../assets/images/logo.png"
+        src="../../../assets/images/logo.png"
         alt=""
       >
     </a>

@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="bg-gray-900"
+    class="the-main-footer bg-gray-900"
     aria-labelledby="footer-heading"
   >
     <h2

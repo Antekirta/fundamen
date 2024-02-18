@@ -29,7 +29,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import TheRadioGroup from '@/components/Atoms/TheRadioGroup.vue'
+import TheRadioGroup from '@/components/Atoms/form/TheRadioGroup.vue'
 import ThePriceBlock from '@/components/Molecules/ThePriceBlock.vue'
 import TheSection from '@/components/Molecules/TheSection.vue'
 

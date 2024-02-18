@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import TheStatItem from '@/components/Atoms/TheStatItem.vue'
+import TheStatItem from '@/components/Atoms/items/TheStatItem.vue'
 
 const timeInterval = 100
 // 1000ms / timeInterval

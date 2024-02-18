@@ -26,16 +26,16 @@
 
 <script lang="ts" setup>
 // noinspection TypeScriptUnresolvedFunction
-import TheFeatureSection from '@/components/Organisms/MainPage/TheFeatureSection.vue'
-import ThePriceSection from '@/components/Organisms/MainPage/ThePriceSection.vue'
-import TheStatsSection from '@/components/Organisms/MainPage/TheStatsSection.vue'
-import TheTestimonialSection from '@/components/Organisms/MainPage/TheTestimonialSection.vue'
-import TheEmailSection from '@/components/Organisms/MainPage/TheEmailSection.vue'
-import TheBlogSection from '@/components/Organisms/MainPage/TheBlogSection.vue'
-import TheLogoCloud from '@/components/Organisms/MainPage/TheLogoCloud.vue'
-import TheFaqSection from '@/components/Organisms/MainPage/TheFaqSection.vue'
-import TheCtaSection from '@/components/Organisms/MainPage/TheCtaSection.vue'
-import TheHeroSection from '@/components/Organisms/MainPage/TheHeroSection.vue'
+import TheFeatureSection from '@/components/Organisms/sections/TheFeatureSection.vue'
+import ThePriceSection from '@/components/Organisms/sections/ThePriceSection.vue'
+import TheStatsSection from '@/components/Organisms/sections/TheStatsSection.vue'
+import TheTestimonialSection from '@/components/Organisms/sections/TheTestimonialSection.vue'
+import TheEmailSection from '@/components/Organisms/sections/TheEmailSection.vue'
+import TheBlogSection from '@/components/Organisms/sections/TheBlogSection.vue'
+import TheLogoCloud from '@/components/Organisms/sections/TheLogoCloud.vue'
+import TheFaqSection from '@/components/Organisms/sections/TheFaqSection.vue'
+import TheCtaSection from '@/components/Organisms/sections/TheCtaSection.vue'
+import TheHeroSection from '@/components/Organisms/sections/TheHeroSection.vue'
 
 definePageMeta({
   layout: 'main'

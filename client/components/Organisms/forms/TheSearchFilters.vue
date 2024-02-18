@@ -123,14 +123,14 @@
 <script setup lang="ts">
 import { MinusIcon, PlusIcon } from '@heroicons/vue/20/solid'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import TheListItem from '@/components/Atoms/TheListItem.vue'
+import TheListItem from '@/components/Atoms/items/TheListItem.vue'
 import type { FormItemInterface, InputInterface, ListItemInterface } from '@/shared/shared.interface'
-import TheCheckbox from '@/components/Atoms/TheCheckbox.vue'
-import TheInput from '@/components/Atoms/TheInput/TheInput.vue'
-import TheRadio from '@/components/Atoms/TheRadio.vue'
-import TheRangeSlider from '@/components/Atoms/TheRangeSlider.vue'
-import TheSelect from '@/components/Atoms/TheSelect.vue'
-import TheAutocomplete from '@/components/Atoms/TheAutocomplete.vue'
+import TheCheckbox from '@/components/Atoms/form/TheCheckbox.vue'
+import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
+import TheRadio from '@/components/Atoms/form/TheRadio.vue'
+import TheRangeSlider from '@/components/Atoms/form/TheRangeSlider.vue'
+import TheSelect from '@/components/Atoms/form/TheSelect.vue'
+import TheAutocomplete from '@/components/Atoms/form/TheAutocomplete.vue'
 
 const categories : ListItemInterface[] = [
   {

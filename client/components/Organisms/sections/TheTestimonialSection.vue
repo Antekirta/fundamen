@@ -39,9 +39,9 @@
 </template>
 
 <script setup>
-import TheBgVague from '@/components/Molecules/TheBgVague.vue'
-import TheTestimonialBig from '@/components/Molecules/TheTestimonialBig.vue'
-import TheTestimonialSmall from '@/components/Molecules/TheTestimonialSmall.vue'
+import TheBgVague from '@/components/Molecules/background/TheBgVague.vue'
+import TheTestimonialBig from '@/components/Molecules/testimonials/TheTestimonialBig.vue'
+import TheTestimonialSmall from '@/components/Molecules/testimonials/TheTestimonialSmall.vue'
 import TheSection from '@/components/Molecules/TheSection.vue'
 
 const featuredTestimonial = {

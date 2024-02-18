@@ -37,4 +37,4 @@ const options = {
 }
 </style>
 
-<style src="@vueform/slider/themes/default.css"></style>
+<style src="../../../node_modules/@vueform/slider/themes/default.css"></style>

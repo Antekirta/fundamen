@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import TheProductsList from '@/components/Organisms/TheProductsList.vue'
+import TheProductsList from '@/components/Molecules/lists/TheProductsList.vue'
 
 // noinspection TypeScriptUnresolvedFunction
 definePageMeta({

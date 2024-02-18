@@ -33,9 +33,9 @@
 
 <script setup lang="ts">
 import TheSection from '@/components/Molecules/TheSection.vue'
-import TheHeader from '@/components/Atoms/TheHeader.vue'
-import TheInput from '@/components/Atoms/TheInput/TheInput.vue'
-import TheButton from '@/components/Atoms/TheButton.vue'
-import TheLink from '@/components/Atoms/TheLink.vue'
-import TheDescription from '@/components/Atoms/TheDescription.vue'
+import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
+import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
+import TheButton from '@/components/Atoms/form/TheButton.vue'
+import TheLink from '@/components/Atoms/typography/TheLink.vue'
+import TheDescription from '@/components/Atoms/typography/TheDescription.vue'
 </script>

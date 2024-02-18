@@ -58,7 +58,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import TheButton from '@/components/Atoms/TheButton.vue'
-import TheHeader from '@/components/Atoms/TheHeader.vue'
-import TheDescription from '@/components/Atoms/TheDescription.vue'
+import TheButton from '@/components/Atoms/form/TheButton.vue'
+import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
+import TheDescription from '@/components/Atoms/typography/TheDescription.vue'
 </script>
