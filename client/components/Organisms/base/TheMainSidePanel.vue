@@ -198,9 +198,9 @@ import {
 } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/vue/20/solid'
-import TheSortingDropdown from '@/components/Molecules/TheSortingDropdown.vue'
-import TheListItem from '@/components/Atoms/TheListItem.vue'
-import TheSearchFilters from '@/components/Organisms/TheSearchFilters.vue'
+import TheSortingDropdown from '@/components/Atoms/form/TheSortingDropdown.vue'
+import TheListItem from '@/components/Atoms/items/TheListItem.vue'
+import TheSearchFilters from '@/components/Organisms/forms/TheSearchFilters.vue'
 
 const sortOptions = [
   { text: 'Most Popular', value: 'most popular', current: true },

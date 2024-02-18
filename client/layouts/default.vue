@@ -19,9 +19,9 @@
 </template>
 
 <script setup lang="ts">
-import TheMainHeader from '@/components/Organisms/TheMainHeader.vue'
-import TheMainContent from '@/components/Organisms/TheMainContent.vue'
-import TheMainFooter from '@/components/Organisms/TheMainFooter.vue'
+import TheMainHeader from '@/components/Organisms/base/TheMainHeader.vue'
+import TheMainContent from '@/components/Organisms/base/TheMainContent.vue'
+import TheMainFooter from '@/components/Organisms/base/TheMainFooter.vue'
 import ThePageHeader from '@/components/Molecules/ThePageHeader.vue'
 
 const breabcrumbs = [

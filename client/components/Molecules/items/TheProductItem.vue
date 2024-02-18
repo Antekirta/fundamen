@@ -44,10 +44,10 @@
 import { defineProps } from 'vue'
 import { StarIcon } from '@heroicons/vue/20/solid'
 
-const props = defineProps({
+defineProps({
   product: {
     type: Object,
-    default: {}
+    default: () => ({})
   }
 })
 </script>

@@ -45,9 +45,9 @@
 </template>
 <script setup lang="ts">
 import { CheckIcon } from '@heroicons/vue/20/solid'
-import TheHeader from '@/components/Atoms/TheHeader.vue'
-import TheButton from '@/components/Atoms/TheButton.vue'
-import TheDescription from '@/components/Atoms/TheDescription.vue'
+import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
+import TheButton from '@/components/Atoms/form/TheButton.vue'
+import TheDescription from '@/components/Atoms/typography/TheDescription.vue'
 
 withDefaults(defineProps<{
   title: string

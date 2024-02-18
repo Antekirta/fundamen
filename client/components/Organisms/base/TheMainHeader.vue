@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="the-main-header">
     <nav
       class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       aria-label="Global"
@@ -57,10 +57,10 @@ import {
   DialogPanel
 } from '@headlessui/vue'
 
-import TheMainLogo from '@/components/Molecules/TheMainLogo'
-import TheMainMenuToggle from '@/components/Molecules/TheMenuToggle.vue'
-import TheMainMenu from '@/components/Molecules/TheMainMenu/TheMainMenu'
-import TheLoginButton from '@/components/Molecules/TheLoginButton.vue'
+import TheMainLogo from '@/components/Molecules/images/TheMainLogo.vue'
+import TheMainMenuToggle from '@/components/Molecules/buttons/TheMenuToggle.vue'
+import TheMainMenu from '@/components/Molecules/TheMainMenu/TheMainMenu.vue'
+import TheLoginButton from '@/components/Molecules/buttons/TheLoginButton.vue'
 
 const mobileMenuOpen = ref(false)
 
