@@ -39,10 +39,10 @@
 </template>
 
 <script setup>
-import TheBgVague from '@/components/Molecules/background/TheBgVague.vue'
-import TheTestimonialBig from '@/components/Molecules/testimonials/TheTestimonialBig.vue'
-import TheTestimonialSmall from '@/components/Molecules/testimonials/TheTestimonialSmall.vue'
-import TheSection from '@/components/Molecules/TheSection.vue'
+import TheBgVague from '@/components/Molecules/common/background/TheBgVague.vue'
+import TheTestimonialBig from '@/components/Molecules/common/testimonials/TheTestimonialBig.vue'
+import TheTestimonialSmall from '@/components/Molecules/common/testimonials/TheTestimonialSmall.vue'
+import TheSection from '@/components/Molecules/common/TheSection.vue'
 
 const featuredTestimonial = {
   body: 'Integer id nunc sit semper purus. Bibendum at lacus ut arcu blandit montes vitae auctor libero. Hac condimentum dignissim nibh vulputate ut nunc. Amet nibh orci mi venenatis blandit vel et proin. Non hendrerit in vel ac diam.',

@@ -21,8 +21,8 @@
 </template>
 
 <script setup>
-import TheSection from '@/components/Molecules/TheSection.vue'
-import TheBlogItem from '@/components/Molecules/items/TheBlogItem.vue'
+import TheSection from '@/components/Molecules/common/TheSection.vue'
+import TheBlogItem from '@/components/Molecules/common/items/TheBlogItem.vue'
 
 const posts = [
   {

@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import TheListItem from '@/components/Atoms/items/TheListItem.vue'
-import TheDisclosure from '@/components/Molecules/TheDisclosure.vue'
+import TheDisclosure from '@/components/Molecules/common/TheDisclosure.vue'
 import type { ListItemInterface } from '@/shared/shared.interface'
 
 const props = defineProps<{
