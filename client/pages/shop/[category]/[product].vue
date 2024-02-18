@@ -7,7 +7,8 @@
       >
         <the-breadcrumbs :breadcrumbs="product.breadcrumbs" />
       </nav>
-      <div class="mx-auto mt-8 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+
+      <div class="mx-auto mt-8 max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
         <div class="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8">
           <div class="lg:col-span-5 lg:col-start-8">
             <div class="flex justify-between">
@@ -34,91 +35,52 @@
 
           <div class="mt-8 lg:col-span-5">
             <form>
-              <!-- Color picker -->
-              <div>
-                <h2 class="text-sm font-medium text-gray-900">
-                  Color
-                </h2>
+              <the-color-picker
+                v-model="selectedColor"
+                :colors="product.colors"
+                label="Color"
+                class="mb-4"
+              />
 
-                <the-color-picker
-                  :colors="product.colors"
-                  class="mt-2"
-                />
-              </div>
+              <the-size-picker
+                v-model="selectedSize"
+                :sizes="product.sizes"
+                label="Size"
+              />
 
-              <!-- Size picker -->
-              <div class="mt-8">
-                <div class="flex items-center justify-between">
-                  <h2 class="text-sm font-medium text-gray-900">
-                    Size
-                  </h2>
-                  <a
-                    href="#"
-                    class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                  >See sizing chart</a>
-                </div>
-
-                <RadioGroup
-                  v-model="selectedSize"
-                  class="mt-2"
-                >
-                  <RadioGroupLabel class="sr-only">
-                    Choose a size
-                  </RadioGroupLabel>
-                  <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                    <RadioGroupOption
-                      v-for="size in product.sizes"
-                      :key="size.name"
-                      v-slot="{ active, checked }"
-                      as="template"
-                      :value="size"
-                      :disabled="!size.inStock"
-                    >
-                      <div :class="[size.inStock ? 'cursor-pointer focus:outline-none' : 'cursor-not-allowed opacity-25', active ? 'ring-2 ring-indigo-500 ring-offset-2' : '', checked ? 'border-transparent bg-indigo-600 text-white hover:bg-indigo-700' : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50', 'flex items-center justify-center rounded-md border py-3 px-3 text-sm font-medium uppercase sm:flex-1']">
-                        <RadioGroupLabel as="span">
-                          {{ size.name }}
-                        </RadioGroupLabel>
-                      </div>
-                    </RadioGroupOption>
-                  </div>
-                </RadioGroup>
-              </div>
-
-              <button
-                type="submit"
-                class="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              <the-button
+                color="blue"
+                class="mt-8"
               >
                 Add to cart
-              </button>
+              </the-button>
             </form>
 
             <!-- Product details -->
             <div class="mt-10">
-              <h2 class="text-sm font-medium text-gray-900">
+              <the-simple-header as="h4">
                 Description
-              </h2>
+              </the-simple-header>
 
-              <div
-                class="prose prose-sm mt-4 text-gray-500"
+              <the-text
+                class="mt-4"
                 v-html="product.description"
               />
             </div>
 
             <div class="mt-8 border-t border-gray-200 pt-8">
-              <h2 class="text-sm font-medium text-gray-900">
+              <the-simple-header as="h4">
                 Fabric &amp; Care
-              </h2>
+              </the-simple-header>
 
-              <div class="prose prose-sm mt-4 text-gray-500">
-                <ul role="list">
-                  <li
-                    v-for="item in product.details"
-                    :key="item"
-                  >
-                    {{ item }}
-                  </li>
-                </ul>
-              </div>
+              <the-simple-list class="mt-4">
+                <li
+                  v-for="item in product.details"
+                  :key="item"
+                >
+                  {{ item }}
+                </li>
+              </the-simple-list>
             </div>
 
             <!-- Policies -->
@@ -134,23 +96,13 @@
               </h2>
 
               <dl class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                <div
+                <the-simple-panel
                   v-for="policy in policies"
                   :key="policy.name"
-                  class="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center"
-                >
-                  <dt>
-                    <component
-                      :is="policy.icon"
-                      class="mx-auto h-6 w-6 flex-shrink-0 text-gray-400"
-                      aria-hidden="true"
-                    />
-                    <span class="mt-4 text-sm font-medium text-gray-900">{{ policy.name }}</span>
-                  </dt>
-                  <dd class="mt-1 text-sm text-gray-500">
-                    {{ policy.description }}
-                  </dd>
-                </div>
+                  :title="policy.name"
+                  :description="policy.description"
+                  :icon="policy.icon"
+                />
               </dl>
             </section>
           </div>
@@ -162,13 +114,17 @@
 
 <script setup>
 import { ref } from 'vue'
-import { StarIcon } from '@heroicons/vue/20/solid'
-import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import { CurrencyDollarIcon, GlobeAmericasIcon } from '@heroicons/vue/24/outline'
 import TheBreadcrumbs from '@/components/Molecules/TheBreadcrumbs.vue'
 import TheRating from '@/components/Molecules/TheRating.vue'
 import TheProductImagesGallery from '@/components/Molecules/TheProductImagesGallery.vue'
 import TheColorPicker from '@/components/Atoms/form/TheColorPicker.vue'
+import TheSizePicker from '@/components/Atoms/form/TheSizePicker.vue'
+import TheButton from '@/components/Atoms/form/TheButton.vue'
+import TheSimpleHeader from '@/components/Atoms/typography/TheSimpleHeader.vue'
+import TheText from '@/components/Atoms/typography/TheText.vue'
+import TheSimpleList from '@/components/Atoms/typography/TheSimpleList.vue'
+import TheSimplePanel from '@/components/Atoms/panels/TheSimplePanel.vue'
 
 const product = {
   name: 'Basic Tee',
@@ -228,6 +184,6 @@ const policies = [
   { name: 'Loyalty rewards', icon: CurrencyDollarIcon, description: "Don't look at other tees" }
 ]
 
-const selectedColor = ref(product.colors[0])
-const selectedSize = ref(product.sizes[2])
+const selectedColor = ref(product.colors[0].name)
+const selectedSize = ref(product.sizes[2].name)
 </script>

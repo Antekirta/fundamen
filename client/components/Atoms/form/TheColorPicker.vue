@@ -1,23 +1,19 @@
 <template>
   <div>
-    <pre>model: {{ model }}</pre>
-
-    <RadioGroup
-      v-model="model"
-      class="mt-2"
-    >
-      <RadioGroupLabel class="sr-only">
-        Choose a color
+    <RadioGroup v-model="model">
+      <RadioGroupLabel>
+        {{ label }}
       </RadioGroupLabel>
-      <div class="flex items-center space-x-3">
+
+      <div class=" mt-2 flex items-center space-x-3">
         <RadioGroupOption
           v-for="color in colors"
           :key="color.name"
           v-slot="{ active, checked }"
           as="template"
-          :value="color"
+          :value="color.name"
         >
-          <div :class="[color.selectedColor, active && checked ? 'ring ring-offset-1' : '', !active && checked ? 'ring-2' : '', 'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none']">
+          <div :class="[model, active && checked ? 'ring ring-offset-1' : '', !active && checked ? 'ring-2' : '', 'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none']">
             <RadioGroupLabel
               as="span"
               class="sr-only"
@@ -39,10 +35,10 @@
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 
 defineProps<{
+  label: string
   colors: {
-    name: string;
-    bgColor: string;
-    selectedColor: string
+    name: string
+    bgColor: string
   }[]
 }>()
 
