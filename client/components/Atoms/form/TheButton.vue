@@ -2,7 +2,7 @@
   <component
     :is="as"
     :href="link"
-    class="inline-block rounded-md px-3.5 py-2.5 font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+    class="inline-block text-center rounded-md px-3.5 py-2.5 font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
     :class="classes"
     v-bind="$attrs"
   >

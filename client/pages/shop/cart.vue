@@ -38,94 +38,20 @@
               v-for="(product, productIdx) in products"
               :key="product.id"
               :product="product"
-              :productIdx="productIdx"
+              :product-idx="productIdx"
             />
           </ul>
         </section>
 
-        <section
-          aria-labelledby="summary-heading"
-          class="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
-        >
-          <h2
-            id="summary-heading"
-            class="text-lg font-medium text-gray-900"
-          >
-            Order summary
-          </h2>
-
-          <dl class="mt-6 space-y-4">
-            <div class="flex items-center justify-between">
-              <dt class="text-sm text-gray-600">
-                Subtotal
-              </dt>
-              <dd class="text-sm font-medium text-gray-900">
-                $99.00
-              </dd>
-            </div>
-            <div class="flex items-center justify-between border-t border-gray-200 pt-4">
-              <dt class="flex items-center text-sm text-gray-600">
-                <span>Shipping estimate</span>
-                <a
-                  href="#"
-                  class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500"
-                >
-                  <span class="sr-only">Learn more about how shipping is calculated</span>
-                  <QuestionMarkCircleIcon
-                    class="h-5 w-5"
-                    aria-hidden="true"
-                  />
-                </a>
-              </dt>
-              <dd class="text-sm font-medium text-gray-900">
-                $5.00
-              </dd>
-            </div>
-            <div class="flex items-center justify-between border-t border-gray-200 pt-4">
-              <dt class="flex text-sm text-gray-600">
-                <span>Tax estimate</span>
-                <a
-                  href="#"
-                  class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500"
-                >
-                  <span class="sr-only">Learn more about how tax is calculated</span>
-                  <QuestionMarkCircleIcon
-                    class="h-5 w-5"
-                    aria-hidden="true"
-                  />
-                </a>
-              </dt>
-              <dd class="text-sm font-medium text-gray-900">
-                $8.32
-              </dd>
-            </div>
-            <div class="flex items-center justify-between border-t border-gray-200 pt-4">
-              <dt class="text-base font-medium text-gray-900">
-                Order total
-              </dt>
-              <dd class="text-base font-medium text-gray-900">
-                $112.32
-              </dd>
-            </div>
-          </dl>
-
-          <div class="mt-6">
-            <button
-              type="submit"
-              class="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-            >
-              Checkout
-            </button>
-          </div>
-        </section>
+        <the-order-summary />
       </form>
     </div>
   </div>
 </template>
 
 <script setup>
-import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/vue/20/solid'
 import TheProductItem from '@/components/Molecules/page-specific/cart/TheProductItem.vue'
+import TheOrderSummary from '@/components/Molecules/page-specific/cart/TheOrderSummary.vue'
 
 const products = [
   {
