@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import TheProductItem from '@/components/Molecules/items/TheProductItem.vue'
+import TheProductItem from '@/components/Molecules/common/items/TheProductItem.vue'
 
 const products = [
   {

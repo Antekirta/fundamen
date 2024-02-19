@@ -115,9 +115,9 @@
 <script setup>
 import { ref } from 'vue'
 import { CurrencyDollarIcon, GlobeAmericasIcon } from '@heroicons/vue/24/outline'
-import TheBreadcrumbs from '@/components/Molecules/TheBreadcrumbs.vue'
-import TheRating from '@/components/Molecules/TheRating.vue'
-import TheProductImagesGallery from '@/components/Molecules/TheProductImagesGallery.vue'
+import TheBreadcrumbs from '@/components/Molecules/common/TheBreadcrumbs.vue'
+import TheRating from '@/components/Molecules/common/TheRating.vue'
+import TheProductImagesGallery from '@/components/Molecules/common/TheProductImagesGallery.vue'
 import TheColorPicker from '@/components/Atoms/form/TheColorPicker.vue'
 import TheSizePicker from '@/components/Atoms/form/TheSizePicker.vue'
 import TheButton from '@/components/Atoms/form/TheButton.vue'

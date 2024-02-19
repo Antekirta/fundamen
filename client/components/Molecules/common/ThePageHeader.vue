@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import TheBreadcrumbs, { type VhBreadcrumbInterface } from '@/components/Molecules/TheBreadcrumbs.vue'
+import TheBreadcrumbs, { type VhBreadcrumbInterface } from '@/components/Molecules/common/TheBreadcrumbs.vue'
 
 defineProps<{
   title: string,

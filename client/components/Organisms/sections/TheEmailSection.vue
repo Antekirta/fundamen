@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import TheSection from '@/components/Molecules/TheSection.vue'
+import TheSection from '@/components/Molecules/common/TheSection.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
 import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
 import TheButton from '@/components/Atoms/form/TheButton.vue'

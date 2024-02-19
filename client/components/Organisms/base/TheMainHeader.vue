@@ -57,10 +57,10 @@ import {
   DialogPanel
 } from '@headlessui/vue'
 
-import TheMainLogo from '@/components/Molecules/images/TheMainLogo.vue'
-import TheMainMenuToggle from '@/components/Molecules/buttons/TheMenuToggle.vue'
-import TheMainMenu from '@/components/Molecules/TheMainMenu/TheMainMenu.vue'
-import TheLoginButton from '@/components/Molecules/buttons/TheLoginButton.vue'
+import TheMainLogo from '@/components/Molecules/common/images/TheMainLogo.vue'
+import TheMainMenuToggle from '@/components/Molecules/common/buttons/TheMenuToggle.vue'
+import TheMainMenu from '@/components/Molecules/common/TheMainMenu/TheMainMenu.vue'
+import TheLoginButton from '@/components/Molecules/common/buttons/TheLoginButton.vue'
 
 const mobileMenuOpen = ref(false)
 

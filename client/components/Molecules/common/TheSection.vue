@@ -12,7 +12,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import TheSectionHeader from '@/components/Molecules/TheSectionHeader.vue'
+import TheSectionHeader from '@/components/Molecules/common/TheSectionHeader.vue'
 
 const props = withDefaults(defineProps<{
   header: string

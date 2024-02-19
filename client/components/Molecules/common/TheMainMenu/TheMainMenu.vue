@@ -23,8 +23,8 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon
 } from '@heroicons/vue/24/outline'
-import TheItemHorizontal from '@/components/Molecules/TheMainMenu/TheItem/TheItemHorizontal.vue'
-import TheItemVertical from '@/components/Molecules/TheMainMenu/TheItem/TheItemVertical.vue'
+import TheItemHorizontal from '@/components/Molecules/common/TheMainMenu/TheItem/TheItemHorizontal.vue'
+import TheItemVertical from '@/components/Molecules/common/TheMainMenu/TheItem/TheItemVertical.vue'
 
 const props = defineProps<{
   isMobile?: boolean
