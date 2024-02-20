@@ -36,7 +36,13 @@
         </div>
 
         <div class="mt-4 sm:mt-0 sm:pr-9">
+          <span
+            v-if="readonly"
+            class="text-right"
+          >{{ quantity }}</span>
+
           <the-number-input
+            v-else
             v-model="quantity"
             class="w-32"
             :name="`quantity-${productIdx}`"
@@ -44,7 +50,10 @@
             :max="product.max"
           />
 
-          <div class="absolute right-0 top-0">
+          <div
+            v-if="!readonly"
+            class="absolute right-0 top-0"
+          >
             <button
               type="button"
               class="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500"
@@ -98,6 +107,7 @@ defineProps<{
     max: number
   }
   productIdx: number
+  readonly: boolean
 }>()
 
 const removeProduct = (productId: number) => {
