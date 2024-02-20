@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="border-0 bg-transparent">
     <label
       v-if="text"
       :for="name"
