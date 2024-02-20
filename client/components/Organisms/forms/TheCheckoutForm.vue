@@ -128,49 +128,11 @@
     <the-divider class="my-10" />
 
     <div>
-      <RadioGroup v-model="selectedDeliveryMethod">
-        <RadioGroupLabel class="text-lg font-medium text-gray-900">
-          Delivery method
-        </RadioGroupLabel>
-
-        <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-          <RadioGroupOption
-            v-for="deliveryMethod in deliveryMethods"
-            :key="deliveryMethod.id"
-            v-slot="{ checked, active }"
-            as="template"
-            :value="deliveryMethod"
-          >
-            <div :class="[checked ? 'border-transparent' : 'border-gray-300', active ? 'ring-2 ring-indigo-500' : '', 'relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none']">
-              <span class="flex flex-1">
-                <span class="flex flex-col">
-                  <RadioGroupLabel
-                    as="span"
-                    class="block text-sm font-medium text-gray-900"
-                  >{{ deliveryMethod.title }}</RadioGroupLabel>
-                  <RadioGroupDescription
-                    as="span"
-                    class="mt-1 flex items-center text-sm text-gray-500"
-                  >{{ deliveryMethod.turnaround }}</RadioGroupDescription>
-                  <RadioGroupDescription
-                    as="span"
-                    class="mt-6 text-sm font-medium text-gray-900"
-                  >{{ deliveryMethod.price }}</RadioGroupDescription>
-                </span>
-              </span>
-              <CheckCircleIcon
-                v-if="checked"
-                class="h-5 w-5 text-indigo-600"
-                aria-hidden="true"
-              />
-              <span
-                :class="[active ? 'border' : 'border-2', checked ? 'border-indigo-500' : 'border-transparent', 'pointer-events-none absolute -inset-px rounded-lg']"
-                aria-hidden="true"
-              />
-            </div>
-          </RadioGroupOption>
-        </div>
-      </RadioGroup>
+      <the-radio-panel
+        v-model="model.deliveryMethod"
+        :label="'Delivery method'"
+        :options="deliveryMethods"
+      />
     </div>
 
     <!-- Payment -->
@@ -279,44 +241,40 @@
     </div>
   </form>
 </template>
+
 <script setup lang="ts">
-import { RadioGroup, RadioGroupDescription, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
-import { CheckCircleIcon } from '@heroicons/vue/20/solid'
-import { ref } from 'vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
 import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
 import TheDivider from '@/components/Atoms/layout/TheDivider.vue'
 import TheSelect from '@/components/Atoms/form/TheSelect.vue'
+import TheRadioPanel from '@/components/Atoms/form/TheRadioPanel.vue'
 
-const model = defineModel({
-  default: {
-    email: '',
-    firstName: '',
-    lastName: '',
-    company: '',
-    address: '',
-    apartment: '',
-    city: '',
-    country: 'brazil',
-    region: '',
-    postalCode: '',
-    phone: '',
-    cardNumber: '',
-    nameOnCard: '',
-    expirationDate: '',
-    cvc: ''
-  }
+const model = reactive({
+  email: '',
+  firstName: '',
+  lastName: '',
+  company: '',
+  address: '',
+  apartment: '',
+  city: '',
+  country: 'brazil',
+  region: '',
+  postalCode: '',
+  phone: '',
+  deliveryMethod: ref(''),
+  cardNumber: '',
+  nameOnCard: '',
+  expirationDate: '',
+  cvc: ''
 })
 
 const deliveryMethods = [
-  { id: 1, title: 'Standard', turnaround: '4–10 business days', price: '$5.00' },
-  { id: 2, title: 'Express', turnaround: '2–5 business days', price: '$16.00' }
+  { value: '1', title: 'Standard', description: '4–10 business days', bottomValue: '$5.00' },
+  { value: '2', title: 'Express', description: '2–5 business days', bottomValue: '$16.00' }
 ]
 const paymentMethods = [
   { id: 'credit-card', title: 'Credit card' },
   { id: 'paypal', title: 'PayPal' },
   { id: 'etransfer', title: 'eTransfer' }
 ]
-
-const selectedDeliveryMethod = ref(deliveryMethods[0])
 </script>
