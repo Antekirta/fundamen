@@ -1,32 +1,43 @@
 <template>
   <section
     aria-labelledby="summary-heading"
-    class="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
+    class="rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:p-8"
   >
-    <h2
-      id="summary-heading"
-      class="text-lg font-medium text-gray-900"
+    <the-header
+      as="h3"
+      size="small"
+      color="gray-light"
     >
       Order summary
-    </h2>
+    </the-header>
 
     <the-simple-table
       :rows="[
-        { id: '1', name: 'Basic Tee', price: '$32.00', href: '#'},
-        { id: '2', name: 'Basic Tee 2', price: '$32.00', href: '#'},
-        { id: '3', name: 'Basic Tee 3', price: '$32.00', href: '#'},
-        { id: '4', name: 'Basic Tee 4', price: '$32.00', href: '#'},
-        { id: '5', name: 'Basic Tee 5', price: '$32.00', href: '#'}
+        { id: '1', name: 'Subtotal', price: '$64.00', href: '#'},
+        { id: '2', name: 'Shipping', price: '$5.00', href: '#'},
+        { id: '3', name: 'Taxes', price: '$7.00', href: '#'},
+        { id: '4', name: 'Total', price: '$76.00', href: '#', isTotal: true},
       ]"
       :cols="[{
         name: 'name',
+        slot: 'name'
       }, {
         name: 'price',
         slot: 'price'
       }]"
     >
+      <template #name="{row}">
+        <span
+          class="text-gray-900"
+          :class="row.isTotal ? 'font-semibold text-base' : 'font-normal text-sm'"
+        >{{ row.name }}</span>
+      </template>
+
       <template #price="{row}">
-        <span class="text-sm font-medium text-gray-900">{{ row.price }}</span>
+        <span
+          class="text-gray-900"
+          :class="row.isTotal ? 'font-semibold text-base' : 'font-medium text-sm'"
+        >{{ row.price }}</span>
       </template>
     </the-simple-table>
 
@@ -45,6 +56,7 @@
 <script setup lang="ts">
 import TheButton from '@/components/Atoms/form/TheButton.vue'
 import TheSimpleTable from '@/components/Molecules/common/lists/TheSimpleTable.vue'
+import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
 
 const checkout = () => {
   console.log('Checkout')

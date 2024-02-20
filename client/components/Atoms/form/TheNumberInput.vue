@@ -9,10 +9,12 @@
     >{{ label }}</label>
 
     <div class="mt-2 flex direction-horizontal justify-start rounded-md shadow-sm">
-      <span
+      <div
         class="the-number-input__handle bg-slate-200 hover:bg-slate-300 inline-flex items-center text-center rounded-l-md border border-r-0 border-gray-300 px-3 text-gray-500 sm:text-sm"
         @click="reduce"
-      >-</span>
+      >
+        -
+      </div>
 
       <input
         v-bind="$attrs"
