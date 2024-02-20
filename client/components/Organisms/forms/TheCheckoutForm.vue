@@ -113,7 +113,7 @@
           />
         </div>
 
-        <div>
+        <div class="sm:col-span-2">
           <the-input
             v-model="model.phone"
             text="Phone"
