@@ -5,7 +5,7 @@
     description="Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales."
   >
     <div class="mt-16 flex justify-center">
-      <the-radio-group
+      <the-radio-toggle
         v-model="frequency"
         :options="frequencies"
       />
@@ -29,7 +29,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import TheRadioGroup from '@/components/Atoms/form/TheRadioGroup.vue'
+import TheRadioGroup from '@/components/Atoms/form/radio/TheRadioToggle.vue'
 import ThePriceBlock from '@/components/Molecules/common/ThePriceBlock.vue'
 import TheSection from '@/components/Molecules/common/TheSection.vue'
 

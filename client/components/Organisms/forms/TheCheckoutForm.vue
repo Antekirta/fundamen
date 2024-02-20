@@ -135,110 +135,7 @@
       />
     </div>
 
-    <!-- Payment -->
-    <div class="mt-10 border-t border-gray-200 pt-10">
-      <h2 class="text-lg font-medium text-gray-900">
-        Payment
-      </h2>
-
-      <fieldset class="mt-4">
-        <legend class="sr-only">
-          Payment type
-        </legend>
-        <div class="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
-          <div
-            v-for="(paymentMethod, paymentMethodIdx) in paymentMethods"
-            :key="paymentMethod.id"
-            class="flex items-center"
-          >
-            <input
-              v-if="paymentMethodIdx === 0"
-              :id="paymentMethod.id"
-              name="payment-type"
-              type="radio"
-              class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
-            >
-            <input
-              v-else
-              :id="paymentMethod.id"
-              name="payment-type"
-              type="radio"
-              class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
-            >
-            <label
-              :for="paymentMethod.id"
-              class="ml-3 block text-sm font-medium text-gray-700"
-            >{{ paymentMethod.title }}</label>
-          </div>
-        </div>
-      </fieldset>
-
-      <div class="mt-6 grid grid-cols-4 gap-x-4 gap-y-6">
-        <div class="col-span-4">
-          <label
-            for="card-number"
-            class="block text-sm font-medium text-gray-700"
-          >Card number</label>
-          <div class="mt-1">
-            <input
-              id="card-number"
-              type="text"
-              name="card-number"
-              autocomplete="cc-number"
-              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            >
-          </div>
-        </div>
-
-        <div class="col-span-4">
-          <label
-            for="name-on-card"
-            class="block text-sm font-medium text-gray-700"
-          >Name on card</label>
-          <div class="mt-1">
-            <input
-              id="name-on-card"
-              type="text"
-              name="name-on-card"
-              autocomplete="cc-name"
-              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            >
-          </div>
-        </div>
-
-        <div class="col-span-3">
-          <label
-            for="expiration-date"
-            class="block text-sm font-medium text-gray-700"
-          >Expiration date (MM/YY)</label>
-          <div class="mt-1">
-            <input
-              id="expiration-date"
-              type="text"
-              name="expiration-date"
-              autocomplete="cc-exp"
-              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            >
-          </div>
-        </div>
-
-        <div>
-          <label
-            for="cvc"
-            class="block text-sm font-medium text-gray-700"
-          >CVC</label>
-          <div class="mt-1">
-            <input
-              id="cvc"
-              type="text"
-              name="cvc"
-              autocomplete="csc"
-              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            >
-          </div>
-        </div>
-      </div>
-    </div>
+    <the-payment-form />
   </form>
 </template>
 
@@ -247,7 +144,8 @@ import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
 import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
 import TheDivider from '@/components/Atoms/layout/TheDivider.vue'
 import TheSelect from '@/components/Atoms/form/TheSelect.vue'
-import TheRadioPanel from '@/components/Atoms/form/TheRadioPanel.vue'
+import TheRadioPanel from '@/components/Atoms/form/radio/TheRadioPanel.vue'
+import ThePaymentForm from '@/components/Organisms/forms/ThePaymentForm.vue'
 
 const model = reactive({
   email: '',
@@ -271,10 +169,5 @@ const model = reactive({
 const deliveryMethods = [
   { value: '1', title: 'Standard', description: '4–10 business days', bottomValue: '$5.00' },
   { value: '2', title: 'Express', description: '2–5 business days', bottomValue: '$16.00' }
-]
-const paymentMethods = [
-  { id: 'credit-card', title: 'Credit card' },
-  { id: 'paypal', title: 'PayPal' },
-  { id: 'etransfer', title: 'eTransfer' }
 ]
 </script>
