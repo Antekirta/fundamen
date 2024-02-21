@@ -1,19 +1,18 @@
 <template>
-  <div class="bg-white">
-    <!--    <div class="mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8">-->
-    <!--      <h2 class="sr-only">-->
-    <!--        Products-->
-    <!--      </h2>-->
+  <div>
+    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <h2 class="sr-only">
+        Products
+      </h2>
 
-    <!--      <div class="-mx-px grid grid-cols-2 border-l border-gray-200 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">-->
-    <!--        <the-product-item-->
-    <!--          v-for="product in products"-->
-    <!--          :key="product.id"-->
-    <!--          :product="product"-->
-    <!--          class="group relative border-b border-r border-gray-200 p-4 sm:p-6"-->
-    <!--        />-->
-    <!--      </div>-->
-    <!--    </div>-->
+      <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
+        <the-product-item
+          v-for="product in products"
+          :key="product.id"
+          :product="product"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,55 +22,63 @@ import TheProductItem from '@/components/Molecules/common/items/TheProductItem.v
 const products = [
   {
     id: 1,
-    name: 'Organize Basic Set (Walnut)',
-    price: '$149',
-    rating: 5,
-    reviewCount: 38,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-01.jpg',
-    imageAlt: 'TODO',
-    href: '#'
+    name: 'Basic Tee 8-Pack',
+    href: '#',
+    price: '$256',
+    description: 'Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.',
+    options: '8 colors',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg',
+    imageAlt: 'Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.'
   },
   {
     id: 2,
-    name: 'Organize Pen Holder',
-    price: '$15',
-    rating: 5,
-    reviewCount: 18,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-02.jpg',
-    imageAlt: 'TODO',
-    href: '#'
+    name: 'Basic Tee',
+    href: '#',
+    price: '$32',
+    description: 'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'Black',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg',
+    imageAlt: 'Front of plain black t-shirt.'
   },
   {
     id: 3,
-    name: 'Organize Sticky Note Holder',
-    price: '$15',
-    rating: 5,
-    reviewCount: 14,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-03.jpg',
-    imageAlt: 'TODO',
-    href: '#'
+    name: 'Basic Tee',
+    href: '#',
+    price: '$32',
+    description: 'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'Black',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-03.jpg',
+    imageAlt: 'Front of plain black t-shirt.'
   },
   {
     id: 4,
-    name: 'Organize Phone Holder',
-    price: '$15',
-    rating: 4,
-    reviewCount: 21,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-04.jpg',
-    imageAlt: 'TODO',
-    href: '#'
+    name: 'Basic Tee',
+    href: '#',
+    price: '$32',
+    description: 'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'Black',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-04.jpg',
+    imageAlt: 'Front of plain black t-shirt.'
+  },
+  {
+    id: 5,
+    name: 'Basic Tee',
+    href: '#',
+    price: '$32',
+    description: 'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'Black',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-05.jpg',
+    imageAlt: 'Front of plain black t-shirt.'
+  },
+  {
+    id: 6,
+    name: 'Basic Tee',
+    href: '#',
+    price: '$32',
+    description: 'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'Black',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
+    imageAlt: 'Front of plain black t-shirt.'
   }
 ]
 </script>
-
-<style lang="scss">
-.the-products-list {
-  --the-products-list__grid-gap: 16px;
-  --the-products-list__item-width: 220px;
-
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--the-products-list__item-width), 1fr));
-  gap: var(--the-products-list__grid-gap);
-}
-</style>

@@ -18,7 +18,11 @@
     >
       ·
     </div>
-    <div class="ml-4 flex">
+
+    <div
+      v-if="hasSeeAll"
+      class="ml-4 flex"
+    >
       <a
         href="#"
         class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
@@ -33,5 +37,6 @@ import { StarIcon } from '@heroicons/vue/20/solid'
 defineProps<{
   rating: number
   reviewCount: number
+  hasSeeAll: boolean
 }>()
 </script>
