@@ -24,6 +24,7 @@
               <the-rating
                 :review-count="product.reviewCount"
                 :rating="product.rating"
+                has-see-all
               />
             </div>
           </div>

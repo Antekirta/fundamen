@@ -19,7 +19,7 @@
     </ul>
 
     <Disclosure v-slot="{ open }">
-      <DisclosureButton class="flex w-full items-center justify-start bg-white py-3 text-gray-400 hover:text-gray-500">
+      <DisclosureButton class="flex w-full items-center justify-start py-3 text-gray-400 hover:text-gray-500">
         <span class="font-medium text-gray-900">Checkboxes</span>
         <span class="ml-4 flex items-center">
           <component
@@ -44,7 +44,7 @@
     </Disclosure>
 
     <Disclosure v-slot="{ open }">
-      <DisclosureButton class="flex w-full items-center justify-start bg-white py-3 text-gray-400 hover:text-gray-500">
+      <DisclosureButton class="flex w-full items-center justify-start py-3 text-gray-400 hover:text-gray-500">
         <span class="font-medium text-gray-900">Inputs</span>
         <span class="ml-4 flex items-center">
           <component
@@ -70,7 +70,7 @@
     </Disclosure>
 
     <Disclosure v-slot="{ open }">
-      <DisclosureButton class="flex w-full items-center justify-start bg-white py-3 text-gray-400 hover:text-gray-500">
+      <DisclosureButton class="flex w-full items-center justify-start py-3 text-gray-400 hover:text-gray-500">
         <span class="font-medium text-gray-900">Radios</span>
         <span class="ml-4 flex items-center">
           <component

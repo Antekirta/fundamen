@@ -9,7 +9,7 @@
         :breadcrumbs="breabcrumbs"
       />
 
-      <TheMainSidePanel class="bg-gray-50 lg:col-span-1 col-span-4" />
+      <TheMainSidePanel class="lg:col-span-1 col-span-4" />
 
       <TheMainContent class="lg:col-span-3 col-span-4 border-gray-400 px-6">
         <slot />

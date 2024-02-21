@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white pr-2">
+  <div class="pr-2">
     <div>
       <!-- Mobile filter dialog -->
       <TransitionRoot
@@ -33,7 +33,7 @@
               leave-from="translate-x-0"
               leave-to="translate-x-full"
             >
-              <DialogPanel class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+              <DialogPanel class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto py-4 pb-12 shadow-xl">
                 <div class="flex items-center justify-between px-4">
                   <h2 class="text-lg font-medium text-gray-900">
                     Filters
@@ -79,7 +79,7 @@
                     class="border-t border-gray-200 px-4 py-6"
                   >
                     <h3 class="-mx-2 -my-3 flow-root">
-                      <DisclosureButton class="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                      <DisclosureButton class="flex w-full items-center justify-between px-2 py-3 text-gray-400 hover:text-gray-500">
                         <span class="font-medium text-gray-900">{{ section.name }}</span>
                         <span class="ml-6 flex items-center">
                           <PlusIcon

@@ -1,13 +1,13 @@
 <template>
-  <div class="group relative border-b border-r border-gray-200 p-4 sm:p-6">
-    <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75">
+  <div class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
+    <div class="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
       <img
         :src="product.imageSrc"
         :alt="product.imageAlt"
-        class="h-full w-full object-cover object-center"
+        class="h-full w-full object-cover object-center sm:h-full sm:w-full"
       >
     </div>
-    <div class="pb-4 pt-10 text-center">
+    <div class="flex flex-1 flex-col space-y-2 p-4">
       <h3 class="text-sm font-medium text-gray-900">
         <a :href="product.href">
           <span
@@ -17,37 +17,40 @@
           {{ product.name }}
         </a>
       </h3>
-      <div class="mt-3 flex flex-col items-center">
-        <p class="sr-only">
-          {{ product.rating }} out of 5 stars
+
+      <TheRating
+        :rating="4"
+        :review-count="52"
+      />
+
+      <p class="text-sm text-gray-500">
+        {{ product.description }}
+      </p>
+      <div class="flex flex-1 flex-col justify-end">
+        <p class="text-sm italic text-gray-500">
+          {{ product.options }}
         </p>
-        <div class="flex items-center">
-          <StarIcon
-            v-for="rating in [0, 1, 2, 3, 4]"
-            :key="rating"
-            :class="[product.rating > rating ? 'text-yellow-400' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']"
-            aria-hidden="true"
-          />
-        </div>
-        <p class="mt-1 text-sm text-gray-500">
-          {{ product.reviewCount }} reviews
+        <p class="text-base font-medium text-gray-900">
+          {{ product.price }}
         </p>
       </div>
-      <p class="mt-4 text-base font-medium text-gray-900">
-        {{ product.price }}
-      </p>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import { defineProps } from 'vue'
-import { StarIcon } from '@heroicons/vue/20/solid'
+<script lang="ts" setup>
+import TheRating from '@/components/Molecules/common/TheRating.vue'
 
-defineProps({
+defineProps<{
   product: {
-    type: Object,
-    default: () => ({})
+    id: number
+    name: string
+    href: string
+    price: string
+    description: string
+    options: string
+    imageSrc: string
+    imageAlt: string
   }
-})
+}>()
 </script>
