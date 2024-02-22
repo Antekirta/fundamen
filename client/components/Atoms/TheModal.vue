@@ -31,12 +31,11 @@
             leave-from="opacity-100 translate-y-0 sm:scale-100"
             leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <DialogPanel class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+            <DialogPanel
+              class="the-modal__content"
+              :class="contentStyles"
+            >
               <slot name="default" />
-
-              <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                <slot name="footer" />
-              </div>
             </DialogPanel>
           </TransitionChild>
         </div>
@@ -47,9 +46,11 @@
 
 <script lang="ts" setup>
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { twMerge } from 'tailwind-merge'
 
-defineProps<{
+const props = defineProps<{
   isOpen: boolean
+  contentClassList?: string
 }>()
 
 // eslint-disable-next-line func-call-spacing
@@ -57,12 +58,24 @@ const emit = defineEmits<{
   (e: 'close'): void
 }>()
 
-const slots = defineSlots<{
+defineSlots<{
   default:() => Element
   footer: () => Element
 }>()
+
+const contentStyles = twMerge('relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:p-6', props.contentClassList)
 
 const close = () => {
   emit('close')
 }
 </script>
+
+<style lang="scss">
+.the-modal {
+  &__content {
+    display: inline-block;
+    width: auto;
+    max-width: 90vw;
+  }
+}
+</style>
