@@ -58,6 +58,7 @@
     </div>
   </form>
 </template>
+
 <script setup lang="ts">
 import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
 import TheTextarea from '@/components/Atoms/form/TheTextarea.vue'

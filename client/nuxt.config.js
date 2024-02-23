@@ -7,6 +7,9 @@ export default defineNuxtConfig({
     // '@nuxtjs/storybook',
     '@nuxt/ui'
   ],
+  plugins: [
+    '~/plugins/vue-google-maps.js'
+  ],
   runtimeConfig: {
     public: {
       API_BASE_URL: process.env.API_BASE_URL,
@@ -30,6 +33,14 @@ export default defineNuxtConfig({
     plugins: {
       tailwindcss: {},
       autoprefixer: {}
+    }
+  },
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@fawmi/vue-google-maps',
+        'fast-deep-equal'
+      ]
     }
   }
 })
