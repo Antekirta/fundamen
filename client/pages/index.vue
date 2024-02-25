@@ -1,31 +1,30 @@
 <template>
   <div>
     <section>
-      <the-hero-section />
+      <the-hero-section-slider />
     </section>
 
-    <the-feature-section />
+<!--    <the-feature-section />-->
 
-    <the-price-section />
+    <!--    <the-price-section />-->
 
-    <the-stats-section />
+    <!--    <the-stats-section />-->
 
-    <the-testimonial-section bottom-padding="none" />
+    <!--    <the-testimonial-section bottom-padding="none" />-->
 
-    <the-email-section top-padding="none" />
+    <!--    <the-email-section top-padding="none" />-->
 
-    <the-blog-section />
+    <!--    <the-blog-section />-->
 
-    <the-logo-cloud />
+    <!--    <the-logo-cloud />-->
 
-    <the-faq-section />
+    <!--    <the-faq-section />-->
 
-    <the-cta-section />
+    <!--    <the-cta-section />-->
   </div>
 </template>
 
 <script lang="ts" setup>
-
 import TheFeatureSection from '@/components/Organisms/sections/TheFeatureSection.vue'
 import ThePriceSection from '@/components/Organisms/sections/ThePriceSection.vue'
 import TheStatsSection from '@/components/Organisms/sections/TheStatsSection.vue'
@@ -35,7 +34,7 @@ import TheBlogSection from '@/components/Organisms/sections/TheBlogSection.vue'
 import TheLogoCloud from '@/components/Organisms/sections/TheLogoCloud.vue'
 import TheFaqSection from '@/components/Organisms/sections/TheFaqSection.vue'
 import TheCtaSection from '@/components/Organisms/sections/TheCtaSection.vue'
-import TheHeroSection from '@/components/Organisms/sections/TheHeroSection.vue'
+import TheHeroSectionSlider from '@/components/Organisms/sections/TheHeroSection/TheHeroSectionSlider.vue'
 
 // noinspection TypeScriptUnresolvedFunction
 definePageMeta({
