@@ -1,10 +1,10 @@
 <template>
   <header class="the-main-header">
     <nav
-      class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+      class="mx-auto flex max-w-7xl items-center justify-between px-2 py-2 lg:px-8"
       aria-label="Global"
     >
-      <the-main-logo />
+      <the-main-logo class="mr-14" />
 
       <div class="flex lg:hidden">
         <the-main-menu-toggle @click="openMenu" />
@@ -72,3 +72,12 @@ const closeMenu = () => {
   mobileMenuOpen.value = false
 }
 </script>
+
+<style lang="scss">
+.the-main-header {
+  background: #310F01;
+  font-family: "Patrick Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+</style>

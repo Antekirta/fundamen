@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-// noinspection TypeScriptUnresolvedFunction
+
 import TheFeatureSection from '@/components/Organisms/sections/TheFeatureSection.vue'
 import ThePriceSection from '@/components/Organisms/sections/ThePriceSection.vue'
 import TheStatsSection from '@/components/Organisms/sections/TheStatsSection.vue'
@@ -37,6 +37,7 @@ import TheFaqSection from '@/components/Organisms/sections/TheFaqSection.vue'
 import TheCtaSection from '@/components/Organisms/sections/TheCtaSection.vue'
 import TheHeroSection from '@/components/Organisms/sections/TheHeroSection.vue'
 
+// noinspection TypeScriptUnresolvedFunction
 definePageMeta({
   layout: 'main'
 })

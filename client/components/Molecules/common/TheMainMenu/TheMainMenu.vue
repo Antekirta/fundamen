@@ -1,5 +1,5 @@
 <template>
-  <PopoverGroup class="lg:flex lg:gap-x-12">
+  <PopoverGroup class="lg:flex lg:gap-x-12 items-baseline">
     <component
       :is="menuComponent"
       v-for="item in items"
@@ -17,7 +17,6 @@ import {
 } from '@headlessui/vue'
 import { PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
 import {
-  ArrowPathIcon,
   ChartPieIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
@@ -34,37 +33,29 @@ const menuComponent = props.isMobile ? TheItemVertical : TheItemHorizontal
 
 const items = [
   {
-    title: 'Product',
+    title: 'Home',
+    href: '#'
+  },
+  {
+    title: 'Produtos',
     items: [
-      { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-      { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-      { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-      { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-      { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon }
+      { name: 'Tortas', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
+      { name: 'Bolos', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
+      { name: 'Chocolates', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
+      { name: 'Mil folhas', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon }
     ],
     callsToAction: [
-      { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-      { name: 'Contact sales', href: '#', icon: PhoneIcon }
-    ],
-    isLarge: true
-  },
-  {
-    title: 'Features',
-    href: '#'
-  },
-  {
-    title: 'Marketplace',
-    href: '#'
-  },
-  {
-    title: 'Company',
-    items: [
-      { name: 'About Us', href: '#' },
-      { name: 'Careers', href: '#' },
-      { name: 'Support', href: '#' },
-      { name: 'Press', href: '#' },
-      { name: 'Blog', href: '#' }
+      { name: 'Escrever', href: '#', icon: PlayCircleIcon },
+      { name: 'Ligar', href: '#', icon: PhoneIcon }
     ]
+  },
+  {
+    title: 'Quem somos',
+    href: '#'
+  },
+  {
+    title: 'Contato',
+    href: '#'
   }
 ]
 </script>

@@ -1,7 +1,7 @@
 <template>
   <a
     :href="item.href"
-    class="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+    class="flex items-center justify-center gap-x-2.5 p-3 bg-red text-lg font-semibold leading-6 text-white"
   >
     <component
       :is="item.icon"

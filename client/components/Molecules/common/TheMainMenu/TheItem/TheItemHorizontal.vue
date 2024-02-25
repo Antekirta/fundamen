@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="the-item-horizontal">
     <Popover
       v-if="items && items.length"
       class="relative"
     >
-      <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+      <PopoverButton class="the-item-horizontal__popover-button">
         {{ title }}
         <ChevronDownIcon
-          class="h-5 w-5 flex-none text-gray-400"
+          class="the-item-horizontal__icon"
           aria-hidden="true"
         />
       </PopoverButton>
@@ -21,20 +21,20 @@
         leave-to-class="opacity-0 translate-y-1"
       >
         <PopoverPanel
-          class="absolute -left-8 top-full z-10 mt-3 bg-white shadow-lg ring-1 ring-gray-900/5 w-screen max-w-md overflow-hidden rounded-3xl"
+          class="the-item-horizontal__popover-panel"
         >
-          <div class="p-4">
+          <div>
             <the-sub-item
               v-for="item in items"
               :key="item.name"
               :item="item"
-              class="group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+              class="the-item-horizontal__sub-item"
             />
           </div>
 
           <div
             v-if="callsToAction && callsToAction.length"
-            class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50"
+            class="the-item-horizontal__call-to-action"
           >
             <the-call-to-action
               v-for="item in callsToAction"
@@ -49,7 +49,7 @@
     <a
       v-else
       href="#"
-      class="text-sm font-semibold leading-6 text-gray-900"
+      class="tracking-wide"
     >{{ title }}</a>
   </div>
 </template>
@@ -72,3 +72,38 @@ defineProps<{
   callsToAction?: ListItemInterface[],
 }>()
 </script>
+
+<style lang="scss">
+.the-item-horizontal {
+  @apply leading-6 tracking-wider text-3xl text-white;
+
+  &__popover-button {
+    @apply flex items-center gap-x-1;
+    @apply tracking-wide;
+    @apply active:ring-0;
+    @apply focus:ring-0 focus:ring-offset-0 focus:shadow-none;
+  }
+
+  &__icon {
+    @apply h-5 w-5 flex-none;
+  }
+
+  &__popover-panel {
+    @apply absolute -left-8 top-full z-10 mt-3 shadow-lg ring-1 ring-gray-900/5 w-screen max-w-md overflow-hidden rounded-3xl;
+    background-image: url("../../../../../assets/images/bg/flour.png");
+    background-origin: padding-box;
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: repeat;
+    background-size: 40px 40px;
+  }
+
+  &__sub-item {
+    @apply relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50;
+  }
+
+  &__call-to-action {
+    @apply grid grid-cols-2 divide-x divide-gray-900/5;
+  }
+}
+</style>

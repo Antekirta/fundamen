@@ -5,10 +5,10 @@
     description="Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales."
   >
     <div class="mt-16 flex justify-center">
-      <the-radio-toggle
-        v-model="frequency"
-        :options="frequencies"
-      />
+<!--      <the-radio-toggle-->
+<!--        v-model="frequency"-->
+<!--        :options="frequencies"-->
+<!--      />-->
     </div>
     <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
       <the-price-block
