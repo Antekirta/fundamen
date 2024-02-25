@@ -2,12 +2,17 @@
   <div class="the-item-horizontal">
     <Popover
       v-if="items && items.length"
+      v-slot="{ open }"
       class="relative"
     >
       <PopoverButton class="the-item-horizontal__popover-button">
         {{ title }}
-        <ChevronDownIcon
+        <component
+          :is="ChevronDownIcon"
           class="the-item-horizontal__icon"
+          :class="{
+            'transform rotate-180': open
+          }"
           aria-hidden="true"
         />
       </PopoverButton>
@@ -75,7 +80,8 @@ defineProps<{
 
 <style lang="scss">
 .the-item-horizontal {
-  @apply leading-6 tracking-wider text-3xl text-white;
+  @apply leading-6 tracking-wider text-3xl text-white hover:text-red;
+  @apply transition-colors duration-300;
 
   &__popover-button {
     @apply flex items-center gap-x-1;
@@ -86,24 +92,22 @@ defineProps<{
 
   &__icon {
     @apply h-5 w-5 flex-none;
+    @apply transition-transform duration-300;
   }
 
   &__popover-panel {
-    @apply absolute -left-8 top-full z-10 mt-3 shadow-lg ring-1 ring-gray-900/5 w-screen max-w-md overflow-hidden rounded-3xl;
-    background-image: url("../../../../../assets/images/bg/flour.png");
-    background-origin: padding-box;
-    background-position-x: 0;
-    background-position-y: 0;
-    background-repeat: repeat;
-    background-size: 40px 40px;
+    @apply absolute -left-8 top-full z-10 w-screen max-w-md overflow-hidden mt-3;
+    @apply shadow-lg ring-1 ring-gray-900/5 rounded-3xl;
+    @apply bg-paper;
   }
 
   &__sub-item {
-    @apply relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50;
+    @apply relative flex gap-x-6 p-4;
+    @apply rounded-none first-of-type:rounded-lg;
   }
 
   &__call-to-action {
-    @apply grid grid-cols-2 divide-x divide-gray-900/5;
+    @apply grid grid-cols-2;
   }
 }
 </style>

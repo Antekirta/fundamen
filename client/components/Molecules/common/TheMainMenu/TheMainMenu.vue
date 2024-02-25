@@ -1,5 +1,5 @@
 <template>
-  <PopoverGroup class="lg:flex lg:gap-x-12 items-baseline">
+  <PopoverGroup class="the-main-menu">
     <component
       :is="menuComponent"
       v-for="item in items"
@@ -16,12 +16,7 @@ import {
   PopoverGroup
 } from '@headlessui/vue'
 import { PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
-import {
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon
-} from '@heroicons/vue/24/outline'
+import { CakeIcon } from '@heroicons/vue/16/solid'
 import TheItemHorizontal from '@/components/Molecules/common/TheMainMenu/TheItem/TheItemHorizontal.vue'
 import TheItemVertical from '@/components/Molecules/common/TheMainMenu/TheItem/TheItemVertical.vue'
 
@@ -39,10 +34,10 @@ const items = [
   {
     title: 'Produtos',
     items: [
-      { name: 'Tortas', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-      { name: 'Bolos', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-      { name: 'Chocolates', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-      { name: 'Mil folhas', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon }
+      { name: 'Tortas', description: 'Get a better understanding of your traffic', href: '#', icon: CakeIcon },
+      { name: 'Bolos', description: 'Speak directly to your customers', href: '#', icon: CakeIcon },
+      { name: 'Chocolates', description: 'Your customers’ data will be safe and secure', href: '#', icon: CakeIcon },
+      { name: 'Mil folhas', description: 'Connect with third-party tools', href: '#', icon: CakeIcon }
     ],
     callsToAction: [
       { name: 'Escrever', href: '#', icon: PlayCircleIcon },
@@ -59,3 +54,9 @@ const items = [
   }
 ]
 </script>
+
+<style lang="scss">
+.the-main-menu {
+  @apply lg:flex lg:gap-x-12 items-baseline;
+}
+</style>

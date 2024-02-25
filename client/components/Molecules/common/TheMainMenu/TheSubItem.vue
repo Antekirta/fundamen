@@ -40,26 +40,39 @@ defineProps<{
 
 <style lang="scss">
 .the-sub-item {
-  @apply relative flex gap-x-6 rounded-lg p-4 leading-6 text-lg hover:bg-gray-50;
+  @apply relative flex gap-x-6;
+  @apply rounded-lg p-4;
+  @apply hover:bg-red;
+  @apply leading-6 text-lg text-brown hover:text-white;
+
+  &:hover {
+    .the-sub-item__icon {
+      @apply text-white;
+    }
+  }
 
   &__icon-container {
-    @apply mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white;
+    @apply mt-1 flex h-11 w-11 flex-none items-center justify-center;
+    @apply rounded-lg;
   }
 
   &__icon {
-    @apply h-6 w-6 text-gray-600 hover:text-indigo-600;
+    @apply h-8 w-8;
+    @apply text-red;
   }
 
   &__container {
     @apply flex-1;
+    @apply tracking-normal;
   }
 
   &__title {
-    @apply block text-lg font-semibold text-gray-900;
+    @apply block;
+    @apply text-lg font-semibold;
   }
 
-  &___description {
-    @apply mt-1 text-gray-600;
+  &__description {
+    @apply mt-1;
   }
 }
 </style>
