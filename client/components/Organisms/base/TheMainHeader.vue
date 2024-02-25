@@ -1,30 +1,31 @@
 <template>
   <header class="the-main-header">
     <nav
-      class="mx-auto flex max-w-7xl items-center justify-between px-2 py-2 lg:px-8"
+      class="the-main-header__nav"
       aria-label="Global"
     >
-      <the-main-logo class="mr-14" />
+      <the-main-logo class="the-main-header__logo" />
 
-      <div class="flex lg:hidden">
+      <div class="the-main-header__menu-toggle">
         <the-main-menu-toggle @click="openMenu" />
       </div>
 
-      <the-main-menu class="hidden lg:block" />
+      <the-main-menu class="the-main-header__main-menu" />
 
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <div class="the-main-header__login-btn-container">
         <the-login-button />
       </div>
     </nav>
 
     <Dialog
       as="div"
-      class="lg:hidden"
+      class="the-main-header__dialog"
       :open="mobileMenuOpen"
       @close="closeMenu"
     >
       <div class="fixed inset-0 z-10" />
-      <DialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+
+      <DialogPanel class="the-main-header__dialog-panel">
         <div class="flex items-center justify-between">
           <the-main-logo />
 
@@ -75,9 +76,35 @@ const closeMenu = () => {
 
 <style lang="scss">
 .the-main-header {
-  background: #310F01;
-  font-family: "Patrick Hand", cursive;
-  font-weight: 400;
-  font-style: normal;
+  @apply bg-brown;
+  @apply font-fancy;
+
+  &__nav {
+    @apply mx-auto flex max-w-7xl items-center justify-between px-2 py-2 lg:px-8;
+  }
+
+  &__logo {
+    @apply mr-14;
+  }
+
+  &__menu-toggle {
+    @apply flex lg:hidden;
+  }
+
+  &__main-menu {
+    @apply hidden lg:block;
+  }
+
+  &__login-btn-container {
+    @apply hidden lg:flex lg:flex-1 lg:justify-end;
+  }
+
+  &__dialog {
+    @apply lg:hidden;
+  }
+
+  &__dialog-panel {
+    @apply fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10;
+  }
 }
 </style>

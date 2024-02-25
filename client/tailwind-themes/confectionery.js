@@ -19,5 +19,8 @@ export default {
     red: {
       DEFAULT: '#C83621'
     }
+  },
+  fontFamily: {
+    fancy: ['"Patrick Hand"', 'cursive']
   }
 }
