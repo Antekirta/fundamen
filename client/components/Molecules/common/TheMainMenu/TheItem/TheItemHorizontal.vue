@@ -80,7 +80,7 @@ defineProps<{
 
 <style lang="scss">
 .the-item-horizontal {
-  @apply leading-6 tracking-wider text-3xl text-white hover:text-red;
+  @apply leading-6 tracking-wider text-3xl text-paper hover:text-red;
   @apply transition-colors duration-300;
 
   &__popover-button {

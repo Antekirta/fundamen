@@ -92,7 +92,7 @@ const closeMenu = () => {
   }
 
   &__main-menu {
-    @apply hidden lg:block;
+    @apply hidden lg:flex;
   }
 
   &__login-btn-container {

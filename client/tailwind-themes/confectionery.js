@@ -14,7 +14,7 @@ export default {
       DEFAULT: '#F7F6E4'
     },
     pink: {
-      DEFAULT: '#D11679'
+      DEFAULT: '#FF9486'
     },
     red: {
       DEFAULT: '#C83621'
