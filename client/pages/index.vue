@@ -1,10 +1,19 @@
 <template>
-  <div>
+  <the-special-offer
+    class="z-20"
+    :items="[
+      { title: 'Special offer 1' },
+      { title: 'Special offer 2' },
+      { title: 'Special offer 3' }
+    ]"
+  />
+
+  <div class="-mt-0 px-6 m-auto max-w-7xl min-h-screen">
     <section>
-      <the-hero-section-slider />
+      <the-hero-section-slider :slides="slides" />
     </section>
 
-<!--    <the-feature-section />-->
+    <!--    <the-feature-section />-->
 
     <!--    <the-price-section />-->
 
@@ -35,6 +44,26 @@ import TheLogoCloud from '@/components/Organisms/sections/TheLogoCloud.vue'
 import TheFaqSection from '@/components/Organisms/sections/TheFaqSection.vue'
 import TheCtaSection from '@/components/Organisms/sections/TheCtaSection.vue'
 import TheHeroSectionSlider from '@/components/Organisms/sections/TheHeroSection/TheHeroSectionSlider.vue'
+import TheSpecialOffer from '@/components/Organisms/sections/TheSpecialOffer/TheSpecialOffer.vue'
+
+const slides = [
+  {
+    title: 'Slide 1',
+    description: 'Slide 1 description',
+    image: '/slider/conf-shop.png'
+  },
+  {
+    title: 'Slide 2',
+    description: 'Slide 2 description',
+    image: '/slider/conf-shop.png'
+  },
+  {
+    title: 'Slide 3',
+    description: 'Slide 3 description',
+    image: '/slider/conf-shop.png'
+  }
+
+]
 
 // noinspection TypeScriptUnresolvedFunction
 definePageMeta({

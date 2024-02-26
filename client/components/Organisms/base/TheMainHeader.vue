@@ -76,6 +76,7 @@ const closeMenu = () => {
 
 <style lang="scss">
 .the-main-header {
+  @apply relative;
   @apply bg-brown;
   @apply font-fancy;
 
