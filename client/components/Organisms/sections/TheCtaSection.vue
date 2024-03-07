@@ -67,7 +67,7 @@
 
 <script setup lang="ts">
 import TheButton from '@/components/Atoms/form/TheButton/TheButton.vue'
-import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
+import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheDescription from '@/components/Atoms/typography/TheDescription.vue'
 </script>
 

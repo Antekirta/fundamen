@@ -35,7 +35,7 @@
 <script setup>
 import TheProductItem from '@/components/Molecules/page-specific/cart/TheProductItem.vue'
 import TheOrderSummary from '@/components/Molecules/page-specific/cart/TheOrderSummary.vue'
-import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
+import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 
 const products = [
   {

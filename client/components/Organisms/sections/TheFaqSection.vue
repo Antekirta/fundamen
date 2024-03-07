@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
+import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheDisclosureItem from '@/components/Atoms/items/TheDisclosureItem.vue'
 
 const faqs = [
