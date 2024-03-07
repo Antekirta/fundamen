@@ -3,7 +3,13 @@
     <div class="the-cta-section__container">
       <div class="the-cta-section__inner-container">
         <div class="the-cta-section__text-container lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
-          <the-header as="h2">
+          <the-header
+            as="h2"
+            size="giant"
+            color="dark"
+            font="fancy"
+            font-style="bold"
+          >
             Our people
           </the-header>
 

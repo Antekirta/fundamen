@@ -1,0 +1,44 @@
+.the-header {
+	&--color {
+		&--dark {
+			@apply text-brown;
+		}
+
+		&--light {
+			@apply text-flour;
+		}
+	}
+
+	&--size {
+		&--giant {
+			@apply text-5xl;
+		}
+		&--big {
+			@apply text-4xl;
+		}
+		&--large {
+			@apply text-3xl;
+		}
+		&--medium {
+			@apply text-2xl;
+		}
+		&--small {
+			@apply text-xl;
+		}
+		&--tiny {
+			@apply text-lg;
+		}
+	}
+
+	&--fontStyle {
+		&--bold {
+			@apply font-bold;
+		}
+	}
+
+	&--font {
+		&--fancy {
+			@apply font-fancy;
+		}
+	}
+}
