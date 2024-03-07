@@ -142,7 +142,7 @@
 
 <script lang="ts" setup>
 import { ref, computed, type Component } from 'vue'
-import TheButton from '@/components/Atoms/form/TheButton.vue'
+import TheButton from '@/components/Atoms/form/TheButton/TheButton.vue'
 
 const props = defineProps<{
   title?: string

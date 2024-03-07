@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import TheButton from '@/components/Atoms/form/TheButton.vue'
+import TheButton from '@/components/Atoms/form/TheButton/TheButton.vue'
 import TheSimpleTable from '@/components/Molecules/common/lists/TheSimpleTable.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader.vue'
 

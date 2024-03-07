@@ -62,5 +62,5 @@
 <script setup lang="ts">
 import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
 import TheTextarea from '@/components/Atoms/form/TheTextarea.vue'
-import TheButton from '@/components/Atoms/form/TheButton.vue'
+import TheButton from '@/components/Atoms/form/TheButton/TheButton.vue'
 </script>

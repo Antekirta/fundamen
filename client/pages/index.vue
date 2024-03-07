@@ -29,7 +29,7 @@
 
     <!--    <the-faq-section />-->
 
-    <!--    <the-cta-section />-->
+    <the-cta-section />
   </div>
 </template>
 
