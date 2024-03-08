@@ -10,7 +10,7 @@
             font="fancy"
             font-style="bold"
           >
-            Our people
+            {{ $t('sections.cta.title') }}
           </the-header>
 
           <the-description class="mt-4">
