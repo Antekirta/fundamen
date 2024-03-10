@@ -1,5 +1,7 @@
 <template>
   <div class="the-cta-section">
+    <!--    <div class="v-clarifier"></div>-->
+
     <div class="the-cta-section__container">
       <div class="the-cta-section__inner-container">
         <div class="the-cta-section__text-container lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
@@ -13,12 +15,19 @@
             {{ $t('sections.cta.title') }}
           </the-header>
 
-          <the-description class="mt-4">
-            Quasi est quaerat. Sit molestiae et. Provident ad dolorem occaecati eos iste. Soluta rerum quidem minus ut molestiae velit error quod. Excepturi quidem expedita molestias quas.
-          </the-description>
+          <the-description
+            v-clarifier
+            class="mt-4"
+            size="md"
+            font="fancy"
+          >
+            <p>
+              Quasi est quaerat. Sit molestiae et. Provident ad dolorem occaecati eos iste. Soluta rerum quidem minus ut molestiae velit error quod. Excepturi quidem expedita molestias quas.
+            </p>
 
-          <the-description class="mt-2">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat. Quasi aperiam sit non sit neque reprehenderit.
+            <p class="mt-2">
+              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat. Quasi aperiam sit non sit neque reprehenderit.
+            </p>
           </the-description>
 
           <div class="mt-10 flex">
@@ -74,12 +83,13 @@
 <script setup lang="ts">
 import TheButton from '@/components/Atoms/form/TheButton/TheButton.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
-import TheDescription from '@/components/Atoms/typography/TheDescription.vue'
+import TheDescription from '@/components/Atoms/typography/TheDescription/TheDescription.vue'
+import { vClarifier } from '@/directives/v-clarifier/v-clarifier'
 </script>
 
 <style lang="scss">
 .the-cta-section {
-  @apply overflow-hidden py-32;
+  @apply py-32;
 
   &__container {
     @apply mx-auto max-w-7xl px-6 lg:flex lg:px-8;

@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import ThePreheader from '@/components/Atoms/typography/ThePreheader.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
-import TheDescription from '@/components/Atoms/typography/TheDescription.vue'
+import TheDescription from '@/components/Atoms/typography/TheDescription/TheDescription.vue'
 
 defineProps<{
   preheader?: string

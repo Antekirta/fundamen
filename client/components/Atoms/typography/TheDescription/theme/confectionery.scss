@@ -1,0 +1,45 @@
+.the-description {
+	&--color {
+		&--dark {
+			@apply text-brown;
+		}
+
+		&--light {
+			@apply text-flour;
+		}
+	}
+
+	&--size {
+		&--sm {
+			font-size: 1.2rem;
+		}
+		&--md {
+			font-size: 1.4rem;
+		}
+		&--lg {
+			font-size: 1.6rem;
+		}
+	}
+
+	&--fontStyle {
+		&--bold {
+			@apply font-bold;
+		}
+	}
+
+	&--font {
+		&--fancy {
+			@apply font-fancy;
+		}
+	}
+}.the-clarifier {
+	 width: 200px;
+	 height: 200px;
+	 border-radius: 50%;
+	 background: yellow;
+	 position: absolute;
+	 z-index: -1;
+	 top: 1060px;
+	 left: 100px;
+	 filter: blur(14px);
+ }

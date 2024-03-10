@@ -125,7 +125,7 @@
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/outline'
 import GMapMap from '@fawmi/vue-google-maps/src/components/map.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
-import TheDescription from '@/components/Atoms/typography/TheDescription.vue'
+import TheDescription from '@/components/Atoms/typography/TheDescription/TheDescription.vue'
 import TheContactForm from '@/components/Organisms/forms/TheContactForm.vue'
 
 // noinspection TypeScriptUnresolvedFunction

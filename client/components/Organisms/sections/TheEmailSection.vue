@@ -37,5 +37,5 @@ import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
 import TheButton from '@/components/Atoms/form/TheButton/TheButton.vue'
 import TheLink from '@/components/Atoms/typography/TheLink.vue'
-import TheDescription from '@/components/Atoms/typography/TheDescription.vue'
+import TheDescription from '@/components/Atoms/typography/TheDescription/TheDescription.vue'
 </script>
