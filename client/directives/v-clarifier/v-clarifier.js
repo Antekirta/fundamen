@@ -4,11 +4,11 @@ export const vClarifier = {
   mounted (el) {
     const clarifier = document
       .createElement('div')
-    const rect = el.getBoundingClientRect()
     el.style.position = 'relative'
     clarifier.classList.add('v-clarifier')
 
     const onMouseMove = (e) => {
+      const rect = el.getBoundingClientRect()
       const x = e.clientX - rect.left // x position within the element.
       const y = e.clientY - rect.top // y position within the element.
 
