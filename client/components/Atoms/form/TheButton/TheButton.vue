@@ -2,7 +2,7 @@
   <component
     :is="as"
     :href="link"
-    :class="`the-button the-button--${color}`"
+    :class="`the-button the-button--${color} the-button--font--${font}`"
     v-bind="$attrs"
   >
     <slot />
@@ -11,9 +11,10 @@
 
 <script setup lang="ts">
 withDefaults(defineProps<{
-  color: 'dark' | 'light' | 'transparent-bordered' | 'transparent',
+  color: 'dark' | 'light' | 'transparent-bordered' | 'transparent'
   as?: string
-  link?: string,
+  link?: string
+  font: 'fancy'
 }>(), {
   as: 'a',
   link: '#'

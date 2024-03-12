@@ -19,12 +19,12 @@
             size="md"
             font="fancy"
           >
-            <p>
-              Quasi est quaerat. Sit molestiae et. Provident ad dolorem occaecati eos iste. Soluta rerum quidem minus ut molestiae velit error quod. Excepturi quidem expedita molestias quas.
-            </p>
-
-            <p class="mt-2">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat. Quasi aperiam sit non sit neque reprehenderit.
+            <p
+              v-for="(text, i) in $t('sections.cta.description', { returnObjects: true })"
+              :key="i"
+              class="mb-2"
+            >
+              {{ text }}
             </p>
           </the-description>
 
@@ -32,8 +32,9 @@
             <the-button
               as="button"
               color="light"
+              font="fancy"
             >
-              Join our team <span aria-hidden="true">&rarr;</span>
+              {{ $t('sections.cta.button') }}
             </the-button>
           </div>
         </div>
@@ -42,28 +43,28 @@
           <div class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
             <the-image
               img-classes="the-cta-section__image aspect-[7/5] w-[37rem]"
-              src="/about-3.jpg"
+              :src="images.about3.src"
             />
           </div>
 
           <div class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
             <div class="order-first flex w-96 flex-none justify-end self-end lg:w-auto">
               <the-image
-                src="/cake.jpg"
+                :src="images.cake.src"
                 img-classes="the-cta-section__image aspect-[4/4] w-[24rem] "
               />
             </div>
 
             <div class="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none translate-y-6">
               <the-image
-                src="/about-2.jpg"
+                :src="images.about2.src"
                 img-classes="the-cta-section__image aspect-[7/6] w-[37rem] "
               />
             </div>
 
             <div class="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
               <the-image
-                src="/croiissant.jpg"
+                :src="images.croissant.src"
                 img-classes="the-cta-section__image  aspect-[4/3] w-[24rem] "
               />
             </div>
@@ -80,6 +81,25 @@ import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheDescription from '@/components/Atoms/typography/TheDescription/TheDescription.vue'
 import { vClarifier } from '@/directives/v-clarifier/v-clarifier'
 import TheImage from '@/components/Atoms/images/TheImage/TheImage.vue'
+
+const images = {
+  cake: {
+    src: '/cake.jpg',
+    alt: 'A cake'
+  },
+  croissant: {
+    src: '/croissant.jpg',
+    alt: 'A croissant'
+  },
+  about2: {
+    src: '/about-2.jpg',
+    alt: 'A person'
+  },
+  about3: {
+    src: '/about-3.jpg',
+    alt: 'A person'
+  }
+}
 </script>
 
 <style lang="scss">
@@ -95,7 +115,7 @@ import TheImage from '@/components/Atoms/images/TheImage/TheImage.vue'
   }
 
   &__images-container {
-    @apply flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents;
+    @apply flex flex-wrap items-start justify-end gap-6 sm:gap-8 hidden lg:contents;
   }
 
   &__image {

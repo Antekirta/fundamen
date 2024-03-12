@@ -17,4 +17,10 @@
 	&--transparent {
 		@apply text-brown;
 	}
+
+	&--font {
+		&--fancy {
+			@apply font-fancy tracking-wider text-lg;
+		}
+	}
 }
