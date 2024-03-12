@@ -77,5 +77,5 @@
 import TheButton from '@/components/Atoms/form/TheButton/TheButton.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheDescription from '@/components/Atoms/typography/TheDescription/TheDescription.vue'
-import TheImage from '@/components/Atoms/images/TheImage.vue'
+import TheImage from '@/components/Atoms/images/TheImage/TheImage.vue'
 </script>
