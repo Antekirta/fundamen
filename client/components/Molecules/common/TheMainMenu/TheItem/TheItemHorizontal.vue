@@ -84,6 +84,7 @@ defineProps<{
   @apply transition-colors duration-300;
 
   &__popover-button {
+    outline: none!important;
     @apply flex items-center gap-x-1;
     @apply tracking-wide;
     @apply active:ring-0;
