@@ -7,7 +7,10 @@
       <the-main-logo class="the-main-header__logo" />
 
       <div class="the-main-header__menu-toggle">
-        <the-main-menu-toggle @click="openMenu" />
+        <the-main-menu-toggle
+          color="light"
+          @click="openMenu"
+        />
       </div>
 
       <the-main-menu class="the-main-header__main-menu" />
@@ -59,7 +62,7 @@ import {
 } from '@headlessui/vue'
 
 import TheMainLogo from '@/components/Molecules/common/images/TheMainLogo.vue'
-import TheMainMenuToggle from '@/components/Molecules/common/buttons/TheMenuToggle.vue'
+import TheMainMenuToggle from '@/components/Molecules/common/buttons/TheMenuToggle/TheMenuToggle.vue'
 import TheMainMenu from '@/components/Molecules/common/TheMainMenu/TheMainMenu.vue'
 import TheLoginButton from '@/components/Molecules/common/buttons/TheLoginButton.vue'
 

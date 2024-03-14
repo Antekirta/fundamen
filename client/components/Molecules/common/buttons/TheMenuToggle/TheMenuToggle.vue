@@ -1,13 +1,13 @@
 <template>
   <button
     type="button"
-    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+    :class="`the-menu-toggle the-menu-toggle--color--${color}`"
   >
     <span class="sr-only">{{ srText }}</span>
 
     <component
       :is="icon"
-      class="h-6 w-6"
+      class="h-10 w-10"
       aria-hidden="true"
     />
   </button>
@@ -19,10 +19,18 @@ import {
   XMarkIcon
 } from '@heroicons/vue/24/outline'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   isClosing?: boolean
-}>()
+  color?: 'dark' | 'light'
+}>(), {
+  isClosing: false,
+  color: 'dark'
+})
 
 const srText = props.isClosing ? 'Close menu' : 'Open menu'
 const icon = props.isClosing ? XMarkIcon : Bars3Icon
 </script>
+
+<style lang="scss">
+@import './theme/confectionery.scss';
+</style>

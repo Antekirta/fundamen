@@ -1,0 +1,13 @@
+.the-menu-toggle {
+	@apply inline-flex items-center justify-center rounded-md p-2.5;
+
+	&--color {
+		&--dark {
+			@apply text-brown;
+		}
+
+		&--light {
+			@apply text-flour;
+		}
+	}
+}
