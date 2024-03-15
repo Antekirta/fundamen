@@ -3,8 +3,6 @@
     type="button"
     :class="`the-menu-toggle the-menu-toggle--color--${color}`"
   >
-    <span class="sr-only">{{ srText }}</span>
-
     <component
       :is="icon"
       class="h-10 w-10"
@@ -16,7 +14,7 @@
 <script setup lang="ts">
 import {
   Bars3Icon,
-  XMarkIcon
+  ChevronDoubleRightIcon
 } from '@heroicons/vue/24/outline'
 
 const props = withDefaults(defineProps<{
@@ -27,8 +25,7 @@ const props = withDefaults(defineProps<{
   color: 'dark'
 })
 
-const srText = props.isClosing ? 'Close menu' : 'Open menu'
-const icon = props.isClosing ? XMarkIcon : Bars3Icon
+const icon = props.isClosing ? ChevronDoubleRightIcon : Bars3Icon
 </script>
 
 <style lang="scss">

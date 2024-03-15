@@ -20,46 +20,37 @@
       </div>
     </nav>
 
-    <Dialog
-      as="div"
-      class="the-main-header__dialog"
-      :open="mobileMenuOpen"
-      @close="closeMenu"
+    <div
+      class="the-main-header__dialog-panel"
+      :class="{
+        'the-main-header__dialog-panel--open': mobileMenuOpen
+      }"
     >
-      <div class="fixed inset-0 z-10" />
+      <div class="flex items-center justify-end">
+        <the-main-menu-toggle
+          color="light"
+          is-closing
+          @click="closeMenu"
+        />
+      </div>
 
-      <DialogPanel class="the-main-header__dialog-panel">
-        <div class="flex items-center justify-between">
-          <the-main-logo />
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-gray-500/10">
+          <div class="space-y-2 py-6">
+            <the-main-menu is-mobile />
+          </div>
 
-          <the-main-menu-toggle
-            is-closing
-            @click="closeMenu"
-          />
-        </div>
-
-        <div class="mt-6 flow-root">
-          <div class="-my-6 divide-y divide-gray-500/10">
-            <div class="space-y-2 py-6">
-              <the-main-menu is-mobile />
-            </div>
-
-            <div class="py-6">
-              <the-login-button />
-            </div>
+          <div class="py-6">
+            <the-login-button />
           </div>
         </div>
-      </DialogPanel>
-    </Dialog>
+      </div>
+    </div>
   </header>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import {
-  Dialog,
-  DialogPanel
-} from '@headlessui/vue'
 
 import TheMainLogo from '@/components/Molecules/common/images/TheMainLogo.vue'
 import TheMainMenuToggle from '@/components/Molecules/common/buttons/TheMenuToggle/TheMenuToggle.vue'
@@ -108,7 +99,13 @@ const closeMenu = () => {
   }
 
   &__dialog-panel {
-    @apply fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10;
+    @apply fixed w-96 h-screen px-3 py-7 top-0 -right-full z-30;
+    @apply bg-brown;
+    @apply transition-all duration-700;
+
+    &--open {
+      @apply right-0;
+    }
   }
 }
 </style>
