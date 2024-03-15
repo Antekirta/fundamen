@@ -5,6 +5,7 @@
       v-for="item in items"
       :key="item.title"
       :title="item.title"
+      :item-color="isMobile ? 'light' : 'dark'"
       :items="item.items"
       :calls-to-action="item.callsToAction"
     />

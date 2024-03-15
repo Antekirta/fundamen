@@ -1,0 +1,11 @@
+.the-list-item {
+	&--color {
+		&--dark {
+			@apply text-brown;
+		}
+
+		&--light {
+			@apply text-flour;
+		}
+	}
+}
