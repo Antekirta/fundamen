@@ -1,7 +1,11 @@
 <template>
   <component
     :is="as"
-    :class="`the-list-item the-list-item--color--${color}`"
+    :class="`
+    the-list-item
+     the-list-item--color--${color}
+     the-list-item--size--${size}
+     `"
     :href="href"
   >
     {{ title }}
@@ -15,6 +19,7 @@ withDefaults(
     href: string
     title: string
     color?: 'dark' | 'light'
+    size?: 'giant' | 'big' | 'large' | 'medium' | 'small' | 'tiny'
   }>(),
   {
     as: 'a',
@@ -22,6 +27,40 @@ withDefaults(
     color: 'dark'
   })
 </script>
+
+<style lang="scss">
+.the-list-item {
+  &--color {
+    &--dark {
+      @apply text-black;
+    }
+    &--light {
+      @apply text-white;
+    }
+  }
+
+  &--size {
+    &--giant {
+      @apply text-5xl;
+    }
+    &--big {
+      @apply text-4xl;
+    }
+    &--large {
+      @apply text-3xl;
+    }
+    &--medium {
+      @apply text-2xl;
+    }
+    &--small {
+      @apply text-xl;
+    }
+    &--tiny {
+      @apply text-base;
+    }
+  }
+}
+</style>
 
 <style lang="scss">
 @import 'theme/confectionery.scss';

@@ -6,8 +6,10 @@
       :key="item.title"
       :title="item.title"
       :item-color="isMobile ? 'light' : 'dark'"
+      :item-size="isMobile ? 'medium' : 'medium'"
       :items="item.items"
       :calls-to-action="item.callsToAction"
+      class="min-h-10"
     />
   </PopoverGroup>
 </template>
