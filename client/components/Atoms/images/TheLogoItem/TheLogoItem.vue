@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-gray-400/5 p-8 sm:p-10">
+  <div class="the-logo-item">
     <img
-      class="max-h-12 w-full object-contain"
+      class="the-logo-item__image"
       :src="src"
       :alt="title"
       :width="width"
@@ -9,6 +9,7 @@
     >
   </div>
 </template>
+
 <script setup lang="ts">
 withDefaults(defineProps<{
   src: string
@@ -20,3 +21,13 @@ withDefaults(defineProps<{
   height: 50
 })
 </script>
+
+<style lang="scss">
+.the-logo-item {
+  @apply bg-gray-400/5 p-8 sm:p-10;
+
+  &__image {
+    @apply max-h-12 w-full object-contain;
+  }
+}
+</style>

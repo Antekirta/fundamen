@@ -13,7 +13,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import TheLogoItem from '@/components/Atoms/images/TheLogoItem.vue'
+import TheLogoItem from '@/components/Atoms/images/TheLogoItem/TheLogoItem.vue'
 
 const logos = [
   {
