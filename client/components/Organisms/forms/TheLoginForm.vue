@@ -94,7 +94,7 @@
 </template>
 <script setup lang="ts">
 import TheInput from '@/components/Atoms/form/inputs/TheInput/TheInput/TheInput.vue'
-import TheCheckbox from '@/components/Atoms/form/TheCheckbox.vue'
+import TheCheckbox from '@/components/Atoms/form/TheCheckbox/TheCheckbox.vue'
 import TheLink from '@/components/Atoms/typography/TheLink.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
