@@ -20,32 +20,40 @@
       </div>
     </nav>
 
-    <div
-      class="the-main-header__dialog-panel"
-      :class="{
-        'the-main-header__dialog-panel--open': mobileMenuOpen
-      }"
-    >
-      <div class="flex items-center justify-end">
-        <the-main-menu-toggle
-          color="light"
-          is-closing
-          @click="closeMenu"
-        />
-      </div>
+    <Transition name="fade">
+      <the-underlay
+        v-show="mobileMenuOpen"
+        class="the-main-header__the-underline"
+        @click="closeMenu"
+      />
+    </Transition>
 
-      <div class="mt-6 flow-root">
-        <div class="-my-6 divide-y divide-gray-500/10">
-          <div class="space-y-2 py-6">
-            <the-main-menu is-mobile />
-          </div>
+    <Transition name="slide-from-right">
+      <div
+        v-if="mobileMenuOpen"
+        class="the-main-header__dialog-panel"
+      >
+        <div class="flex items-center justify-end">
+          <the-main-menu-toggle
+            color="light"
+            is-closing
+            @click="closeMenu"
+          />
+        </div>
 
-          <div class="py-6">
-            <the-login-button />
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+              <the-main-menu is-mobile />
+            </div>
+
+            <div class="py-6">
+              <the-login-button />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Transition>
   </header>
 </template>
 
@@ -56,6 +64,7 @@ import TheMainLogo from '@/components/Molecules/common/images/TheMainLogo.vue'
 import TheMainMenuToggle from '@/components/Molecules/common/buttons/TheMenuToggle/TheMenuToggle.vue'
 import TheMainMenu from '@/components/Molecules/common/TheMainMenu/TheMainMenu.vue'
 import TheLoginButton from '@/components/Molecules/common/buttons/TheLoginButton.vue'
+import TheUnderlay from '@/components/Atoms/TheUnderlay/TheUnderlay.vue'
 
 const mobileMenuOpen = ref(false)
 
@@ -94,18 +103,37 @@ const closeMenu = () => {
     @apply hidden lg:flex lg:flex-1 lg:justify-end;
   }
 
+  &__the-underline {
+    @apply transition-all duration-700;
+  }
+
   &__dialog {
     @apply lg:hidden;
   }
 
   &__dialog-panel {
-    @apply fixed w-96 h-screen px-3 py-7 top-0 -right-full z-30;
+    @apply fixed w-72 h-screen px-3 py-7 top-0 right-0 z-30;
     @apply bg-brown;
-    @apply transition-all duration-700;
-
-    &--open {
-      @apply right-0;
-    }
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-from-right-enter-active,
+.slide-from-right-leave-active {
+  @apply transition-all duration-700;
+}
+
+.slide-from-right-enter-from,
+.slide-from-right-leave-to {
+  @apply -right-full;
 }
 </style>
