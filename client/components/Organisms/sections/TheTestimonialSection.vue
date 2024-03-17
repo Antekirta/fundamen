@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-import TheBgVague from '@/components/Molecules/common/background/TheBgVague.vue'
+import TheBgVague from '@/components/Molecules/common/background/TheBgVague/TheBgVague.vue'
 import TheTestimonialBig from '@/components/Molecules/common/testimonials/TheTestimonialBig.vue'
 import TheTestimonialSmall from '@/components/Molecules/common/testimonials/TheTestimonialSmall.vue'
 import TheSection from '@/components/Molecules/common/TheSection.vue'
