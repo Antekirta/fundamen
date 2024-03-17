@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import TheDivider from '@/components/Atoms/layout/TheDivider.vue'
+import TheDivider from '@/components/Atoms/layout/TheDivider/TheDivider.vue'
 
 defineProps<{
   title?: string
