@@ -125,7 +125,7 @@ import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
 import TheSimpleHeader from '@/components/Atoms/typography/TheSimpleHeader.vue'
 import TheText from '@/components/Atoms/typography/TheText.vue'
 import TheSimpleList from '@/components/Atoms/typography/TheSimpleList.vue'
-import TheSimplePanel from '@/components/Atoms/panels/TheSimplePanel.vue'
+import TheSimplePanel from '@/components/Atoms/panels/TheSimplePanel/TheSimplePanel.vue'
 
 const product = {
   name: 'Basic Tee',
