@@ -61,6 +61,6 @@
 
 <script setup lang="ts">
 import TheInput from '@/components/Atoms/form/inputs/TheInput/TheInput/TheInput.vue'
-import TheTextarea from '@/components/Atoms/form/TheTextarea.vue'
+import TheTextarea from '@/components/Atoms/form/inputs/TheTextarea/TheTextarea.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
 </script>
