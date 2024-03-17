@@ -122,7 +122,7 @@ import TheProductImagesGallery from '@/components/Molecules/common/TheProductIma
 import TheColorPicker from '@/components/Atoms/form/TheColorPicker/TheColorPicker.vue'
 import TheSizePicker from '@/components/Atoms/form/TheSizePicker/TheSizePicker.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
-import TheSimpleHeader from '@/components/Atoms/typography/TheSimpleHeader.vue'
+import TheSimpleHeader from '@/components/Atoms/typography/TheSimpleHeader/TheSimpleHeader.vue'
 import TheText from '@/components/Atoms/typography/TheText.vue'
 import TheSimpleList from '@/components/Atoms/typography/TheSimpleList.vue'
 import TheSimplePanel from '@/components/Atoms/panels/TheSimplePanel/TheSimplePanel.vue'

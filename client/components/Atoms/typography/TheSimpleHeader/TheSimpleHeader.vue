@@ -1,7 +1,7 @@
 <template>
   <component
     :is="as"
-    class="text-sm font-medium text-gray-900"
+    class="the-simple-header"
   >
     <slot />
   </component>
@@ -15,3 +15,9 @@ withDefaults(defineProps<{
   color: 'gray'
 })
 </script>
+
+<style lang="scss">
+.the-simple-header {
+  @apply text-sm font-medium text-gray-900;
+}
+</style>
