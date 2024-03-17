@@ -74,7 +74,7 @@ const reduce = () => {
   }
 
   &__container {
-    @apply mt-2 flex direction-horizontal justify-start rounded-md shadow-sm;
+    @apply mt-2 flex justify-start rounded-md shadow-sm;
   }
 
   &__handle {

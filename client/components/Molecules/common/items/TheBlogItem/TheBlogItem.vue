@@ -106,7 +106,7 @@ defineProps<{
   }
 
   &__title-container {
-    @apply group relative;
+    @apply relative;
   }
 
   &__title {
