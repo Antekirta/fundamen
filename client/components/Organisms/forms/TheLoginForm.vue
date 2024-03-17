@@ -98,6 +98,6 @@ import TheCheckbox from '@/components/Atoms/form/TheCheckbox/TheCheckbox.vue'
 import TheLink from '@/components/Atoms/typography/TheLink/TheLink.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
-import TheGoogleAuthBtn from '@/components/Molecules/common/buttons/TheGoogleAuthBtn.vue'
+import TheGoogleAuthBtn from '@/components/Molecules/common/buttons/TheGoogleAuthBtn/TheGoogleAuthBtn.vue'
 import TheGithubAuthButton from '@/components/Molecules/common/buttons/TheGithubAuthButton/TheGithubAuthButton.vue'
 </script>

@@ -1,10 +1,10 @@
 <template>
   <a
     href="#"
-    class="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent"
+    class="the-button"
   >
     <svg
-      class="h-5 w-5"
+      class="the-button__icon"
       aria-hidden="true"
       viewBox="0 0 24 24"
     >
@@ -25,6 +25,20 @@
         fill="#34A853"
       />
     </svg>
-    <span class="text-sm font-semibold leading-6">Google</span>
+    <span class="the-button__text">Google</span>
   </a>
 </template>
+
+<style lang="scss">
+.the-button {
+  @apply flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent;
+
+  &__icon {
+    @apply h-5 w-5;
+  }
+
+  &__text {
+    @apply text-sm font-semibold leading-6;
+  }
+}
+</style>
