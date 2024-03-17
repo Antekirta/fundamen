@@ -22,7 +22,7 @@
 
 <script setup>
 import TheSection from '@/components/Molecules/common/TheSection.vue'
-import TheBlogItem from '@/components/Molecules/common/items/TheBlogItem.vue'
+import TheBlogItem from '@/components/Molecules/common/items/TheBlogItem/TheBlogItem.vue'
 
 const posts = [
   {
