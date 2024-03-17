@@ -1,10 +1,13 @@
 <template>
-  <RadioGroup v-model="model">
-    <RadioGroupLabel>
+  <RadioGroup
+    v-model="model"
+    class="the-size-picker"
+  >
+    <RadioGroupLabel class="the-size-picker__label">
       {{ label }}
     </RadioGroupLabel>
 
-    <div class="mt-2 grid grid-cols-3 gap-3 sm:grid-cols-6">
+    <div class="the-size-picker__grid">
       <RadioGroupOption
         v-for="size in sizes"
         :key="size.name"
@@ -12,9 +15,19 @@
         as="template"
         :value="size.name"
         :disabled="!size.inStock"
+        class="the-size-picker__option"
       >
-        <div :class="[size.inStock ? 'cursor-pointer focus:outline-none' : 'cursor-not-allowed opacity-25', active ? 'ring-2 ring-indigo-500 ring-offset-2' : '', checked ? 'border-transparent bg-indigo-600 text-white hover:bg-indigo-700' : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50', 'flex items-center justify-center rounded-md border py-3 px-3 text-sm font-medium uppercase sm:flex-1']">
-          <RadioGroupLabel as="span">
+        <div
+          :class="[
+            size.inStock ? 'the-size-picker__button' : 'the-size-picker__button--disabled',
+            active ? 'the-size-picker__button--active' : '',
+            checked ? 'the-size-picker__button--checked' : 'the-size-picker__button--unchecked'
+          ]"
+        >
+          <RadioGroupLabel
+            as="span"
+            class="the-size-picker__button-label"
+          >
             {{ size.name }}
           </RadioGroupLabel>
         </div>
@@ -22,6 +35,7 @@
     </div>
   </RadioGroup>
 </template>
+
 <script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 
