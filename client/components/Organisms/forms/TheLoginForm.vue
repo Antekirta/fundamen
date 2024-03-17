@@ -93,7 +93,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
+import TheInput from '@/components/Atoms/form/inputs/TheInput/TheInput/TheInput.vue'
 import TheCheckbox from '@/components/Atoms/form/TheCheckbox.vue'
 import TheLink from '@/components/Atoms/typography/TheLink.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'

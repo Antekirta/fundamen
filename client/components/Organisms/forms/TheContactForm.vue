@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
+import TheInput from '@/components/Atoms/form/inputs/TheInput/TheInput/TheInput.vue'
 import TheTextarea from '@/components/Atoms/form/TheTextarea.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
 </script>

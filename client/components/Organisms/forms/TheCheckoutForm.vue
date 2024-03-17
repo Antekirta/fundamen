@@ -141,7 +141,7 @@
 
 <script setup lang="ts">
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
-import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
+import TheInput from '@/components/Atoms/form/inputs/TheInput/TheInput/TheInput.vue'
 import TheDivider from '@/components/Atoms/layout/TheDivider.vue'
 import TheSelect from '@/components/Atoms/form/TheSelect.vue'
 import TheRadioPanel from '@/components/Atoms/form/radio/TheRadioPanel/TheRadioPanel.vue'
