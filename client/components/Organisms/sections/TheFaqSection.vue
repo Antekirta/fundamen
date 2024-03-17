@@ -22,7 +22,7 @@
 
 <script setup>
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
-import TheDisclosureItem from '@/components/Atoms/items/TheDisclosureItem.vue'
+import TheDisclosureItem from '@/components/Atoms/items/TheDisclosureItem/TheDisclosureItem.vue'
 
 const faqs = [
   {
