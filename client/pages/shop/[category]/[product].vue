@@ -119,7 +119,7 @@ import { CurrencyDollarIcon, GlobeAmericasIcon } from '@heroicons/vue/24/outline
 import TheBreadcrumbs from '@/components/Molecules/common/TheBreadcrumbs.vue'
 import TheRating from '@/components/Molecules/common/TheRating.vue'
 import TheProductImagesGallery from '@/components/Molecules/common/TheProductImagesGallery.vue'
-import TheColorPicker from '@/components/Atoms/form/TheColorPicker.vue'
+import TheColorPicker from '@/components/Atoms/form/TheColorPicker/TheColorPicker.vue'
 import TheSizePicker from '@/components/Atoms/form/TheSizePicker.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
 import TheSimpleHeader from '@/components/Atoms/typography/TheSimpleHeader.vue'
