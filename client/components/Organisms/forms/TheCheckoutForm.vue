@@ -143,7 +143,7 @@
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheInput from '@/components/Atoms/form/inputs/TheInput/TheInput/TheInput.vue'
 import TheDivider from '@/components/Atoms/layout/TheDivider.vue'
-import TheSelect from '@/components/Atoms/form/TheSelect.vue'
+import TheSelect from '@/components/Atoms/form/select/TheSelect/TheSelect.vue'
 import TheRadioPanel from '@/components/Atoms/form/radio/TheRadioPanel/TheRadioPanel.vue'
 import ThePaymentForm from '@/components/Organisms/forms/ThePaymentForm.vue'
 
