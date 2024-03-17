@@ -54,7 +54,7 @@
 
 <script setup lang="ts">
 import TheInput from '@/components/Atoms/form/TheInput/TheInput.vue'
-import TheRadioGroup from '@/components/Atoms/form/radio/TheRadioGroup.vue'
+import TheRadioGroup from '@/components/Atoms/form/radio/TheRadioGroup/TheRadioGroup.vue'
 
 const model = reactive({
   paymentType: '',
