@@ -2,10 +2,11 @@
   <TransitionRoot
     as="template"
     :show="isOpen"
+    class="the-modal"
   >
     <Dialog
       as="div"
-      class="relative z-10"
+      class="the-modal__backdrop"
       @close="close"
     >
       <TransitionChild
@@ -16,12 +17,13 @@
         leave="ease-in duration-200"
         leave-from="opacity-100"
         leave-to="opacity-0"
+        class="the-modal__overlay-transition"
       >
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+        <div class="the-modal__overlay" />
       </TransitionChild>
 
-      <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+      <div class="the-modal__container">
+        <div class="the-modal__inner">
           <TransitionChild
             as="template"
             enter="ease-out duration-300"
@@ -30,6 +32,7 @@
             leave="ease-in duration-200"
             leave-from="opacity-100 translate-y-0 sm:scale-100"
             leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            class="the-modal__content-transition"
           >
             <DialogPanel
               class="the-modal__content"
@@ -78,4 +81,19 @@ const close = () => {
     max-width: 90vw;
   }
 }
+
+/* Here you might define transition or other modal-specific styles. */
+.the-modal__overlay {
+  @apply fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity;
+}
+
+.the-modal__container {
+  @apply fixed inset-0 z-10 w-screen overflow-y-auto;
+}
+
+.the-modal__inner {
+  @apply flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0;
+}
+
+/* Additional styles for content, backdrop, and transitions can be applied here */
 </style>

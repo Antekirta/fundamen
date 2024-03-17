@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import TheModal from '@/components/Atoms/TheModal.vue'
+import TheModal from '@/components/Atoms/other/TheModal/TheModal.vue'
 import TheLoginForm from '@/components/Organisms/forms/TheLoginForm.vue'
 
 // eslint-disable-next-line func-call-spacing
