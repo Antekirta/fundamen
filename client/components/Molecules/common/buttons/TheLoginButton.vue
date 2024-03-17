@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import TheLoginModal from '@/components/Organisms/modals/TheLoginModal.vue'
-import TheButton from '@/components/Atoms/form/TheButton/TheButton.vue'
+import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
 
 const modals = reactive({
   login: {

@@ -76,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-import TheButton from '@/components/Atoms/form/TheButton/TheButton.vue'
+import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheDescription from '@/components/Atoms/typography/TheDescription/TheDescription.vue'
 import { vClarifier } from '@/directives/v-clarifier/v-clarifier'
