@@ -124,7 +124,7 @@ import TheSizePicker from '@/components/Atoms/form/TheSizePicker/TheSizePicker.v
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
 import TheSimpleHeader from '@/components/Atoms/typography/TheSimpleHeader/TheSimpleHeader.vue'
 import TheText from '@/components/Atoms/typography/TheText.vue'
-import TheSimpleList from '@/components/Atoms/typography/TheSimpleList.vue'
+import TheSimpleList from '@/components/Atoms/typography/TheSimpleList/TheSimpleList.vue'
 import TheSimplePanel from '@/components/Atoms/panels/TheSimplePanel/TheSimplePanel.vue'
 
 const product = {
