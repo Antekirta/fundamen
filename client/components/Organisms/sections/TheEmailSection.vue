@@ -36,6 +36,6 @@ import TheSection from '@/components/Molecules/common/TheSection.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheInput from '@/components/Atoms/form/inputs/TheInput/TheInput/TheInput.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
-import TheLink from '@/components/Atoms/typography/TheLink.vue'
+import TheLink from '@/components/Atoms/typography/TheLink/TheLink.vue'
 import TheDescription from '@/components/Atoms/typography/TheDescription/TheDescription.vue'
 </script>
