@@ -198,7 +198,7 @@ import {
 } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/vue/20/solid'
-import TheSortingDropdown from '@/components/Atoms/form/TheSortingDropdown.vue'
+import TheSortingDropdown from '@/components/Atoms/form/TheSortingDropdown/TheSortingDropdown.vue'
 import TheListItem from '@/components/Atoms/items/TheListItem/TheListItem.vue'
 import TheSearchFilters from '@/components/Organisms/forms/TheSearchFilters.vue'
 
