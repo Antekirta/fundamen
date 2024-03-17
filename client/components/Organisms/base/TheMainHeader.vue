@@ -60,7 +60,7 @@
 <script setup>
 import { ref } from 'vue'
 
-import TheMainLogo from '@/components/Molecules/common/images/TheMainLogo.vue'
+import TheMainLogo from '@/components/Molecules/common/images/TheMainLogo/TheMainLogo.vue'
 import TheMainMenuToggle from '@/components/Molecules/common/buttons/TheMenuToggle/TheMenuToggle.vue'
 import TheMainMenu from '@/components/Molecules/common/TheMainMenu/TheMainMenu.vue'
 import TheLoginButton from '@/components/Molecules/common/buttons/TheLoginButton/TheLoginButton.vue'
