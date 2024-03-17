@@ -123,7 +123,7 @@ import TheColorPicker from '@/components/Atoms/form/TheColorPicker/TheColorPicke
 import TheSizePicker from '@/components/Atoms/form/TheSizePicker/TheSizePicker.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
 import TheSimpleHeader from '@/components/Atoms/typography/TheSimpleHeader/TheSimpleHeader.vue'
-import TheText from '@/components/Atoms/typography/TheText.vue'
+import TheText from '@/components/Atoms/typography/TheText/TheText.vue'
 import TheSimpleList from '@/components/Atoms/typography/TheSimpleList/TheSimpleList.vue'
 import TheSimplePanel from '@/components/Atoms/panels/TheSimplePanel/TheSimplePanel.vue'
 
