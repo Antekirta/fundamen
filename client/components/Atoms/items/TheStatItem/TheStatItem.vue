@@ -1,12 +1,10 @@
 <template>
-  <div
-    class="flex flex-col gap-y-4"
-  >
-    <dd class="text-5xl font-semibold tracking-tight text-gray-900">
+  <div class="the-stat-item">
+    <dd class="the-stat-item__value">
       {{ valuePrefix }} {{ valueToRender }} {{ valuePostfix }}
     </dd>
 
-    <dt class="text-base leading-7 text-gray-600">
+    <dt class="the-stat-item__description">
       {{ description }}
     </dt>
   </div>
@@ -35,3 +33,17 @@ const interval = setInterval(() => {
   }
 }, props.timeInterval)
 </script>
+
+<style lang="scss">
+.the-stat-item {
+  @apply flex flex-col gap-y-4;
+
+  &__value {
+    @apply text-5xl font-semibold tracking-tight text-gray-900;
+  }
+
+  &__description {
+    @apply text-base leading-7 text-gray-600;
+  }
+}
+</style>
