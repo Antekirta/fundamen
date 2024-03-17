@@ -20,7 +20,7 @@
 
 <script setup>
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/vue/24/outline'
-import TheItemWithIcon from '@/components/Atoms/items/TheItemWithIcon.vue'
+import TheItemWithIcon from '@/components/Atoms/items/TheItemWithIcon/TheItemWithIcon.vue'
 import TheSection from '@/components/Molecules/common/TheSection.vue'
 
 const features = [

@@ -13,7 +13,7 @@
       <the-hero-section-slider :slides="slides" />
     </section>
 
-    <!--    <the-feature-section />-->
+        <the-feature-section />
 
     <!--    <the-price-section />-->
 
