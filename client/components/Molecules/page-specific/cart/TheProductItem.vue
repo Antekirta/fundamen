@@ -87,7 +87,7 @@
 
 <script setup lang="ts">
 import { CheckIcon, ClockIcon, XMarkIcon } from '@heroicons/vue/20/solid'
-import TheNumberInput from '@/components/Atoms/form/TheNumberInput.vue'
+import TheNumberInput from '@/components/Atoms/form/inputs/TheNumberInput/TheNumberInput.vue'
 
 const quantity = ref(1)
 
