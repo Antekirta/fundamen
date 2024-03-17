@@ -1,6 +1,6 @@
 <template>
   <div class="the-range-slider">
-    <label>{{ text }}</label>
+    <label class="the-range-slider__label">{{ text }}</label>
 
     <Slider
       v-model="model"
@@ -8,6 +8,7 @@
       :options="options"
       :name="name"
       v-bind="$attrs"
+      class="the-range-slider__slider"
     />
   </div>
 </template>
@@ -37,4 +38,17 @@ const options = {
 }
 </style>
 
-<style src="../../../node_modules/@vueform/slider/themes/default.css"></style>
+<style src="../../../../node_modules/@vueform/slider/themes/default.css"></style>
+
+<style lang="scss">
+.the-range-slider {
+  &__label {
+    @apply mb-2 text-sm font-medium text-gray-700;
+  }
+
+  /* Assuming the Slider component accepts a class for its base styling */
+  &__slider {
+    @apply mt-1;
+  }
+}
+</style>

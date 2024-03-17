@@ -128,7 +128,7 @@ import type { FormItemInterface, InputInterface, ListItemInterface } from '@/sha
 import TheCheckbox from '@/components/Atoms/form/TheCheckbox/TheCheckbox.vue'
 import TheInput from '@/components/Atoms/form/inputs/TheInput/TheInput/TheInput.vue'
 import TheRadio from '@/components/Atoms/form/radio/TheRadio/TheRadio.vue'
-import TheRangeSlider from '@/components/Atoms/form/TheRangeSlider.vue'
+import TheRangeSlider from '@/components/Atoms/form/TheRangeSlider/TheRangeSlider.vue'
 import TheSelect from '@/components/Atoms/form/TheSelect.vue'
 import TheAutocomplete from '@/components/Atoms/form/autocompletes/TheAutocomplete/TheAutocomplete.vue'
 
