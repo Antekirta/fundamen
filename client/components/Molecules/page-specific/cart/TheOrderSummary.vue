@@ -59,6 +59,5 @@ import TheSimpleTable from '@/components/Molecules/common/lists/TheSimpleTable.v
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 
 const checkout = () => {
-  console.log('Checkout')
 }
 </script>

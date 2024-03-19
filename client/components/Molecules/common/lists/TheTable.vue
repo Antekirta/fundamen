@@ -168,7 +168,6 @@ const selectedRows = ref([])
 const indeterminate = computed(() => selectedRows.value.length > 0 && selectedRows.value.length < rows.length)
 
 const checkAll = () => {
-  console.log('Check all!')
 }
 
 const isChecked = (id: string) => {

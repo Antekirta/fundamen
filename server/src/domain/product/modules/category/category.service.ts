@@ -30,7 +30,6 @@ export class CategoryService {
   }
 
   async getCategoryBySlug(slug: string): Promise<CategoryInterface> {
-    console.log('getCategoryBySlug slug: ', slug);
     return this.knex
       .table(C)
       .where({ slug }) as unknown as Promise<CategoryInterface>;

@@ -25,7 +25,6 @@ export class CategoryController {
 
   @Get(`${ROUTES.CATEGORIES.ID}/:id`)
   async getCategoryById(@Param('id') id: number): Promise<CategoryInterface> {
-    console.log('id: ', id);
     return await this.categoryService.getCategoryById(id);
   }
 

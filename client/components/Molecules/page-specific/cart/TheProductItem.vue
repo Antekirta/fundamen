@@ -111,6 +111,5 @@ defineProps<{
 }>()
 
 const removeProduct = (productId: number) => {
-  console.log('Remove product with id', productId)
 }
 </script>

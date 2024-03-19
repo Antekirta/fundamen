@@ -64,7 +64,7 @@ withDefaults(defineProps<{
   @apply relative inline-block text-left;
 
   &__button {
-    @apply group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900;
+    @apply inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900;
   }
 
   &__icon {

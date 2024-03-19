@@ -54,8 +54,6 @@ if (process.client) {
 
   // Fetches a payment intent and captures the client secret
   async function initialize () {
-    console.log('API_BASE_URL: ', API_BASE_URL)
-
     const response = await fetch(`${API_BASE_URL}/create-payment-intent`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
