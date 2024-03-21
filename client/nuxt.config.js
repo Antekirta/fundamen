@@ -38,7 +38,7 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: [
-        // '@fawmi/vue-google-maps',
+        '@fawmi/vue-google-maps',
         'fast-deep-equal'
       ]
     }
