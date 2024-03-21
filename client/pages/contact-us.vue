@@ -104,26 +104,26 @@
       <the-contact-form />
     </div>
 
-    <GMapMap
-      :center="{ lat: 51.5072, lng: 0.1276 }"
-      :zoom="10"
-      map-type-id="terrain"
-      style="width: 100%; height: 600px;"
-      :options="{
-        zoomControl: true,
-        mapTypeControl: true,
-        scaleControl: true,
-        streetViewControl: true,
-        rotateControl: true,
-        fullscreenControl: true
-      }"
-    />
+<!--    <GMapMap-->
+<!--      :center="{ lat: 51.5072, lng: 0.1276 }"-->
+<!--      :zoom="10"-->
+<!--      map-type-id="terrain"-->
+<!--      style="width: 100%; height: 600px;"-->
+<!--      :options="{-->
+<!--        zoomControl: true,-->
+<!--        mapTypeControl: true,-->
+<!--        scaleControl: true,-->
+<!--        streetViewControl: true,-->
+<!--        rotateControl: true,-->
+<!--        fullscreenControl: true-->
+<!--      }"-->
+<!--    />-->
   </div>
 </template>
 
 <script setup>
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/outline'
-import GMapMap from '@fawmi/vue-google-maps/src/components/map.vue'
+// import GMapMap from '@fawmi/vue-google-maps/src/components/map.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheDescription from '@/components/Atoms/typography/TheDescription/TheDescription.vue'
 import TheContactForm from '@/components/Organisms/forms/TheContactForm.vue'
