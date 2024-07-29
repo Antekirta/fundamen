@@ -1,0 +1,11 @@
+.the-description {
+	&--color {
+		&--dark {
+			@apply text-brown;
+		}
+
+		&--light {
+			@apply text-flour;
+		}
+	}
+}

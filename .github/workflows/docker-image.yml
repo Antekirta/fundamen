@@ -1,0 +1,28 @@
+name: Docker Compose CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        
+      - name: Build the Docker image
+        run: docker-compose -f docker-compose.build.yml build
+
+      - name: Log in to Docker Hub
+        run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+
+      - name: Push the Docker nuxt image
+        run: docker push theantekirta/fundamen_nuxt
+
+      - name: Push the Docker nest image
+        run: docker push theantekirta/fundamen_nest  
+  
+ 
+

@@ -1,0 +1,7 @@
+@mixin font-mixin() {
+	&--font {
+		&--fancy {
+			@apply font-fancy tracking-wider;
+		}
+	}
+}

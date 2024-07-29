@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  nest:
+    image: theantekirta/fundamen_nest
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "${BE_PORT}:${BE_PORT}"
+    command: "npm run start:prod"
+  nuxt:
+    image: theantekirta/fundamen_nuxt
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "${NUXT_HOST_PORT}:${NUXT_DOCKER_PORT}"
+    env_file:
+      - .env
+    environment:
+      - NUXT_PUBLIC_API_BASE_URL=${NUXT_PUBLIC_API_BASE_URL}
+    command: "node .output/server/index.mjs"

@@ -1,0 +1,19 @@
+.the-testimonial-small {
+	@apply rounded-2xl bg-flour shadow-lg border-brown border-solid border-2;
+
+	&__quote {
+	}
+
+	&__caption {
+	}
+
+	&__img {
+	}
+
+	&__name {
+		@apply font-fancy tracking-wider;
+	}
+
+	&__handle {
+	}
+}

@@ -1,0 +1,15 @@
+.the-header {
+	&--color {
+		&--dark {
+			@apply text-brown;
+		}
+
+		&--red {
+			@apply text-red;
+		}
+
+		&--light {
+			@apply text-flour;
+		}
+	}
+}

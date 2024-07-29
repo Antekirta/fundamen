@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  nest:
+    image: theantekirta/fundamen_nest
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+  nuxt:
+    image: theantekirta/fundamen_nuxt
+    build:
+      context: ./client
+      dockerfile: Dockerfile

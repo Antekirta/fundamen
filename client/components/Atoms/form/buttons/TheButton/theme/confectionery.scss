@@ -1,0 +1,22 @@
+.the-button {
+	&--color {
+		&--dark {
+			@apply border-2 border-brown bg-brown hover:shadow-brown hover:shadow-sm;
+			@apply text-flour;
+		}
+
+		&--light {
+			@apply border-2 border-brown bg-paper hover:shadow-brown hover:shadow-sm;
+			@apply text-brown;
+		}
+
+		&--transparent-bordered {
+			@apply border-2 border-brown hover:shadow-brown hover:shadow-sm;
+			@apply text-brown;
+		}
+
+		&--transparent {
+			@apply text-brown;
+		}
+	}
+}
