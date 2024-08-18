@@ -12,6 +12,7 @@ export interface ProductInterface {
     added_at: string;
     updated_at: string;
     is_active: boolean;
+    product_type: number;
 }
 
 export interface ProductToAddInterface
