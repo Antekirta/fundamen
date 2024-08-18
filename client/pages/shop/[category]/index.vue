@@ -18,14 +18,12 @@ definePageMeta({
 })
 
 const route = useRoute()
+const { $customFetch } = useNuxtApp()
+const repository = new CategoryPageRepository($customFetch)
 
 const { products, categorySlug } = await useProducts()
 
 async function useProducts () {
-  const { $customFetch } = useNuxtApp()
-
-  const repository = new CategoryPageRepository($customFetch)
-
   const categorySlug = route.params.category
 
   const categoryId = categorySlug.split('-').pop()

@@ -52,6 +52,7 @@
               <the-button
                 color="blue"
                 class="mt-8"
+                @click="addToCart"
               >
                 Add to cart
               </the-button>
@@ -187,4 +188,16 @@ const policies = [
 
 const selectedColor = ref(product.colors[0].name)
 const selectedSize = ref(product.sizes[2].name)
+
+const addToCart = async () => {
+  const isAuth = true
+
+  if (isAuth) {
+
+  } else {
+    // open login form
+  }
+
+  console.log('Added to cart')
+}
 </script>
