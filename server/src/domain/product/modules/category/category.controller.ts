@@ -39,7 +39,7 @@ export class CategoryController {
   async createCategory(
     @Body() category: CategoryToAddInterface,
   ): Promise<void> {
-    await this.categoryService.addCategory(category);
+    await this.categoryService.addCategories([category]);
   }
 
   @Put(':id')

@@ -17,6 +17,8 @@ definePageMeta({
   layout: 'list'
 })
 
+const route = useRoute()
+
 const { products, categorySlug } = await useProducts()
 
 async function useProducts () {
@@ -24,7 +26,9 @@ async function useProducts () {
 
   const repository = new CategoryPageRepository($customFetch)
 
-  const categoryId = '2'
+  const categorySlug = route.params.category
+
+  const categoryId = categorySlug.split('-').pop()
 
   const products = await repository.getProductsBySearch(categoryId)
 

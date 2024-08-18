@@ -38,7 +38,7 @@ export class ProductController {
 
   @Post()
   async createProduct(@Body() product: ProductToAddInterface): Promise<void> {
-    await this.productService.addProduct(product);
+    await this.productService.addProductsBase([product]);
   }
 
   @Put(':id')

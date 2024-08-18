@@ -14,10 +14,17 @@ const {
 
 @Injectable()
 export class ProductService {
+  private slugify;
+
   constructor(
     @InjectConnection() private readonly knex: Knex,
     private readonly productToCategoryService: ProductToCategoryService,
-  ) {}
+  ) {
+    (async () => {
+      const { default: slugify } = await import('@sindresorhus/slugify');
+      this.slugify = slugify;
+    })();
+  }
 
   async getProductById(id: number): Promise<ProductInterface> {
     return this.knex.table(P).where({
@@ -33,16 +40,32 @@ export class ProductService {
     });
   }
 
-  async addProduct(product: ProductToAddInterface): Promise<void> {
-    await this.knex.table(P).insert(product);
-  }
-
-  async addProductBulk(
+  async addProductsBase(
     products: ProductToAddInterface[],
   ): Promise<Array<Pick<ProductInterface, 'id'>>> {
     const keysToReturn: Array<keyof ProductInterface> = ['id'];
 
-    return this.knex.table(P).returning(keysToReturn).insert(products);
+    const records = (await this.knex
+      .table(P)
+      .returning(keysToReturn)
+      .insert(
+        products.map((product) => ({
+          ...product,
+          slug: this.slugify(product.name),
+        })),
+      )) as unknown as Array<Pick<ProductInterface, 'id'>>;
+
+    const ids = records.map((record) => record.id);
+    const keysToSlugify: Array<keyof ProductInterface> = ['slug', 'id'];
+
+    await this.knex
+      .table(P)
+      .whereIn('id', ids)
+      .update({
+        slug: this.knex.raw("?? || '-' || ??", keysToSlugify),
+      });
+
+    return records;
   }
 
   async updateProduct(

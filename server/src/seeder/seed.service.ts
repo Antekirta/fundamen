@@ -17,7 +17,7 @@ const categories: CategoryToAddInterface[] = Array.from(
   new Array(NUMBER_OF_CATEGORIES),
 ).map((_, i) => {
   return {
-    name: `seeded_category_${i}`,
+    name: `Seeded category ${i + 1}`,
   };
 });
 
@@ -25,8 +25,8 @@ const products: ProductToAddInterface[] = Array.from(
   new Array(NUMBER_OF_PRODUCTS),
 ).map((_, i) => {
   return {
-    name: `seeded_product_${i}`,
-    description: `seeded_description_${i}`,
+    name: `Seeded product ${i + 1}`,
+    description: `Seeded description ${i + 1}`,
     price: getRandom(100, 1000),
     stock_quantity: getRandom(1, 100),
     images_urls: [],
@@ -96,7 +96,7 @@ export class SeedService {
 
   async seedCategories(): Promise<number[]> {
     const addedCategoriesIds = (
-      await this.categoryService.addCategoriesBulk(categories)
+      await this.categoryService.addCategories(categories)
     ).map((row) => row.id);
 
     const boundCategories = bindCategories(addedCategoriesIds);
@@ -110,7 +110,7 @@ export class SeedService {
 
   async seedProducts(categoryIds: number[]) {
     const addedProductsIds = (
-      await this.productService.addProductBulk(products)
+      await this.productService.addProductsBase(products)
     ).map((row) => row.id);
 
     const productsBoundToCategories = addProductsToCategories(

@@ -45,19 +45,12 @@ export class CategoryService {
   }
 
   /** ADD */
-  async addCategory(category: CategoryToAddInterface): Promise<void> {
-    await this.knex.table(C).insert({
-      ...category,
-      slug: this.slugify(category.name),
-    });
-  }
-
-  async addCategoriesBulk(
+  async addCategories(
     categories: CategoryToAddInterface[],
   ): Promise<Array<Pick<CategoryInterface, 'id'>>> {
     const keysToReturn: Array<keyof CategoryInterface> = ['id'];
 
-    return this.knex
+    const records = (await this.knex
       .table(C)
       .returning(keysToReturn)
       .insert(
@@ -65,7 +58,19 @@ export class CategoryService {
           ...category,
           slug: this.slugify(category.name),
         })),
-      );
+      )) as unknown as Array<Pick<CategoryInterface, 'id'>>;
+
+    const ids = records.map((record) => record.id);
+    const keysToSlugify: Array<keyof CategoryInterface> = ['slug', 'id'];
+
+    await this.knex
+      .table(C)
+      .whereIn('id', ids)
+      .update({
+        slug: this.knex.raw("?? || '-' || ??", keysToSlugify),
+      });
+
+    return records;
   }
 
   /** UPDATE */
