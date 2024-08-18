@@ -36,3 +36,8 @@ export interface CategoryToCategoriesInterface {
   category_id: number;
   subcategory_id: number;
 }
+
+export interface ProductTypeInterface {
+  id: number;
+  name: string;
+}
