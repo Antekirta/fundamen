@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from 'nest-knexjs';
 import { Knex } from 'knex';
+
 import {
   CategoryInterface,
   CategoryToAddInterface,
@@ -14,10 +15,17 @@ const {
 
 @Injectable()
 export class CategoryService {
+  private slugify;
+
   constructor(
     @InjectConnection() private readonly knex: Knex,
     private readonly productToCategoryService: ProductToCategoryService,
-  ) {}
+  ) {
+    (async () => {
+      const { default: slugify } = await import('@sindresorhus/slugify');
+      this.slugify = slugify;
+    })();
+  }
 
   /** GET */
   async getCategories(): Promise<CategoryInterface[]> {
@@ -38,7 +46,10 @@ export class CategoryService {
 
   /** ADD */
   async addCategory(category: CategoryToAddInterface): Promise<void> {
-    await this.knex.table(C).insert(category);
+    await this.knex.table(C).insert({
+      ...category,
+      slug: this.slugify(category.name),
+    });
   }
 
   async addCategoriesBulk(
@@ -46,7 +57,15 @@ export class CategoryService {
   ): Promise<Array<Pick<CategoryInterface, 'id'>>> {
     const keysToReturn: Array<keyof CategoryInterface> = ['id'];
 
-    return this.knex.table(C).returning(keysToReturn).insert(categories);
+    return this.knex
+      .table(C)
+      .returning(keysToReturn)
+      .insert(
+        categories.map((category) => ({
+          ...category,
+          slug: this.slugify(category.name),
+        })),
+      );
   }
 
   /** UPDATE */
