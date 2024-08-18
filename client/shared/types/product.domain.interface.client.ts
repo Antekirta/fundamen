@@ -27,7 +27,6 @@ export interface CategoryInterface {
     id: number;
     name: string;
     slug: string;
-    primary_image_url: string;
 }
 
 export interface CategoryToAddInterface
@@ -41,4 +40,34 @@ export interface CategoryToCategoriesInterface {
 export interface ProductTypeInterface {
     id: number;
     name: string;
+}
+
+export interface ProductTypeToAddInterface
+    extends Omit<ProductTypeInterface, 'id'> {}
+
+export interface ProductPropertyInterface {
+    id: number;
+    name: string;
+    description: string;
+}
+
+export interface ProductPropertyToAddInterface
+    extends Omit<ProductPropertyInterface, 'id'> {}
+
+export interface ProductPropertyValueInterface {
+    id: number;
+    value: string;
+}
+
+export interface ProductPropertyValueToAddInterface
+    extends Omit<ProductPropertyValueInterface, 'id'> {}
+
+export interface ProductTypeToPropertyInterface {
+    product_type_id: number;
+    product_property_id: number;
+}
+
+export interface ProductPropertyToValueInterface {
+    product_property_id: number;
+    product_property_value_id: number;
 }
