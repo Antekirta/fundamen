@@ -5,6 +5,7 @@ import { CategoryToCategoryModule } from '../domain/product/modules/category_to_
 import { SeedService } from './seed.service';
 import { ProductModule } from '../domain/product/modules/product/product.module';
 import { ProductToCategoryModule } from '../domain/product/modules/product_to_category/product_to_category.module';
+import { ProductDescriptionModule } from '../domain/product/modules/productDescription/productDescription.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ProductToCategoryModule } from '../domain/product/modules/product_to_ca
     CategoryToCategoryModule,
     ProductModule,
     ProductToCategoryModule,
+    ProductDescriptionModule,
   ],
   providers: [SeedService],
 })

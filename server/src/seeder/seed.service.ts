@@ -2,15 +2,23 @@ import { Injectable } from '@nestjs/common';
 import { CategoryService } from '../domain/product/modules/category/category.service';
 import {
   CategoryToAddInterface,
+  ProductPropertyInterface,
+  ProductPropertyToAddInterface,
+  ProductPropertyValueToAddInterface,
   ProductToAddInterface,
+  ProductTypeToAddInterface,
 } from '../domain/product/product.domain.interface';
 import { getRandom } from '../utils/number';
 import { CategoryToCategoryService } from '../domain/product/modules/category_to_category/category_to_category.service';
 import { ProductService } from '../domain/product/modules/product/product.service';
 import { ProductToCategoryService } from '../domain/product/modules/product_to_category/product_to_category.service';
+import { ProductDescriptionService } from '../domain/product/modules/productDescription/productDescription.service';
 
 const NUMBER_OF_CATEGORIES = 20;
 const NUMBER_OF_PARENT_CATEGORIES = 5;
+const NUMBER_OF_PRODUCT_TYPES = 2;
+const NUMBER_OF_PRODUCT_PROPERTIES = 20;
+const NUMBER_OF_PRODUCT_PROPERTIES_VALUES = 60;
 const NUMBER_OF_PRODUCTS = 100;
 
 const categories: CategoryToAddInterface[] = Array.from(
@@ -20,6 +28,30 @@ const categories: CategoryToAddInterface[] = Array.from(
     name: `Seeded category ${i + 1}`,
   };
 });
+
+const productTypes: ProductTypeToAddInterface[] = Array.from(
+  new Array(NUMBER_OF_PRODUCT_TYPES),
+).map((_, i) => {
+  return {
+    name: `Seeded product type ${i + 1}`,
+  };
+});
+
+const productProperties: ProductPropertyToAddInterface[] = Array.from(
+  new Array(NUMBER_OF_PRODUCT_PROPERTIES),
+).map((_, i) => {
+  return {
+    name: `Seeded product property ${i + 1}`,
+    description: `Seeded product property description ${i + 1}`,
+  };
+});
+
+const productPropertiesValues: ProductPropertyValueToAddInterface[] =
+  Array.from(new Array(NUMBER_OF_PRODUCT_PROPERTIES_VALUES)).map((_, i) => {
+    return {
+      value: `Seeded product property value ${i + 1}`,
+    };
+  });
 
 const products: ProductToAddInterface[] = Array.from(
   new Array(NUMBER_OF_PRODUCTS),
@@ -32,6 +64,7 @@ const products: ProductToAddInterface[] = Array.from(
     images_urls: [],
     primary_image_url: '',
     is_active: true,
+    product_type: 1,
   };
 });
 
@@ -77,16 +110,21 @@ export class SeedService {
     private readonly categoryToCategoryService: CategoryToCategoryService,
     private readonly productService: ProductService,
     private readonly productToCategoryService: ProductToCategoryService,
+    private readonly productDescriptionService: ProductDescriptionService,
   ) {}
 
   async seed() {
     await this.clearTables();
 
+    await this.seedProductProperties();
     const categoriesIds = await this.seedCategories();
     await this.seedProducts(categoriesIds);
   }
 
   async clearTables() {
+    await this.productDescriptionService.clearProductTypesTable();
+    await this.productDescriptionService.clearProductPropertiesTable();
+    await this.productDescriptionService.clearProductPropertyValuesTable();
     await this.productToCategoryService.clearTable();
     await this.categoryToCategoryService.clearTable();
 
@@ -124,5 +162,23 @@ export class SeedService {
         productId,
       );
     }
+  }
+
+  async seedProductProperties() {
+    const addedProductTypesIds = (
+      await this.productDescriptionService.addProductTypes(productTypes)
+    ).map((row) => row.id);
+
+    const addedProductPropertiesIds = (
+      await this.productDescriptionService.addProductProperties(
+        productProperties,
+      )
+    ).map((row) => row.id);
+
+    const addedProductPropertyValuesIds = (
+      await this.productDescriptionService.addProductPropertyValues(
+        productPropertiesValues,
+      )
+    ).map((row) => row.id);
   }
 }

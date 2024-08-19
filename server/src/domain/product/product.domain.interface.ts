@@ -71,3 +71,9 @@ export interface ProductPropertyToValueInterface {
   product_property_id: number;
   product_property_value_id: number;
 }
+
+export interface ProductToPropertyToValueInterface {
+  product_id: number;
+  product_property_id: number;
+  product_property_value_id: number;
+}

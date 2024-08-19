@@ -8,6 +8,7 @@ enum TABLES {
   PRODUCT_PROPERTY_VALUES = 'product_property_values',
   PRODUCT_TYPE_TO_PROPERTIES = 'product_type_to_properties',
   PRODUCT_PROPERTY_TO_VALUE = 'product_property_to_value',
+  PRODUCT_TO_PROPERTY_TO_VALUE = 'product_to_property_to_value',
 }
 
 export const DB = {
@@ -30,5 +31,8 @@ export const ROUTES = {
   },
   CATEGORIES_TO_CATEGORIES: {
     BASE: 'categories-to-categories',
+  },
+  PRODUCT_TYPES: {
+    BASE: 'product-types',
   },
 };
