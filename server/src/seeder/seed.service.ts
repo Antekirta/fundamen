@@ -103,6 +103,35 @@ const addProductsToCategories = (
   ];
 };
 
+const addPropertiesToProductTypes = (
+  productTypesIds: number[],
+  productPropertiesIds: number[],
+): Array<{ productTypeId: number; productPropertyId: number }> => {
+  const numOfProductTypes = productTypesIds.length;
+
+  return productPropertiesIds.map((productPropertyId) => {
+    return {
+      productTypeId: productTypesIds[getRandom(0, numOfProductTypes - 1)],
+      productPropertyId,
+    };
+  });
+};
+
+const addValuesToProductProperties = (
+  productPropertiesIds: number[],
+  propertiesValuesIds: number[],
+): Array<{ productPropertyId: number; propertyValueId: number }> => {
+  const numOfProductProperties = productPropertiesIds.length;
+
+  return propertiesValuesIds.map((propertyValueId) => {
+    return {
+      productPropertyId:
+        productPropertiesIds[getRandom(0, numOfProductProperties - 1)],
+      propertyValueId,
+    };
+  });
+};
+
 @Injectable()
 export class SeedService {
   constructor(
@@ -122,6 +151,7 @@ export class SeedService {
   }
 
   async clearTables() {
+    await this.productDescriptionService.clearPropertiesToProductTypesTable();
     await this.productDescriptionService.clearProductTypesTable();
     await this.productDescriptionService.clearProductPropertiesTable();
     await this.productDescriptionService.clearProductPropertyValuesTable();
@@ -175,10 +205,30 @@ export class SeedService {
       )
     ).map((row) => row.id);
 
+    const propertiesBoundToProductTypes = addPropertiesToProductTypes(
+      addedProductTypesIds,
+      addedProductPropertiesIds,
+    );
+
+    for (const {
+      productTypeId,
+      productPropertyId,
+    } of propertiesBoundToProductTypes) {
+      await this.productDescriptionService.addPropertiesToProductTypes(
+        productTypeId,
+        productPropertyId,
+      );
+    }
+
     const addedProductPropertyValuesIds = (
       await this.productDescriptionService.addProductPropertyValues(
         productPropertiesValues,
       )
     ).map((row) => row.id);
+
+    const valuesBoundToProperties = addValuesToProductProperties(
+      addedProductPropertiesIds,
+      addedProductPropertyValuesIds,
+    );
   }
 }

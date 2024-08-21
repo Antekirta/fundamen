@@ -49,6 +49,7 @@ export interface ProductPropertyInterface {
     id: number;
     name: string;
     description: string;
+    has_predefined_values: boolean;
 }
 
 export interface ProductPropertyToAddInterface
@@ -70,4 +71,11 @@ export interface ProductTypeToPropertyInterface {
 export interface ProductPropertyToValueInterface {
     product_property_id: number;
     product_property_value_id: number;
+}
+
+export interface ProductToPropertyToValueInterface {
+    product_id: number;
+    product_property_id: number;
+    product_property_value_id?: number;
+    raw_value?: string;
 }

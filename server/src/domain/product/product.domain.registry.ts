@@ -7,7 +7,7 @@ enum TABLES {
   PRODUCT_PROPERTIES = 'product_properties',
   PRODUCT_PROPERTY_VALUES = 'product_property_values',
   PRODUCT_TYPE_TO_PROPERTIES = 'product_type_to_properties',
-  PRODUCT_PROPERTY_TO_VALUE = 'product_property_to_value',
+  PRODUCT_PROPERTY_TO_VALUES = 'product_property_to_values',
   PRODUCT_TO_PROPERTY_TO_VALUE = 'product_to_property_to_value',
 }
 
@@ -32,7 +32,19 @@ export const ROUTES = {
   CATEGORIES_TO_CATEGORIES: {
     BASE: 'categories-to-categories',
   },
-  PRODUCT_TYPES: {
+  PRODUCT_TYPE: {
     BASE: 'product-types',
+  },
+  PRODUCT_PROPERTY: {
+    BASE: 'product-property',
+  },
+  PRODUCT_PROPERTY_VALUE: {
+    BASE: 'product-property-value',
+  },
+  PRODUCT_TYPE_TO_PROPERTY: {
+    BASE: 'product-type-to-property',
+  },
+  PRODUCT_PROPERTY_TO_VALUE: {
+    BASE: 'product-property-to-value',
   },
 };

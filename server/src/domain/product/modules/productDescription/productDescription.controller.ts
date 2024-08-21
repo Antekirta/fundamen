@@ -3,7 +3,7 @@ import { Controller } from '@nestjs/common';
 import { ROUTES } from '../../product.domain.registry';
 import { ProductDescriptionService } from './productDescription.service';
 
-@Controller(ROUTES.PRODUCT_TYPES.BASE)
+@Controller(ROUTES.PRODUCT_TYPE.BASE)
 export class ProductDescriptionController {
   constructor(private categoryService: ProductDescriptionService) {}
 }
