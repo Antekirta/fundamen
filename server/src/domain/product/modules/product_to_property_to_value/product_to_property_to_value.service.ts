@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectConnection } from 'nest-knexjs';
 import { Knex } from 'knex';
 import {
+  ProductPropertiesModelInterface,
   ProductPropertyInterface,
   ProductToPropertyToValueInterface,
 } from '../../product.domain.interface';
@@ -16,10 +17,6 @@ const {
     PRODUCT_PROPERTY_TO_VALUES,
   },
 } = DB;
-
-interface ProductPropertiesModelInterface {
-  [key: string]: number | string;
-}
 
 const buildProductPropertyValueRowToInsert = (
   productProperty: ProductPropertyInterface,
@@ -65,5 +62,11 @@ export class ProductToPropertyToValueService {
     );
 
     await this.knex.table(PRODUCT_TO_PROPERTY_TO_VALUE).insert(rowsToInsert);
+  }
+
+  async clearTable(): Promise<void> {
+    await this.knex.raw(
+      `TRUNCATE TABLE ${PRODUCT_TO_PROPERTY_TO_VALUE} RESTART IDENTITY CASCADE`,
+    );
   }
 }

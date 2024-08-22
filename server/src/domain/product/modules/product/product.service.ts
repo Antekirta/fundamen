@@ -33,11 +33,15 @@ export class ProductService {
   }
 
   async getProducts(
-    searchParams: Partial<ProductInterface>,
+    searchParams?: Partial<ProductInterface>,
   ): Promise<ProductInterface[]> {
-    return this.knex.table(P).where({
-      ...searchParams,
-    });
+    if (searchParams) {
+      return this.knex.table(P).where({
+        ...searchParams,
+      });
+    }
+
+    return this.knex.table(P);
   }
 
   async addProductsBase(

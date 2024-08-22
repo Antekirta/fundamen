@@ -5,7 +5,12 @@ import { CategoryToCategoryModule } from '../domain/product/modules/category_to_
 import { SeedService } from './seed.service';
 import { ProductModule } from '../domain/product/modules/product/product.module';
 import { ProductToCategoryModule } from '../domain/product/modules/product_to_category/product_to_category.module';
-import { ProductDescriptionModule } from '../domain/product/modules/productDescription/productDescription.module';
+import { ProductTypeModule } from '../domain/product/modules/product-type/product-type.module';
+import { ProductPropertyModule } from '../domain/product/modules/product-property/product-property.module';
+import { ProductPropertyValueModule } from '../domain/product/modules/product-property-value/product-property-value.module';
+import { ProductTypeToPropertiesModule } from '../domain/product/modules/product-type_to_properties/product-type_to_properties.module';
+import { ProductPropertyToValuesModule } from '../domain/product/modules/product-property_to_values/product-property_to_values.module';
+import { ProductToPropertyToValueModule } from '../domain/product/modules/product_to_property_to_value/product_to_property_to_value.module';
 
 @Module({
   imports: [
@@ -14,7 +19,12 @@ import { ProductDescriptionModule } from '../domain/product/modules/productDescr
     CategoryToCategoryModule,
     ProductModule,
     ProductToCategoryModule,
-    ProductDescriptionModule,
+    ProductTypeModule,
+    ProductPropertyModule,
+    ProductPropertyValueModule,
+    ProductTypeToPropertiesModule,
+    ProductPropertyToValuesModule,
+    ProductToPropertyToValueModule,
   ],
   providers: [SeedService],
 })

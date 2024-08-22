@@ -48,7 +48,7 @@ export class ProductPropertyValueService {
     await this.knex.table(PRODUCT_PROPERTY_VALUES).where({ id }).del();
   }
 
-  async clearProductPropertyValuesTable(): Promise<void> {
+  async clearTable(): Promise<void> {
     await this.knex.raw(
       `TRUNCATE TABLE ${PRODUCT_PROPERTY_VALUES} RESTART IDENTITY CASCADE`,
     );

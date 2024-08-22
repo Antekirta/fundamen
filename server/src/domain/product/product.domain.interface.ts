@@ -79,3 +79,7 @@ export interface ProductToPropertyToValueInterface {
   product_property_value_id?: number;
   raw_value?: string;
 }
+
+export interface ProductPropertiesModelInterface {
+  [key: string]: number | string;
+}

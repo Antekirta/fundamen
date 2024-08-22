@@ -4,22 +4,30 @@ import {
   CategoryToAddInterface,
   ProductPropertyInterface,
   ProductPropertyToAddInterface,
+  ProductPropertyToValueInterface,
   ProductPropertyValueToAddInterface,
   ProductToAddInterface,
   ProductTypeToAddInterface,
+  ProductTypeToPropertyInterface,
 } from '../domain/product/product.domain.interface';
 import { getRandom } from '../utils/number';
 import { CategoryToCategoryService } from '../domain/product/modules/category_to_category/category_to_category.service';
 import { ProductService } from '../domain/product/modules/product/product.service';
 import { ProductToCategoryService } from '../domain/product/modules/product_to_category/product_to_category.service';
 import { ProductDescriptionService } from '../domain/product/modules/productDescription/productDescription.service';
+import { ProductTypeService } from '../domain/product/modules/product-type/product-type.service';
+import { ProductPropertyService } from '../domain/product/modules/product-property/product-property.service';
+import { ProductPropertyValueService } from '../domain/product/modules/product-property-value/product-property-value.service';
+import { ProductTypeToPropertiesService } from '../domain/product/modules/product-type_to_properties/product-type_to_properties.service';
+import { ProductPropertyToValuesService } from '../domain/product/modules/product-property_to_values/product-property_to_values.service';
+import { ProductToPropertyToValueService } from '../domain/product/modules/product_to_property_to_value/product_to_property_to_value.service';
 
 const NUMBER_OF_CATEGORIES = 20;
 const NUMBER_OF_PARENT_CATEGORIES = 5;
 const NUMBER_OF_PRODUCT_TYPES = 2;
 const NUMBER_OF_PRODUCT_PROPERTIES = 20;
 const NUMBER_OF_PRODUCT_PROPERTIES_VALUES = 60;
-const NUMBER_OF_PRODUCTS = 100;
+const NUMBER_OF_PRODUCTS = 10;
 
 const categories: CategoryToAddInterface[] = Array.from(
   new Array(NUMBER_OF_CATEGORIES),
@@ -41,32 +49,35 @@ const productProperties: ProductPropertyToAddInterface[] = Array.from(
   new Array(NUMBER_OF_PRODUCT_PROPERTIES),
 ).map((_, i) => {
   return {
-    name: `Seeded product property ${i + 1}`,
+    name: `property_${i + 1}`,
+    title: `Seeded product property ${i + 1}`,
     description: `Seeded product property description ${i + 1}`,
+    has_predefined_values: true,
   };
 });
 
 const productPropertiesValues: ProductPropertyValueToAddInterface[] =
   Array.from(new Array(NUMBER_OF_PRODUCT_PROPERTIES_VALUES)).map((_, i) => {
     return {
-      value: `Seeded product property value ${i + 1}`,
+      value: `Value ${i + 1}`,
     };
   });
 
-const products: ProductToAddInterface[] = Array.from(
-  new Array(NUMBER_OF_PRODUCTS),
-).map((_, i) => {
-  return {
-    name: `Seeded product ${i + 1}`,
-    description: `Seeded description ${i + 1}`,
-    price: getRandom(100, 1000),
-    stock_quantity: getRandom(1, 100),
-    images_urls: [],
-    primary_image_url: '',
-    is_active: true,
-    product_type: 1,
-  };
-});
+const getProducts = ({ addedProductTypesIds }) => {
+  return Array.from(new Array(NUMBER_OF_PRODUCTS)).map((_, i) => {
+    return {
+      name: `Seeded product ${i + 1}`,
+      description: `Seeded description ${i + 1}`,
+      price: getRandom(100, 1000),
+      stock_quantity: getRandom(1, 100),
+      images_urls: [],
+      primary_image_url: '',
+      is_active: true,
+      product_type:
+        addedProductTypesIds[getRandom(0, addedProductTypesIds.length - 1)],
+    };
+  });
+};
 
 const bindCategories = (
   ids: number[],
@@ -105,31 +116,45 @@ const addProductsToCategories = (
 
 const addPropertiesToProductTypes = (
   productTypesIds: number[],
-  productPropertiesIds: number[],
-): Array<{ productTypeId: number; productPropertyId: number }> => {
+  productPropertiesNames: string[],
+): Array<ProductTypeToPropertyInterface> => {
   const numOfProductTypes = productTypesIds.length;
 
-  return productPropertiesIds.map((productPropertyId) => {
+  return productPropertiesNames.map((productPropertiesName) => {
     return {
-      productTypeId: productTypesIds[getRandom(0, numOfProductTypes - 1)],
-      productPropertyId,
+      product_type_id: productTypesIds[getRandom(0, numOfProductTypes - 1)],
+      product_property_name: productPropertiesName,
     };
   });
 };
 
 const addValuesToProductProperties = (
-  productPropertiesIds: number[],
+  productPropertiesNames: string[],
   propertiesValuesIds: number[],
-): Array<{ productPropertyId: number; propertyValueId: number }> => {
-  const numOfProductProperties = productPropertiesIds.length;
+): Array<ProductPropertyToValueInterface> => {
+  const numOfProductProperties = productPropertiesNames.length;
 
   return propertiesValuesIds.map((propertyValueId) => {
     return {
-      productPropertyId:
-        productPropertiesIds[getRandom(0, numOfProductProperties - 1)],
-      propertyValueId,
+      product_property_name:
+        productPropertiesNames[getRandom(0, numOfProductProperties - 1)],
+      product_property_value_id: propertyValueId,
     };
   });
+};
+
+const getProductPropertiesModel = (
+  productProperties: ProductPropertyInterface[],
+  propertiesValuesIds: number[],
+) => {
+  return productProperties.reduce((acc, { name, has_predefined_values }) => {
+    return {
+      ...acc,
+      [name]: has_predefined_values
+        ? propertiesValuesIds[getRandom(0, propertiesValuesIds.length - 1)]
+        : `${Math.random()}`, // some random string
+    };
+  }, {});
 };
 
 @Injectable()
@@ -139,22 +164,34 @@ export class SeedService {
     private readonly categoryToCategoryService: CategoryToCategoryService,
     private readonly productService: ProductService,
     private readonly productToCategoryService: ProductToCategoryService,
-    private readonly productDescriptionService: ProductDescriptionService,
+    private readonly productTypeService: ProductTypeService,
+    private readonly productPropertyService: ProductPropertyService,
+    private readonly productPropertyValueService: ProductPropertyValueService,
+    private readonly productTypeToPropertiesService: ProductTypeToPropertiesService,
+    private readonly productPropertyToValuesService: ProductPropertyToValuesService,
+    private readonly productToPropertyToValueService: ProductToPropertyToValueService,
   ) {}
 
   async seed() {
     await this.clearTables();
 
-    await this.seedProductProperties();
+    const { addedProductTypesIds, addedPropertiesValuesIds } =
+      await this.seedProductProperties();
     const categoriesIds = await this.seedCategories();
-    await this.seedProducts(categoriesIds);
+    await this.seedProducts(categoriesIds, {
+      addedProductTypesIds,
+      addedPropertiesValuesIds,
+    });
   }
 
   async clearTables() {
-    await this.productDescriptionService.clearPropertiesToProductTypesTable();
-    await this.productDescriptionService.clearProductTypesTable();
-    await this.productDescriptionService.clearProductPropertiesTable();
-    await this.productDescriptionService.clearProductPropertyValuesTable();
+    await this.productToPropertyToValueService.clearTable();
+    await this.productPropertyToValuesService.clearTable();
+    await this.productTypeToPropertiesService.clearTable();
+    await this.productPropertyValueService.clearTable();
+    await this.productPropertyService.clearTable();
+    await this.productTypeService.clearTable();
+
     await this.productToCategoryService.clearTable();
     await this.categoryToCategoryService.clearTable();
 
@@ -176,9 +213,16 @@ export class SeedService {
     return addedCategoriesIds;
   }
 
-  async seedProducts(categoryIds: number[]) {
+  async seedProducts(
+    categoryIds: number[],
+    { addedProductTypesIds, addedPropertiesValuesIds },
+  ) {
     const addedProductsIds = (
-      await this.productService.addProductsBase(products)
+      await this.productService.addProductsBase(
+        getProducts({
+          addedProductTypesIds,
+        }),
+      )
     ).map((row) => row.id);
 
     const productsBoundToCategories = addProductsToCategories(
@@ -192,43 +236,62 @@ export class SeedService {
         productId,
       );
     }
+
+    const addedProducts = await this.productService.getProducts();
+
+    for (const product of addedProducts) {
+      // INFO: You may speed up this part by caching properties for product types
+      const propertiesForProductType =
+        await this.productTypeToPropertiesService.getPropertiesByProductTypeId(
+          product.product_type,
+        );
+
+      await this.productToPropertyToValueService.addValuesToPropertiesOfProduct(
+        product.id,
+        getProductPropertiesModel(
+          propertiesForProductType,
+          addedPropertiesValuesIds,
+        ),
+      );
+    }
   }
 
   async seedProductProperties() {
     const addedProductTypesIds = (
-      await this.productDescriptionService.addProductTypes(productTypes)
+      await this.productTypeService.addProductTypes(productTypes)
     ).map((row) => row.id);
 
-    const addedProductPropertiesIds = (
-      await this.productDescriptionService.addProductProperties(
-        productProperties,
+    const addedProductPropertiesNames = (
+      await this.productPropertyService.addProductProperties(productProperties)
+    ).map((row) => row.name);
+
+    const addedPropertiesValuesIds = (
+      await this.productPropertyValueService.addProductPropertyValues(
+        productPropertiesValues,
       )
     ).map((row) => row.id);
 
     const propertiesBoundToProductTypes = addPropertiesToProductTypes(
       addedProductTypesIds,
-      addedProductPropertiesIds,
+      addedProductPropertiesNames,
     );
 
-    for (const {
-      productTypeId,
-      productPropertyId,
-    } of propertiesBoundToProductTypes) {
-      await this.productDescriptionService.addPropertiesToProductTypes(
-        productTypeId,
-        productPropertyId,
-      );
-    }
-
-    const addedProductPropertyValuesIds = (
-      await this.productDescriptionService.addProductPropertyValues(
-        productPropertiesValues,
-      )
-    ).map((row) => row.id);
+    await this.productTypeToPropertiesService.addPropertiesToProductType(
+      propertiesBoundToProductTypes,
+    );
 
     const valuesBoundToProperties = addValuesToProductProperties(
-      addedProductPropertiesIds,
-      addedProductPropertyValuesIds,
+      addedProductPropertiesNames,
+      addedPropertiesValuesIds,
     );
+
+    await this.productPropertyToValuesService.addValuesToProperties(
+      valuesBoundToProperties,
+    );
+
+    return {
+      addedProductTypesIds,
+      addedPropertiesValuesIds,
+    };
   }
 }

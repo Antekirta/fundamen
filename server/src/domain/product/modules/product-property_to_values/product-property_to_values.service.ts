@@ -1,7 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from 'nest-knexjs';
 import { Knex } from 'knex';
-import { ProductPropertyValueInterface } from '../../product.domain.interface';
+import {
+  ProductPropertyToValueInterface,
+  ProductPropertyValueInterface,
+  ProductPropertyValueToAddInterface,
+} from '../../product.domain.interface';
 import { DB } from '../../product.domain.registry';
 
 const {
@@ -22,14 +26,10 @@ export class ProductPropertyToValuesService {
       .select(`${PRODUCT_PROPERTY_VALUES}.*`);
   }
 
-  async addValueToProperty(
-    product_property_name: string,
-    product_property_value_id: number,
+  async addValuesToProperties(
+    rows: ProductPropertyToValueInterface[],
   ): Promise<void> {
-    await this.knex.table(PRODUCT_PROPERTY_TO_VALUES).insert({
-      product_property_name,
-      product_property_value_id,
-    });
+    await this.knex.table(PRODUCT_PROPERTY_TO_VALUES).insert(rows);
   }
 
   async deleteValueFromProperty(
@@ -40,5 +40,11 @@ export class ProductPropertyToValuesService {
       .table(PRODUCT_PROPERTY_TO_VALUES)
       .where({ product_property_name, product_property_value_id })
       .delete();
+  }
+
+  async clearTable(): Promise<void> {
+    await this.knex.raw(
+      `TRUNCATE TABLE ${PRODUCT_PROPERTY_TO_VALUES} RESTART IDENTITY CASCADE`,
+    );
   }
 }

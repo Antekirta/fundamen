@@ -16,9 +16,15 @@ export class ProductPropertyService {
   constructor(@InjectConnection() private readonly knex: Knex) {}
 
   async getProductProperties(
-    propertiesNames: string[],
+    propertiesNames?: string[],
   ): Promise<ProductPropertyInterface[]> {
-    return this.knex.table(PRODUCT_PROPERTIES).whereIn('name', propertiesNames);
+    if (propertiesNames && propertiesNames.length) {
+      return this.knex
+        .table(PRODUCT_PROPERTIES)
+        .whereIn('name', propertiesNames);
+    }
+
+    return this.knex.table(PRODUCT_PROPERTIES);
   }
 
   async addProductProperties(
@@ -48,7 +54,7 @@ export class ProductPropertyService {
     await this.knex.table(PRODUCT_PROPERTIES).where({ name }).del();
   }
 
-  async clearProductPropertiesTable(): Promise<void> {
+  async clearTable(): Promise<void> {
     await this.knex.raw(
       `TRUNCATE TABLE ${PRODUCT_PROPERTIES} RESTART IDENTITY CASCADE`,
     );
