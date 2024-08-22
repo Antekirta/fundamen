@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from '../../../../modules/database/database.module';
 import { Product_to_property_to_valueController } from './product_to_property_to_value.controller';
-import { Product_to_property_to_valueService } from './product_to_property_to_value.service';
+import { ProductToPropertyToValueService } from './product_to_property_to_value.service';
+import { ProductPropertyModule } from '../product-property/product-property.module';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [DatabaseModule, ProductPropertyModule],
   controllers: [Product_to_property_to_valueController],
-  providers: [Product_to_property_to_valueService],
-  exports: [Product_to_property_to_valueService],
+  providers: [ProductToPropertyToValueService],
+  exports: [ProductToPropertyToValueService],
 })
 export class Product_to_property_to_valueModule {}

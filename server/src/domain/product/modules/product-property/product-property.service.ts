@@ -15,20 +15,22 @@ const {
 export class ProductPropertyService {
   constructor(@InjectConnection() private readonly knex: Knex) {}
 
-  async getProductProperties(): Promise<ProductPropertyInterface> {
-    return this.knex.table(PRODUCT_PROPERTIES);
+  async getProductProperties(
+    propertiesNames: string[],
+  ): Promise<ProductPropertyInterface[]> {
+    return this.knex.table(PRODUCT_PROPERTIES).whereIn('name', propertiesNames);
   }
 
   async addProductProperties(
     productProperty: ProductPropertyToAddInterface[],
-  ): Promise<Array<Pick<ProductPropertyInterface, 'id'>>> {
-    const keysToReturn: Array<keyof ProductPropertyInterface> = ['id'];
+  ): Promise<Array<Pick<ProductPropertyInterface, 'name'>>> {
+    const keysToReturn: Array<keyof ProductPropertyInterface> = ['name'];
 
     return (await this.knex
       .table(PRODUCT_PROPERTIES)
       .returning(keysToReturn)
       .insert(productProperty)) as unknown as Array<
-      Pick<ProductPropertyInterface, 'id'>
+      Pick<ProductPropertyInterface, 'name'>
     >;
   }
 
