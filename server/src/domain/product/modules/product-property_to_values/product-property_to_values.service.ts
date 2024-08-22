@@ -13,32 +13,32 @@ export class ProductPropertyToValuesService {
   constructor(@InjectConnection() private readonly knex: Knex) {}
 
   async getValuesByPropertyId(
-    product_property_id: number,
+    product_property_name: string,
   ): Promise<ProductPropertyValueInterface> {
     return this.knex
       .table(PRODUCT_PROPERTY_TO_VALUES)
-      .where({ product_property_id })
+      .where({ product_property_name })
       .join(PRODUCT_PROPERTY_VALUES, 'product_property_value_id', 'id')
       .select(`${PRODUCT_PROPERTY_VALUES}.*`);
   }
 
   async addValueToProperty(
-    product_property_id: number,
+    product_property_name: string,
     product_property_value_id: number,
   ): Promise<void> {
     await this.knex.table(PRODUCT_PROPERTY_TO_VALUES).insert({
-      product_property_id,
+      product_property_name,
       product_property_value_id,
     });
   }
 
   async deleteValueFromProperty(
-    product_property_id: number,
+    product_property_name: string,
     product_property_value_id: number,
   ): Promise<void> {
     await this.knex
       .table(PRODUCT_PROPERTY_TO_VALUES)
-      .where({ product_property_id, product_property_value_id })
+      .where({ product_property_name, product_property_value_id })
       .delete();
   }
 }

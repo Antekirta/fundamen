@@ -46,14 +46,14 @@ export interface ProductTypeToAddInterface
     extends Omit<ProductTypeInterface, 'id'> {}
 
 export interface ProductPropertyInterface {
-    id: number;
     name: string;
+    title: string;
     description: string;
     has_predefined_values: boolean;
 }
 
 export interface ProductPropertyToAddInterface
-    extends Omit<ProductPropertyInterface, 'id'> {}
+    extends ProductPropertyInterface {}
 
 export interface ProductPropertyValueInterface {
     id: number;
@@ -65,17 +65,17 @@ export interface ProductPropertyValueToAddInterface
 
 export interface ProductTypeToPropertyInterface {
     product_type_id: number;
-    product_property_id: number;
+    product_property_name: string;
 }
 
 export interface ProductPropertyToValueInterface {
-    product_property_id: number;
+    product_property_name: string;
     product_property_value_id: number;
 }
 
 export interface ProductToPropertyToValueInterface {
     product_id: number;
-    product_property_id: number;
+    product_property_name: string;
     product_property_value_id?: number;
     raw_value?: string;
 }

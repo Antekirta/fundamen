@@ -36,7 +36,7 @@ export class ProductDescriptionService {
     return this.knex
       .table(PRODUCT_TYPE_TO_PROPERTIES)
       .where({ product_type_id })
-      .join(PRODUCT_PROPERTIES, 'product_property_id', 'id');
+      .join(PRODUCT_PROPERTIES, 'product_property_name', 'name');
   }
 
   async getProductPropertiesByProductId(
@@ -45,7 +45,7 @@ export class ProductDescriptionService {
     return this.knex
       .table(PRODUCT_PROPERTY_TO_VALUES)
       .where({ product_id })
-      .join(PRODUCT_PROPERTIES, 'product_property_id', 'id');
+      .join(PRODUCT_PROPERTIES, 'product_property_name', 'name');
   }
 
   /** PRODUCT PROPERTY VALUE */
@@ -53,11 +53,11 @@ export class ProductDescriptionService {
   /** PRODUCT PROPERTY TO PRODUCT TYPE */
   async addPropertiesToProductTypes(
     product_type_id: number,
-    product_property_id: number,
+    product_property_name: string,
   ): Promise<void> {
     await this.knex.table(PRODUCT_TYPE_TO_PROPERTIES).insert({
       product_type_id,
-      product_property_id,
+      product_property_name,
     });
   }
 

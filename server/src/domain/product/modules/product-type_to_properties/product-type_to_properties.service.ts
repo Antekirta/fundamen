@@ -20,7 +20,7 @@ export class ProductTypeToPropertiesService {
       .where({ product_type_id })
       .join(
         PRODUCT_PROPERTIES,
-        'product_property_id',
+        'product_property_name',
         `${PRODUCT_PROPERTIES}.id`,
       )
       .select(`${PRODUCT_PROPERTIES}.*`);
@@ -28,21 +28,21 @@ export class ProductTypeToPropertiesService {
 
   async addPropertyToProductType(
     product_type_id: number,
-    product_property_id: number,
+    product_property_name: string,
   ) {
     return this.knex.table(PRODUCT_TYPE_TO_PROPERTIES).insert({
       product_type_id,
-      product_property_id,
+      product_property_name,
     });
   }
 
   async deletePropertyFromProductType(
     product_type_id: number,
-    product_property_id: number,
+    product_property_name: string,
   ) {
     return this.knex
       .table(PRODUCT_TYPE_TO_PROPERTIES)
-      .where({ product_type_id, product_property_id })
+      .where({ product_type_id, product_property_name })
       .delete();
   }
 }

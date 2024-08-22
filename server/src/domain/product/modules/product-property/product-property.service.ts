@@ -33,17 +33,17 @@ export class ProductPropertyService {
   }
 
   async updateProductProperty(
-    id: number,
+    name: string,
     productProperty: ProductPropertyToAddInterface,
   ): Promise<void> {
     await this.knex
       .table(PRODUCT_PROPERTIES)
-      .where({ id })
+      .where({ name })
       .update(productProperty);
   }
 
-  async deleteProductProperty(id: number): Promise<void> {
-    await this.knex.table(PRODUCT_PROPERTIES).where({ id }).del();
+  async deleteProductProperty(name: string): Promise<void> {
+    await this.knex.table(PRODUCT_PROPERTIES).where({ name }).del();
   }
 
   async clearProductPropertiesTable(): Promise<void> {
