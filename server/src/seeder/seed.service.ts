@@ -6,7 +6,6 @@ import {
   ProductPropertyToAddInterface,
   ProductPropertyToValueInterface,
   ProductPropertyValueToAddInterface,
-  ProductToAddInterface,
   ProductTypeToAddInterface,
   ProductTypeToPropertyInterface,
 } from '../domain/product/product.domain.interface';
@@ -14,7 +13,6 @@ import { getRandom } from '../utils/number';
 import { CategoryToCategoryService } from '../domain/product/modules/category_to_category/category_to_category.service';
 import { ProductService } from '../domain/product/modules/product/product.service';
 import { ProductToCategoryService } from '../domain/product/modules/product_to_category/product_to_category.service';
-import { ProductDescriptionService } from '../domain/product/modules/productDescription/productDescription.service';
 import { ProductTypeService } from '../domain/product/modules/product-type/product-type.service';
 import { ProductPropertyService } from '../domain/product/modules/product-property/product-property.service';
 import { ProductPropertyValueService } from '../domain/product/modules/product-property-value/product-property-value.service';
