@@ -15,7 +15,7 @@ const {
 export class ProductTypeService {
   constructor(@InjectConnection() private readonly knex: Knex) {}
 
-  async getProductTypes(): Promise<ProductTypeInterface> {
+  async getProductTypes(): Promise<ProductTypeInterface[]> {
     return this.knex.table(PRODUCT_TYPES);
   }
 

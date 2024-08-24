@@ -1,11 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { CategoryService } from '../domain/product/modules/category/category.service';
 import {
+  CategoryInterface,
   CategoryToAddInterface,
+  ProductInterface,
+  ProductPropertiesModelInterface,
   ProductPropertyInterface,
   ProductPropertyToAddInterface,
   ProductPropertyToValueInterface,
+  ProductPropertyValueInterface,
   ProductPropertyValueToAddInterface,
+  ProductTypeInterface,
   ProductTypeToAddInterface,
   ProductTypeToPropertyInterface,
 } from '../domain/product/product.domain.interface';
@@ -19,144 +24,38 @@ import { ProductPropertyValueService } from '../domain/product/modules/product-p
 import { ProductTypeToPropertiesService } from '../domain/product/modules/product-type_to_properties/product-type_to_properties.service';
 import { ProductPropertyToValuesService } from '../domain/product/modules/product-property_to_values/product-property_to_values.service';
 import { ProductToPropertyToValueService } from '../domain/product/modules/product_to_property_to_value/product_to_property_to_value.service';
+import { CategoryBuilder } from './builders/category.builder';
+import { ProductTypeBuilder } from './builders/product-type.builder';
+import { ProductPropertyBuilder } from './builders/product-property.builder';
+import { ProductPropertiesValuesBuilder } from './builders/product-properties-values.builder';
+import { ProductBuilder } from './builders/product.builder';
+import { ProductToCategoryBuilder } from './builders/product_to_category.builder';
+import { PropertyToProductTypeBuilder } from './builders/property_to_product-type.builder';
+import { PropertiesValuesToProductPropertiesBuilder } from './builders/properties-values_to_product-properties.builder';
 
-const NUMBER_OF_CATEGORIES = 20;
-const NUMBER_OF_PARENT_CATEGORIES = 5;
-const NUMBER_OF_PRODUCT_TYPES = 2;
-const NUMBER_OF_PRODUCT_PROPERTIES = 20;
-const NUMBER_OF_PRODUCT_PROPERTIES_VALUES = 60;
-const NUMBER_OF_PRODUCTS = 10;
+const categoryBuilder = new CategoryBuilder();
+const productTypeBuilder = new ProductTypeBuilder();
+const productPropertyBuilder = new ProductPropertyBuilder();
+const productPropertiesValuesBuilder = new ProductPropertiesValuesBuilder();
+const productBuilder = new ProductBuilder();
+const productToCategoryBuilder = new ProductToCategoryBuilder();
+const propertyToProductTypeBuilder = new PropertyToProductTypeBuilder();
+const propertiesValuesToProductPropertiesBuilder =
+  new PropertiesValuesToProductPropertiesBuilder();
 
-const categories: CategoryToAddInterface[] = Array.from(
-  new Array(NUMBER_OF_CATEGORIES),
-).map((_, i) => {
-  return {
-    name: `Seeded category ${i + 1}`,
-  };
-});
-
-const productTypes: ProductTypeToAddInterface[] = Array.from(
-  new Array(NUMBER_OF_PRODUCT_TYPES),
-).map((_, i) => {
-  return {
-    name: `Seeded product type ${i + 1}`,
-  };
-});
-
-const productProperties: ProductPropertyToAddInterface[] = Array.from(
-  new Array(NUMBER_OF_PRODUCT_PROPERTIES),
-).map((_, i) => {
-  return {
-    name: `property_${i + 1}`,
-    title: `Seeded product property ${i + 1}`,
-    description: `Seeded product property description ${i + 1}`,
-    has_predefined_values: true,
-  };
-});
-
-const productPropertiesValues: ProductPropertyValueToAddInterface[] =
-  Array.from(new Array(NUMBER_OF_PRODUCT_PROPERTIES_VALUES)).map((_, i) => {
-    return {
-      value: `Value ${i + 1}`,
-    };
-  });
-
-const getProducts = ({ addedProductTypesIds }) => {
-  return Array.from(new Array(NUMBER_OF_PRODUCTS)).map((_, i) => {
-    return {
-      name: `Seeded product ${i + 1}`,
-      description: `Seeded description ${i + 1}`,
-      price: getRandom(100, 1000),
-      stock_quantity: getRandom(1, 100),
-      images_urls: [],
-      primary_image_url: '',
-      is_active: true,
-      product_type:
-        addedProductTypesIds[getRandom(0, addedProductTypesIds.length - 1)],
-    };
-  });
-};
-
-const bindCategories = (
-  ids: number[],
-): Array<{ child: number; parent: number }> => {
-  const numOfParentCategories = NUMBER_OF_PARENT_CATEGORIES;
-  const parentCategories = ids.slice(0, numOfParentCategories);
-  const childCategories = ids.slice(numOfParentCategories);
-
-  return childCategories.map((childCategory) => {
-    return {
-      child: childCategory,
-      parent: parentCategories[getRandom(0, numOfParentCategories - 1)],
-    };
-  });
-};
-
-const addProductsToCategories = (
-  productsIds: number[],
-  categoriesIds: number[],
-): Array<{ productId: number; categoryId: number }> => {
-  const numOfCategories = categoriesIds.length;
-
-  return [
-    {
-      productId: productsIds[0],
-      categoryId: 1,
-    },
-    ...productsIds.slice(1).map((productId) => {
-      return {
-        productId,
-        categoryId: categoriesIds[getRandom(0, numOfCategories - 1)],
-      };
-    }),
-  ];
-};
-
-const addPropertiesToProductTypes = (
-  productTypesIds: number[],
-  productPropertiesNames: string[],
-): Array<ProductTypeToPropertyInterface> => {
-  const numOfProductTypes = productTypesIds.length;
-
-  return productPropertiesNames.map((productPropertiesName) => {
-    return {
-      product_type_id: productTypesIds[getRandom(0, numOfProductTypes - 1)],
-      product_property_name: productPropertiesName,
-    };
-  });
-};
-
-const addValuesToProductProperties = (
-  productPropertiesNames: string[],
-  propertiesValuesIds: number[],
-): Array<ProductPropertyToValueInterface> => {
-  const numOfProductProperties = productPropertiesNames.length;
-
-  return propertiesValuesIds.map((propertyValueId) => {
-    return {
-      product_property_name:
-        productPropertiesNames[getRandom(0, numOfProductProperties - 1)],
-      product_property_value_id: propertyValueId,
-    };
-  });
-};
-
-const getProductPropertiesModel = (
-  productProperties: ProductPropertyInterface[],
-  propertiesValuesIds: number[],
-) => {
-  return productProperties.reduce((acc, { name, has_predefined_values }) => {
-    return {
-      ...acc,
-      [name]: has_predefined_values
-        ? propertiesValuesIds[getRandom(0, propertiesValuesIds.length - 1)]
-        : `${Math.random()}`, // some random string
-    };
-  }, {});
+const messagesStyles = {
+  success:
+    'color: green; font-size: 16px; background-color: yellow; padding: 4px; border-radius: 4px;',
 };
 
 @Injectable()
 export class SeedService {
+  productTypes: ProductTypeInterface[];
+  productProperties: ProductPropertyInterface[];
+  propertiesValues: ProductPropertyValueInterface[];
+  categories: CategoryInterface[];
+  products: ProductInterface[];
+
   constructor(
     private readonly categoryService: CategoryService,
     private readonly categoryToCategoryService: CategoryToCategoryService,
@@ -173,13 +72,24 @@ export class SeedService {
   async seed() {
     await this.clearTables();
 
-    const { addedProductTypesIds, addedPropertiesValuesIds } =
-      await this.seedProductProperties();
-    const categoriesIds = await this.seedCategories();
-    await this.seedProducts(categoriesIds, {
-      addedProductTypesIds,
-      addedPropertiesValuesIds,
-    });
+    console.log('%c Tables are cleared.', messagesStyles.success);
+
+    await this.seedProductProperties();
+
+    console.log('%c Product properties are seeded.', messagesStyles.success);
+
+    await this.seedCategories();
+
+    console.log('%c Categories are seeded.', messagesStyles.success);
+
+    await this.seedProducts();
+
+    console.log('%c Products are seeded.', messagesStyles.success);
+
+    console.log(
+      '%c The seeding process has successfully finished',
+      messagesStyles.success,
+    );
   }
 
   async clearTables() {
@@ -197,36 +107,42 @@ export class SeedService {
     await this.productService.clearTable();
   }
 
-  async seedCategories(): Promise<number[]> {
-    const addedCategoriesIds = (
-      await this.categoryService.addCategories(categories)
-    ).map((row) => row.id);
+  async seedCategories(): Promise<void> {
+    /** Categories */
+    const categoriesToAdd = categoryBuilder.build();
 
-    const boundCategories = bindCategories(addedCategoriesIds);
+    await this.categoryService.addCategories(categoriesToAdd);
+
+    this.categories = await this.categoryService.getCategories();
+
+    /** Categories to categories */
+    const boundCategories = categoryBuilder.bindCategories(
+      this.categories.map((row) => row.id),
+    );
 
     for (const { parent, child } of boundCategories) {
       await this.categoryToCategoryService.addCategoryToCategory(parent, child);
     }
-
-    return addedCategoriesIds;
   }
 
-  async seedProducts(
-    categoryIds: number[],
-    { addedProductTypesIds, addedPropertiesValuesIds },
-  ) {
-    const addedProductsIds = (
-      await this.productService.addProductsBase(
-        getProducts({
-          addedProductTypesIds,
-        }),
-      )
-    ).map((row) => row.id);
-
-    const productsBoundToCategories = addProductsToCategories(
-      addedProductsIds,
-      categoryIds,
+  async seedProducts() {
+    productBuilder.init(
+      this.productTypes.map((row) => row.id),
+      this.propertiesValues.map((row) => row.id),
     );
+
+    /** Products */
+    await this.productService.addProductsBase(productBuilder.build());
+
+    this.products = await this.productService.getProducts();
+
+    /** Products to categories */
+    productToCategoryBuilder.init(
+      this.products.map((row) => row.id),
+      this.categories.map((row) => row.id),
+    );
+
+    const productsBoundToCategories = productToCategoryBuilder.build();
 
     for (const { productId, categoryId } of productsBoundToCategories) {
       await this.productToCategoryService.addProductToCategory(
@@ -235,61 +151,83 @@ export class SeedService {
       );
     }
 
-    const addedProducts = await this.productService.getProducts();
+    let propertiesForParticularProductType;
+    const propertiesProductTypeMap = new Map<
+      number,
+      ProductPropertyInterface[]
+    >();
 
-    for (const product of addedProducts) {
-      // INFO: You may speed up this part by caching properties for product types
-      const propertiesForProductType =
-        await this.productTypeToPropertiesService.getPropertiesByProductTypeId(
+    for (const product of this.products) {
+      if (propertiesProductTypeMap.has(product.product_type)) {
+        propertiesForParticularProductType = propertiesProductTypeMap.get(
           product.product_type,
         );
+      } else {
+        propertiesForParticularProductType =
+          await this.productTypeToPropertiesService.getPropertiesByProductTypeId(
+            product.product_type,
+          );
+
+        propertiesProductTypeMap.set(
+          product.product_type,
+          propertiesForParticularProductType,
+        );
+      }
 
       await this.productToPropertyToValueService.addValuesToPropertiesOfProduct(
         product.id,
-        getProductPropertiesModel(
-          propertiesForProductType,
-          addedPropertiesValuesIds,
+        productBuilder.buildProductsProperties(
+          propertiesForParticularProductType,
         ),
       );
     }
   }
 
   async seedProductProperties() {
-    const addedProductTypesIds = (
-      await this.productTypeService.addProductTypes(productTypes)
-    ).map((row) => row.id);
+    /** Product types */
+    await this.productTypeService.addProductTypes(productTypeBuilder.build());
 
-    const addedProductPropertiesNames = (
-      await this.productPropertyService.addProductProperties(productProperties)
-    ).map((row) => row.name);
+    this.productTypes = await this.productTypeService.getProductTypes();
 
-    const addedPropertiesValuesIds = (
-      await this.productPropertyValueService.addProductPropertyValues(
-        productPropertiesValues,
-      )
-    ).map((row) => row.id);
-
-    const propertiesBoundToProductTypes = addPropertiesToProductTypes(
-      addedProductTypesIds,
-      addedProductPropertiesNames,
+    /** Product properties */
+    await this.productPropertyService.addProductProperties(
+      productPropertyBuilder.build(),
     );
+
+    this.productProperties =
+      await this.productPropertyService.getProductProperties();
+
+    /** Product values */
+    await this.productPropertyValueService.addProductPropertyValues(
+      productPropertiesValuesBuilder.build(),
+    );
+
+    this.propertiesValues =
+      await this.productPropertyValueService.getProductPropertyValues();
+
+    /** Properties to product types */
+    propertyToProductTypeBuilder.init(
+      this.productTypes.map((row) => row.id),
+      this.productProperties.map((row) => row.name),
+    );
+
+    const propertiesBoundToProductTypes = propertyToProductTypeBuilder.build();
 
     await this.productTypeToPropertiesService.addPropertiesToProductType(
       propertiesBoundToProductTypes,
     );
 
-    const valuesBoundToProperties = addValuesToProductProperties(
-      addedProductPropertiesNames,
-      addedPropertiesValuesIds,
+    /** Values to properties */
+    propertiesValuesToProductPropertiesBuilder.init(
+      this.productProperties.map((row) => row.name),
+      this.propertiesValues.map((row) => row.id),
     );
+
+    const valuesBoundToProperties =
+      propertiesValuesToProductPropertiesBuilder.build();
 
     await this.productPropertyToValuesService.addValuesToProperties(
       valuesBoundToProperties,
     );
-
-    return {
-      addedProductTypesIds,
-      addedPropertiesValuesIds,
-    };
   }
 }

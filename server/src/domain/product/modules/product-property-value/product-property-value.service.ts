@@ -17,7 +17,7 @@ const {
 export class ProductPropertyValueService {
   constructor(@InjectConnection() private readonly knex: Knex) {}
 
-  async getProductPropertyValues(): Promise<ProductPropertyInterface> {
+  async getProductPropertyValues(): Promise<ProductPropertyValueInterface[]> {
     return this.knex.table(PRODUCT_PROPERTY_VALUES);
   }
 
