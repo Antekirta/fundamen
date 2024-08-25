@@ -4,14 +4,18 @@ import { Knex } from 'knex';
 import { DB } from '../../user.domain.registry';
 import { UserInterface, UserToAddInterface } from '../../user.interface.domain';
 import { hashPassword } from '../../user.utils.domain';
+import { UserTypeService } from './user-type.service';
 
 const {
-  TABLES: { U },
+  TABLES: { U, UT },
 } = DB;
 
 @Injectable()
 export class UserService {
-  constructor(@InjectConnection() private readonly knex: Knex) {}
+  constructor(
+    @InjectConnection() private readonly knex: Knex,
+    private readonly userTypeService: UserTypeService,
+  ) {}
 
   async getUserById(id: number): Promise<UserInterface> {
     return this.knex
@@ -25,9 +29,23 @@ export class UserService {
   async getUsers(
     searchParams: Partial<UserInterface>,
   ): Promise<UserInterface[]> {
+    this.getUserType(1);
+
     return this.knex.table(U).where({
       ...searchParams,
     });
+  }
+
+  async getUserType(userId: number): Promise<string> {
+    const userTypes = await this.knex(U)
+      .table(U)
+      .where({
+        [`${U}.id`]: userId,
+      })
+      .join(UT, `${U}.user_type`, `${UT}.id`)
+      .select(`${UT}.name`);
+
+    return userTypes[0]?.name || '';
   }
 
   async addUser(user: UserToAddInterface): Promise<void> {

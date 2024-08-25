@@ -11,7 +11,7 @@ export const ROUTES = {
   AUTH: {
     BASE: 'auth',
     LOGIN: 'login',
-    PROFILE: 'profile',
+    ROLE: 'role',
   },
   USERS: {
     BASE: 'users',

@@ -28,8 +28,20 @@ export class AuthRepository extends Repository {
   }
 
   isAuth () {
-    return this.$fetch('/auth/profile', {
+    return this.$fetch('/auth', {
       method: 'GET',
+      headers: {
+        ...getAuthorizationHeader()
+      }
+    })
+  }
+
+  hasRole (role: string) {
+    return this.$fetch('/auth/role', {
+      method: 'GET',
+      params: {
+        role
+      },
       headers: {
         ...getAuthorizationHeader()
       }

@@ -36,7 +36,10 @@ import TheProductItem from '@/components/Molecules/page-specific/cart/TheProduct
 import TheCheckoutForm from '@/components/Organisms/forms/TheCheckoutForm.vue'
 
 definePageMeta({
-  middleware: 'auth'
+  middleware: [
+    'auth',
+    'role-client'
+  ]
 })
 
 const products = [
