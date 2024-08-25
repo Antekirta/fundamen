@@ -11,6 +11,7 @@ import { ProductPropertyValueModule } from '../domain/product/modules/product-pr
 import { ProductTypeToPropertiesModule } from '../domain/product/modules/product-type_to_properties/product-type_to_properties.module';
 import { ProductPropertyToValuesModule } from '../domain/product/modules/product-property_to_values/product-property_to_values.module';
 import { ProductToPropertyToValueModule } from '../domain/product/modules/product_to_property_to_value/product_to_property_to_value.module';
+import { UserModule } from '../domain/user/modules/user/user.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ProductToPropertyToValueModule } from '../domain/product/modules/produc
     ProductTypeToPropertiesModule,
     ProductPropertyToValuesModule,
     ProductToPropertyToValueModule,
+    UserModule,
   ],
   providers: [SeedService],
 })

@@ -1,5 +1,6 @@
 enum TABLES {
   U = 'users',
+  UT = 'user_types',
 }
 
 export const DB = {
@@ -17,4 +18,14 @@ export const ROUTES = {
     ID: 'id',
     PASSWORD: 'password',
   },
+  USER_TYPES: {
+    BASE: 'user-types',
+    ID: 'id',
+  },
+};
+
+export const USER_TYPES = {
+  SUPERADMIN: 'superadmin',
+  ADMIN: 'admin',
+  CLIENT: 'client',
 };

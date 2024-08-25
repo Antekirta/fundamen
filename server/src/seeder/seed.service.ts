@@ -2,19 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { CategoryService } from '../domain/product/modules/category/category.service';
 import {
   CategoryInterface,
-  CategoryToAddInterface,
   ProductInterface,
-  ProductPropertiesModelInterface,
   ProductPropertyInterface,
-  ProductPropertyToAddInterface,
-  ProductPropertyToValueInterface,
   ProductPropertyValueInterface,
-  ProductPropertyValueToAddInterface,
   ProductTypeInterface,
-  ProductTypeToAddInterface,
-  ProductTypeToPropertyInterface,
 } from '../domain/product/product.domain.interface';
-import { getRandom } from '../utils/number';
 import { CategoryToCategoryService } from '../domain/product/modules/category_to_category/category_to_category.service';
 import { ProductService } from '../domain/product/modules/product/product.service';
 import { ProductToCategoryService } from '../domain/product/modules/product_to_category/product_to_category.service';
@@ -32,6 +24,13 @@ import { ProductBuilder } from './builders/product.builder';
 import { ProductToCategoryBuilder } from './builders/product_to_category.builder';
 import { PropertyToProductTypeBuilder } from './builders/property_to_product-type.builder';
 import { PropertiesValuesToProductPropertiesBuilder } from './builders/properties-values_to_product-properties.builder';
+import { UserBuilder } from './builders/user.builder';
+import { UserService } from '../domain/user/modules/user/user.service';
+import { UserTypeService } from '../domain/user/modules/user/user-type.service';
+import {
+  UserInterface,
+  UserTypeInterface,
+} from '../domain/user/user.interface.domain';
 
 const categoryBuilder = new CategoryBuilder();
 const productTypeBuilder = new ProductTypeBuilder();
@@ -42,6 +41,7 @@ const productToCategoryBuilder = new ProductToCategoryBuilder();
 const propertyToProductTypeBuilder = new PropertyToProductTypeBuilder();
 const propertiesValuesToProductPropertiesBuilder =
   new PropertiesValuesToProductPropertiesBuilder();
+const userBuilder = new UserBuilder();
 
 const messagesStyles = {
   success:
@@ -55,6 +55,8 @@ export class SeedService {
   propertiesValues: ProductPropertyValueInterface[];
   categories: CategoryInterface[];
   products: ProductInterface[];
+  userTypes: UserTypeInterface[];
+  users: UserInterface[];
 
   constructor(
     private readonly categoryService: CategoryService,
@@ -67,12 +69,18 @@ export class SeedService {
     private readonly productTypeToPropertiesService: ProductTypeToPropertiesService,
     private readonly productPropertyToValuesService: ProductPropertyToValuesService,
     private readonly productToPropertyToValueService: ProductToPropertyToValueService,
+    private readonly userService: UserService,
+    private readonly userTypeService: UserTypeService,
   ) {}
 
   async seed() {
     await this.clearTables();
 
     console.log('%c Tables are cleared.', messagesStyles.success);
+
+    await this.seedUsers();
+
+    console.log('%c Users are seeded.', messagesStyles.success);
 
     await this.seedProductProperties();
 
@@ -105,6 +113,24 @@ export class SeedService {
 
     await this.categoryService.clearTable();
     await this.productService.clearTable();
+    await this.userService.clearTable();
+    await this.userTypeService.clearTable();
+  }
+
+  async seedUsers() {
+    /** User types */
+    for (const userType of userBuilder.buildUserTypes()) {
+      await this.userTypeService.addUserType(userType);
+    }
+
+    this.userTypes = await this.userTypeService.getUserTypes();
+
+    /** Users */
+    userBuilder.userTypes = this.userTypes;
+
+    for (const user of userBuilder.buildUsers()) {
+      await this.userService.addUser(user);
+    }
   }
 
   async seedCategories(): Promise<void> {

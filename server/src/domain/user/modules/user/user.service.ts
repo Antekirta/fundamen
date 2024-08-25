@@ -60,4 +60,8 @@ export class UserService {
   async deleteUser(id: number): Promise<void> {
     await this.knex.table(U).where({ id }).delete();
   }
+
+  async clearTable(): Promise<void> {
+    await this.knex.raw(`TRUNCATE TABLE ${U} RESTART IDENTITY CASCADE`);
+  }
 }
