@@ -30,7 +30,7 @@ export class OrderController {
 
   @Post()
   async createOrder(@Body() Order: OrderToAddInterface): Promise<void> {
-    await this.orderService.addOrder(Order);
+    await this.orderService.createOrder(Order);
   }
 
   @Put(':id')

@@ -31,7 +31,7 @@ export class BasketService {
       .limit(1) as unknown as Promise<BasketInterface>;
   }
 
-  getProductInBasket(basket_id: number): Promise<ProductInBasketInterface[]> {
+  getProductsInBasket(basket_id: number): Promise<ProductInBasketInterface[]> {
     return this.knex.table(PTB).where({ basket_id }) as unknown as Promise<
       ProductInBasketInterface[]
     >;

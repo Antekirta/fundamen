@@ -5,6 +5,7 @@ import { ProductToCategoryModule } from '../../domain/product/modules/product_to
 import { DatabaseModule } from '../../modules/database/database.module';
 import { ProductModule } from '../../domain/product/modules/product/product.module';
 import { BasketModule } from '../../domain/basket/basket.module';
+import { OrderModule } from '../../domain/order/modules/order.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { BasketModule } from '../../domain/basket/basket.module';
     ProductModule,
     ProductToCategoryModule,
     BasketModule,
+    OrderModule,
   ],
   controllers: [],
   providers: [BuyProductService],

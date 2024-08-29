@@ -1,11 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from 'nest-knexjs';
 import { Knex } from 'knex';
-import { OrderInterface, OrderToAddInterface } from '../order.interface.domain';
+import {
+  OrderInterface,
+  OrderStatus,
+  OrderToAddInterface,
+} from '../order.interface.domain';
 import { DB } from '../order.registry.domain';
 
 const {
-  TABLES: { O },
+  TABLES: { O, PTO },
 } = DB;
 
 @Injectable()
@@ -29,8 +33,25 @@ export class OrderService {
     });
   }
 
-  async addOrder(product: OrderToAddInterface): Promise<void> {
-    await this.knex.table(O).insert(product);
+  async createOrder(
+    order: OrderToAddInterface,
+  ): Promise<Array<Pick<OrderInterface, 'id'>>> {
+    return this.knex.table(O).returning(['id']).insert(order);
+  }
+
+  async addProductsToOrder(orderId: number, productsIds: number[]) {
+    await this.knex.table(PTO).insert(
+      productsIds.map((product_id) => {
+        return {
+          order_id: orderId,
+          product_id,
+        };
+      }),
+    );
+  }
+
+  async setOrderStatus(orderId: number, status: OrderStatus) {
+    await this.knex.table(O).where({ id: orderId }).update({ status });
   }
 
   async updateOrder(
