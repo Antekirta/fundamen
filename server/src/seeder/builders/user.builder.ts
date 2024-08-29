@@ -31,21 +31,24 @@ export class UserBuilder {
 
     return [
       {
-        name: 'Superadmin',
+        first_name: 'Superadmin',
+        last_name: 'Superadmin',
         user_type: userTypesIds[USER_TYPES.SUPERADMIN],
         email: '',
         password: 'superadminpass',
         created_date: `${new Date()}`,
       },
       {
-        name: 'Admin',
+        first_name: 'Admin',
+        last_name: 'Admin',
         user_type: userTypesIds[USER_TYPES.ADMIN],
         email: '',
         password: 'adminpass',
         created_date: `${new Date()}`,
       },
       {
-        name: 'Client',
+        first_name: 'Client',
+        last_name: 'Client',
         user_type: userTypesIds[USER_TYPES.CLIENT],
         email: '',
         password: 'clientpass',
