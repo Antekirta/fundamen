@@ -18,7 +18,19 @@ export class DeliveryService {
   async getAddressesByUserId(
     user_id: number,
   ): Promise<DeliveryAddressInterface[]> {
-    await this.knex.table(DATU).where({ user_id });
+    await this.knex
+      .table(DATU)
+      .where({ user_id })
+      .join(DA, `${DATU}.delivery_address_id`, `${DA}.id`);
+  }
+
+  async getAddressesByOrderId(
+    order_id: number,
+  ): Promise<DeliveryAddressInterface[]> {
+    await this.knex
+      .table(DATO)
+      .where({ order_id })
+      .join(DA, `${DATO}.delivery_address_id`, `${DA}.id`);
   }
 
   async createAddress(
