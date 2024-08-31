@@ -12,25 +12,33 @@ const {
 } = DB;
 
 @Injectable()
-export class DeliveryService {
+export class PaymentService {
   constructor(@InjectConnection() private readonly knex: Knex) {}
 
   async getPaymentMethodsByUserId(
     user_id: number,
   ): Promise<PaymentMethodInterface> {
-    await this.knex
+    return this.knex
       .table(PMTU)
       .where({ user_id })
-      .join(PM, `${PMTU}.payment_method_id`, `${PM}.id`);
+      .join(
+        PM,
+        `${PMTU}.payment_method_id`,
+        `${PM}.id`,
+      ) as unknown as Promise<PaymentMethodInterface>;
   }
 
   async getPaymentMethodByOrderId(
     order_id: number,
   ): Promise<PaymentMethodInterface> {
-    await this.knex
+    return this.knex
       .table(PMTO)
       .where({ order_id })
-      .join(PM, `${PMTO}.payment_method_id`, `${PM}.id`);
+      .join(
+        PM,
+        `${PMTO}.payment_method_id`,
+        `${PM}.id`,
+      ) as unknown as Promise<PaymentMethodInterface>;
   }
 
   async createPaymentMethod(
@@ -46,11 +54,17 @@ export class DeliveryService {
     return ids;
   }
 
-  async addPaymentMethodToUser(user_id: number, delivery_address_id: number) {
+  async addPaymentMethodToUser(
+    user_id: number,
+    delivery_address_id: number,
+  ): Promise<void> {
     await this.knex.table(PMTU).insert({ user_id, delivery_address_id });
   }
 
-  async addPaymentMethodToOrder(order_id: number, delivery_address_id: number) {
+  async addPaymentMethodToOrder(
+    order_id: number,
+    delivery_address_id: number,
+  ): Promise<void> {
     await this.knex.table(PMTO).insert({ order_id, delivery_address_id });
   }
 }

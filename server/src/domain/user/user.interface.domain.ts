@@ -1,5 +1,6 @@
 export interface UserInterface {
   id: number;
+  name: string;
   first_name: string;
   last_name: string;
   user_type: number;

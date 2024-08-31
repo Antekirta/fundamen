@@ -31,6 +31,7 @@ export class UserBuilder {
 
     return [
       {
+        name: 'Superadmin',
         first_name: 'Superadmin',
         last_name: 'Superadmin',
         user_type: userTypesIds[USER_TYPES.SUPERADMIN],
@@ -39,6 +40,7 @@ export class UserBuilder {
         created_date: `${new Date()}`,
       },
       {
+        name: 'Admin',
         first_name: 'Admin',
         last_name: 'Admin',
         user_type: userTypesIds[USER_TYPES.ADMIN],
@@ -47,6 +49,7 @@ export class UserBuilder {
         created_date: `${new Date()}`,
       },
       {
+        name: 'Client',
         first_name: 'Client',
         last_name: 'Client',
         user_type: userTypesIds[USER_TYPES.CLIENT],

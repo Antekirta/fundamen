@@ -18,19 +18,27 @@ export class DeliveryService {
   async getAddressesByUserId(
     user_id: number,
   ): Promise<DeliveryAddressInterface[]> {
-    await this.knex
+    return this.knex
       .table(DATU)
       .where({ user_id })
-      .join(DA, `${DATU}.delivery_address_id`, `${DA}.id`);
+      .join(
+        DA,
+        `${DATU}.delivery_address_id`,
+        `${DA}.id`,
+      ) as unknown as Promise<DeliveryAddressInterface[]>;
   }
 
   async getAddressesByOrderId(
     order_id: number,
   ): Promise<DeliveryAddressInterface[]> {
-    await this.knex
+    return this.knex
       .table(DATO)
       .where({ order_id })
-      .join(DA, `${DATO}.delivery_address_id`, `${DA}.id`);
+      .join(
+        DA,
+        `${DATO}.delivery_address_id`,
+        `${DA}.id`,
+      ) as unknown as Promise<DeliveryAddressInterface[]>;
   }
 
   async createAddress(
@@ -48,11 +56,17 @@ export class DeliveryService {
     return ids;
   }
 
-  async addAddressToUser(user_id: number, delivery_address_id: number) {
+  async addAddressToUser(
+    user_id: number,
+    delivery_address_id: number,
+  ): Promise<void> {
     await this.knex.table(DATU).insert({ user_id, delivery_address_id });
   }
 
-  async addAddressToOrder(order_id: number, delivery_address_id: number) {
+  async addAddressToOrder(
+    order_id: number,
+    delivery_address_id: number,
+  ): Promise<void> {
     await this.knex.table(DATO).insert({ order_id, delivery_address_id });
   }
 }
