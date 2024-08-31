@@ -20,6 +20,12 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: [
+    'auth'
+  ]
+})
+
 /* global useHead, Stripe */
 useHead({
   title: 'Payment',
