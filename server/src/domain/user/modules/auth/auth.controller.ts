@@ -56,8 +56,6 @@ export class AuthController {
       req.user as UserSecureInterface,
     );
 
-    console.log('req.user: ', req.user);
-
     return { jwt: access_token };
   }
 
