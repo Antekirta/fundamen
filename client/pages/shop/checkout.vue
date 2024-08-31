@@ -37,8 +37,7 @@ import TheCheckoutForm from '@/components/Organisms/forms/TheCheckoutForm.vue'
 
 definePageMeta({
   middleware: [
-    'auth',
-    'role-client'
+    'auth'
   ]
 })
 
