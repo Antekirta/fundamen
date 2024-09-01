@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Index page</h2>
+    <h2>Users</h2>
   </div>
 </template>
 
