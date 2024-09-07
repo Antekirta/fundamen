@@ -5,10 +5,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
   mode: 'universal',
-  modules: [
-    // '@nuxtjs/storybook',
-    '@nuxt/ui'
-  ],
+  modules: [// '@nuxtjs/storybook',
+    '@nuxt/ui', '@pinia/nuxt'],
   plugins: [
     '~/plugins/vue-google-maps.js'
   ],
@@ -17,6 +15,9 @@ export default defineNuxtConfig({
       API_BASE_URL: process.env.API_BASE_URL,
       STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY
     }
+  },
+  alias: {
+    pinia: '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs'
   },
   typescript: {
     tsConfig: {
