@@ -7,6 +7,9 @@
 <script lang="ts" setup>
 // noinspection TypeScriptUnresolvedFunction
 definePageMeta({
-  layout: 'admin'
+  layout: 'admin',
+  middleware: [
+    'auth'
+  ]
 })
 </script>

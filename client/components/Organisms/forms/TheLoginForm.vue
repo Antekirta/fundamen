@@ -57,9 +57,9 @@
                 text="Remember me"
               />
 
-              <the-link link="#">
-                Forgot password?
-              </the-link>
+              <!--              <the-link link="#">-->
+              <!--                Forgot password?-->
+              <!--              </the-link>-->
             </div>
 
             <the-button
