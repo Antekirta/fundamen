@@ -1,15 +1,23 @@
 // define pinha store here
 import { defineStore } from 'pinia'
-import type { UserSecureInterface as UserSecureInterfaceClient } from '@/shared/types/user.interface.domain.client'
+import type { UserSecureInterface } from '@/shared/types/user.interface.domain.client'
 
-export const useUserStore = defineStore({
-  state: () => ({
-    user: UserSecureInterfaceClient
+interface userStoreStateInterface {
+  testProp: string,
+  // user: UserSecureInterface
+}
+
+export const useUserStore = defineStore('useUserStore', {
+  state: () : userStoreStateInterface => ({
+    testProp: 'test value'
   }),
   getters: {
-
+    // testPropGetter: state => state.testProp
   },
   actions: {
-
+    setTestProp (value: string) {
+      // @ts-ignore
+      this.testProp = value
+    }
   }
 })

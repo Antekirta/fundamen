@@ -116,6 +116,11 @@ import TheGoogleAuthBtn from '@/components/Molecules/common/buttons/TheGoogleAut
 import TheGithubAuthButton from '@/components/Molecules/common/buttons/TheGithubAuthButton/TheGithubAuthButton.vue'
 import { AuthRepository } from '@/repositories/auth.repo'
 import { COOKIE_KEYS } from '@/shared/registry'
+import { useUserStore } from '@/stores/user.store/user.store'
+
+const store = useUserStore()
+
+console.log('store!!!: ', store.testProp)
 
 const jwtToken = useCookie(COOKIE_KEYS.JWT)
 const userNameToken = useCookie(COOKIE_KEYS.USER_NAME)
