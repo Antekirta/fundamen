@@ -1,3 +1,5 @@
 export const COOKIE_KEYS = {
-  JWT: 'jwt'
+  JWT: 'jwt',
+  USER_NAME: 'userName',
+  USER_ID: 'userId'
 }

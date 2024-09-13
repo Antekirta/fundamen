@@ -36,7 +36,7 @@ export class UserBuilder {
         last_name: 'Superadmin',
         user_type: userTypesIds[USER_TYPES.SUPERADMIN],
         email: '',
-          password: 'superadminpass',
+        password: 'superadminpass',
         created_date: `${new Date()}`,
       },
       {

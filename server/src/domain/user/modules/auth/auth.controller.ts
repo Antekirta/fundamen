@@ -50,11 +50,11 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post(ROUTES.AUTH.LOGIN)
   async login(@Req() req: Request) {
-    const { access_token } = this.authService.login(
+    const { access_token, userName, userId } = this.authService.login(
       req.user as UserSecureInterface,
     );
 
-    return { jwt: access_token };
+    return { jwt: access_token, userName, userId };
   }
 
   @UseGuards(JwtAuthGuard)

@@ -118,6 +118,9 @@ import { AuthRepository } from '@/repositories/auth.repo'
 import { COOKIE_KEYS } from '@/shared/registry'
 
 const jwtToken = useCookie(COOKIE_KEYS.JWT)
+const userNameToken = useCookie(COOKIE_KEYS.USER_NAME)
+const userIdToken = useCookie(COOKIE_KEYS.USER_ID)
+
 const { $customFetch } = useNuxtApp()
 
 const authRepository = new AuthRepository($customFetch)
@@ -129,9 +132,11 @@ const model = reactive({
 
 const login = async () => {
   try {
-    const { jwt } = await authRepository.login(model.login, model.password)
+    const { jwt, userName, userId } = await authRepository.login(model.login, model.password)
 
     jwtToken.value = jwt
+    userNameToken.value = userName
+    userIdToken.value = userId
   } catch (error) {
     console.error('Error logging in: ', error)
   }
