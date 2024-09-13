@@ -40,8 +40,6 @@ export class AuthController {
 
     const userType = await this.userService.getUserType(user.id);
 
-    console.log('userType: ', userType);
-
     if (userType === role) {
       return true;
     }
