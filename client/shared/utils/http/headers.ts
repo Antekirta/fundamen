@@ -1,10 +1,9 @@
-import { useCookie } from '#imports'
-import { COOKIE_KEYS } from '@/shared/registry'
+import { useUserStore } from '@/stores/user.store/user.store'
 
 export const getAuthorizationHeader = () => {
-  const jwtToken = useCookie(COOKIE_KEYS.JWT)
+  const userStore = useUserStore()
 
   return {
-    Authorization: `Bearer ${jwtToken.value}`
+    Authorization: `Bearer ${userStore.jwt}`
   }
 }

@@ -5,8 +5,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
   mode: 'universal',
-  modules: [// '@nuxtjs/storybook',
-    '@nuxt/ui', '@pinia/nuxt'],
+  modules: [
+    // '@nuxtjs/storybook',
+    '@nuxt/ui', '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt'
+  ],
+  build: {
+    transpile: ['pinia-plugin-persistedstate']
+  },
   plugins: [
     '~/plugins/vue-google-maps.js'
   ],
