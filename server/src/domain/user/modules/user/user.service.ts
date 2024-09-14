@@ -2,7 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { InjectConnection } from 'nest-knexjs';
 import { Knex } from 'knex';
 import { DB } from '../../user.domain.registry';
-import { UserInterface, UserToAddInterface } from '../../user.interface.domain';
+import {
+  UserInterface,
+  UserSecureInterface,
+  UserToAddInterface,
+} from '../../user.interface.domain';
 import { hashPassword } from '../../user.utils.domain';
 import { UserTypeService } from './user-type.service';
 
@@ -17,13 +21,25 @@ export class UserService {
     private readonly userTypeService: UserTypeService,
   ) {}
 
-  async getUserById(id: number): Promise<UserInterface> {
-    return this.knex
+  async getUserById(userId: number): Promise<UserSecureInterface> {
+    const result = (await this.knex
       .table(U)
       .where({
-        id,
+        [`${U}.id`]: userId,
       } as Partial<UserInterface>)
-      .limit(1) as unknown as Promise<UserInterface>;
+      .join(UT, `${U}.user_type`, `${UT}.id`)
+      .select(
+        `${U}.id`,
+        `${U}.name`,
+        `${U}.first_name`,
+        `${U}.last_name`,
+        `${U}.email`,
+        `${U}.created_date`,
+        `${UT}.name as user_type`,
+      )
+      .limit(1)) as unknown as Promise<UserSecureInterface>;
+
+    return result[0];
   }
 
   async getUsers(

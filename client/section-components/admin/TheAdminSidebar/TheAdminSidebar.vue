@@ -47,8 +47,7 @@
 
 <script lang="ts" setup>
 import {
-  ChartPieIcon,
-  Cog6ToothIcon, DocumentDuplicateIcon, HomeIcon, UsersIcon
+  ChartPieIcon, Cog6ToothIcon, DocumentDuplicateIcon, HomeIcon, UsersIcon
 } from '@heroicons/vue/24/outline'
 import TheLink from '~/new-components/Atoms/TheLink/TheLink.vue'
 
@@ -57,6 +56,7 @@ const navigation = [
   { name: 'Products', href: '/admin/products', icon: UsersIcon, current: false },
   { name: 'Orders', href: '/admin/orders', icon: DocumentDuplicateIcon, current: false },
   { name: 'Users', href: '/admin/users', icon: UsersIcon, current: false },
-  { name: 'Reports', href: '/admin/reports', icon: ChartPieIcon, current: false }
+  { name: 'Reports', href: '/admin/reports', icon: ChartPieIcon, current: false },
+  { name: 'Profile', href: '/admin/profile', icon: UsersIcon, current: false }
 ]
 </script>

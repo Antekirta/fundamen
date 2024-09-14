@@ -50,7 +50,7 @@ import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import ChevronDownIcon from '@heroicons/vue/24/outline/ChevronDownIcon'
 
 const userNavigation = [
-  { name: 'Your profile', href: '#' },
+  { name: 'Your profile', href: '/admin/profile' },
   { name: 'Sign out', href: '#' }
 ]
 </script>

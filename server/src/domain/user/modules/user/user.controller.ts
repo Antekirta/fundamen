@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { ROUTES } from '../../user.domain.registry';
 import { UserService } from './user.service';
-import { UserInterface, UserToAddInterface } from '../../user.interface.domain';
+import {UserInterface, UserSecureInterface, UserToAddInterface} from '../../user.interface.domain';
 
 @Controller(ROUTES.USERS.BASE)
 export class UserController {
@@ -24,7 +24,7 @@ export class UserController {
   }
 
   @Get(`${ROUTES.USERS.ID}/:id`)
-  async getUserById(@Param('id') id: number): Promise<UserInterface> {
+  async getUserById(@Param('id') id: number): Promise<UserSecureInterface> {
     return await this.userService.getUserById(id);
   }
 
