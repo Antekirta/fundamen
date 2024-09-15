@@ -51,12 +51,14 @@ import {
 } from '@heroicons/vue/24/outline'
 import TheLink from '~/new-components/Atoms/TheLink/TheLink.vue'
 
-const navigation = [
-  { name: 'Categories', href: '/admin/categories', icon: HomeIcon, current: true },
-  { name: 'Products', href: '/admin/products', icon: UsersIcon, current: false },
-  { name: 'Orders', href: '/admin/orders', icon: DocumentDuplicateIcon, current: false },
-  { name: 'Users', href: '/admin/users', icon: UsersIcon, current: false },
-  { name: 'Reports', href: '/admin/reports', icon: ChartPieIcon, current: false },
-  { name: 'Profile', href: '/admin/profile', icon: UsersIcon, current: false }
-]
+const route = useRoute()
+
+const navigation = computed(() => [
+  { name: 'Categories', href: '/admin/categories', icon: HomeIcon, current: route.fullPath === '/admin/categories' },
+  { name: 'Products', href: '/admin/products', icon: UsersIcon, current: route.fullPath === '/admin/products' },
+  { name: 'Orders', href: '/admin/orders', icon: DocumentDuplicateIcon, current: route.fullPath === '/admin/orders' },
+  { name: 'Users', href: '/admin/users', icon: UsersIcon, current: route.fullPath === '/admin/users' },
+  { name: 'Reports', href: '/admin/reports', icon: ChartPieIcon, current: route.fullPath === '/admin/reports' },
+  { name: 'Profile', href: '/admin/profile', icon: UsersIcon, current: route.fullPath === '/admin/profile' }
+])
 </script>
