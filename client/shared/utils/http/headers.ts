@@ -1,4 +1,4 @@
-import { useUserStore } from '@/stores/user.store/user.store'
+import { useUserStore } from '@/stores/user/user.store'
 
 export const getAuthorizationHeader = () => {
   const userStore = useUserStore()

@@ -22,6 +22,7 @@ withDefaults(defineProps<{
   fontStyle: fontStyleProp,
   font: fontProp
 }>(), {
+  as: 'h1',
   size: 'large',
   color: 'dark'
 })

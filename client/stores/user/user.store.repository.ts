@@ -1,8 +1,8 @@
 import type { $Fetch } from 'nitropack'
-import type { ProductInterface } from '@/shared/types/product.domain.interface.client'
 import { Repository } from '@/shared/utils/http/Repository'
+import { UserSecureInterface } from '@/shared/types/user.interface.domain.client'
 
-export class AdminProfilePageRepository extends Repository {
+export class UserStoreRepository extends Repository {
   public readonly $fetch: $Fetch
 
   constructor ($fetch : $Fetch) {
@@ -11,7 +11,7 @@ export class AdminProfilePageRepository extends Repository {
     this.$fetch = $fetch
   }
 
-  getUserInfo (userId : number) : Promise<ProductInterface[]> {
+  getUserInfo (userId : number) : Promise<UserSecureInterface[]> {
     return this.$fetch(`/users/id/${userId}`)
   }
 }

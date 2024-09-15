@@ -7,14 +7,14 @@
       <span class="sr-only">Open user menu</span>
       <img
         class="h-8 w-8 rounded-full bg-gray-50"
-        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        :src="imageUrl"
         alt=""
       >
       <span class="hidden lg:flex lg:items-center">
         <span
           class="ml-4 text-sm font-semibold leading-6 text-gray-900"
           aria-hidden="true"
-        >Tom Cook</span>
+        >{{ userName }}</span>
         <ChevronDownIcon
           class="ml-2 h-5 w-5 text-gray-400"
           aria-hidden="true"
@@ -48,9 +48,24 @@
 <script lang="ts" setup>
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import ChevronDownIcon from '@heroicons/vue/24/outline/ChevronDownIcon'
+import { useUserStore } from '@/stores/user/user.store'
+
+const userStore = useUserStore()
+
+console.log('userInfo: ', userStore.userInfo)
 
 const userNavigation = [
   { name: 'Your profile', href: '/admin/profile' },
   { name: 'Sign out', href: '#' }
 ]
+
+const userName = computed(() => {
+  const { first_name: firstName, last_name: lastName } = userStore.userInfo
+
+  return `${firstName} ${lastName}`
+})
+
+const imageUrl = computed(() => {
+  return userStore.userInfo.image_url || 'https://via.placeholder.com/150'
+})
 </script>

@@ -10,7 +10,11 @@ import {
 } from '@nestjs/common';
 import { ROUTES } from '../../user.domain.registry';
 import { UserService } from './user.service';
-import {UserInterface, UserSecureInterface, UserToAddInterface} from '../../user.interface.domain';
+import {
+  UserInterface,
+  UserSecureInterface,
+  UserToAddInterface,
+} from '../../user.interface.domain';
 
 @Controller(ROUTES.USERS.BASE)
 export class UserController {

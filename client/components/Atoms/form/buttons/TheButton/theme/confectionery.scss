@@ -1,5 +1,5 @@
 .the-button {
-	&--color {
+	&--theme {
 		&--dark {
 			@apply border-2 border-brown bg-brown hover:shadow-brown hover:shadow-sm;
 			@apply text-flour;

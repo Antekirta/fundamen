@@ -1,13 +1,9 @@
 <template>
-  <div>
-    <h2>Profile</h2>
-
-    <pre>{{ user }}</pre>
-  </div>
+  <the-admin-profile-page />
 </template>
 
 <script lang="ts" setup>
-import { AdminProfilePageRepository } from '@/pages-resources/admin/profile/repository'
+import TheAdminProfilePage from '@/components/pages/admin/profile/TheAdminProfilePage.vue'
 
 // noinspection TypeScriptUnresolvedFunction
 definePageMeta({
@@ -16,17 +12,4 @@ definePageMeta({
     'auth'
   ]
 })
-
-const { user } = await useUser()
-
-async function useUser () {
-  // noinspection TypeScriptUnresolvedFunction
-  const { $customFetch } = useNuxtApp()
-
-  const repo = new AdminProfilePageRepository($customFetch)
-
-  const user = await repo.getUserInfo(1)
-
-  return { user }
-}
 </script>

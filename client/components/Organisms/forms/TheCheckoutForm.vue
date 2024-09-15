@@ -140,6 +140,7 @@
 </template>
 
 <script setup lang="ts">
+import { reactive, ref } from 'vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheInput from '@/components/Atoms/form/inputs/TheInput/TheInput/TheInput.vue'
 import TheDivider from '@/components/Atoms/layout/TheDivider/TheDivider.vue'

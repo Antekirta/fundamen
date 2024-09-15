@@ -115,7 +115,7 @@ import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheGoogleAuthBtn from '@/components/Molecules/common/buttons/TheGoogleAuthBtn/TheGoogleAuthBtn.vue'
 import TheGithubAuthButton from '@/components/Molecules/common/buttons/TheGithubAuthButton/TheGithubAuthButton.vue'
 import { AuthRepository } from '@/repositories/auth.repo'
-import { useUserStore } from '@/stores/user.store/user.store'
+import { useUserStore } from '@/stores/user/user.store'
 
 const userStore = useUserStore()
 
@@ -135,6 +135,8 @@ const login = async () => {
     userStore.jwt = jwt
     userStore.userName = userName
     userStore.userId = userId
+
+    await userStore.fetchUserInfo(userId)
   } catch (error) {
     console.error('Error logging in: ', error)
   }
