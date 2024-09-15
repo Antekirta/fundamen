@@ -48,7 +48,7 @@
             User Type
           </dt>
           <dd class="the-user-info__item-detail">
-            {{ user.user_type }}
+            {{ userStore.userInfo.user_type }}
           </dd>
         </div>
       </dl>
@@ -75,23 +75,24 @@
 <script lang="ts" setup>
 import TheInput from '@/components/Atoms/form/inputs/TheInput/TheInput/TheInput.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
+import { useUserStore } from '@/stores/user/user.store'
 
-import type { UserInterface } from '@/shared/types/user.interface.domain.client'
+const emit = defineEmits(['update'])
 
-const props = defineProps<{
-  user: UserInterface
-}>()
+const userStore = useUserStore()
 
 const getDefaultModel = () => ({
-  first_name: props.user.first_name,
-  last_name: props.user.last_name,
-  email: props.user.email
+  first_name: userStore.userInfo.first_name,
+  last_name: userStore.userInfo.last_name,
+  email: userStore.userInfo.email
 })
 
 const model = reactive(getDefaultModel())
 
 const update = () => {
   console.log('update: ', model)
+
+  emit('update', model)
 }
 
 const reset = () => {

@@ -1,4 +1,3 @@
-// define pinha store here
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
 import type { UserSecureInterface } from '@/shared/types/user.interface.domain.client'
@@ -15,8 +14,8 @@ export const useUserStore = defineStore('useUserStore', () => {
   const userId = ref(null)
   const userInfo = reactive({} as UserSecureInterface)
 
-  const fetchUserInfo = async (userId : number) => {
-    const user = await repo.getUserInfo(userId)
+  const fetchUserInfo = async () => {
+    const user = await repo.getUserInfo(userId.value)
 
     Object.assign(userInfo, user)
   }

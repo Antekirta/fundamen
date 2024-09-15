@@ -35,6 +35,7 @@ withDefaults(defineProps<{
   @apply inline-block rounded-md px-3.5 py-2.5;
   @apply border-2;
   @apply shadow-sm hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply cursor-pointer;
   @apply text-center font-semibold;
   @apply transition-all duration-300 ease-in-out;
 
