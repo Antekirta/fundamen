@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <h2>Categories</h2>
-  </div>
+  <the-admin-categories-page />
 </template>
 
 <script lang="ts" setup>
+import TheAdminCategoriesPage from '@/components/pages/admin/categories/TheAdminCategoriesPage.vue'
+
 // noinspection TypeScriptUnresolvedFunction
 definePageMeta({
   layout: 'admin',
