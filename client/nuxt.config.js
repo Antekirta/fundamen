@@ -14,7 +14,8 @@ export default defineNuxtConfig({
     transpile: ['pinia-plugin-persistedstate']
   },
   plugins: [
-    '~/plugins/vue-google-maps.js'
+    '~/plugins/vue-google-maps.js',
+    '~/plugins/vue-the-mask.js'
   ],
   runtimeConfig: {
     public: {

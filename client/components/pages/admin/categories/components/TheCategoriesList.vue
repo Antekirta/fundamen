@@ -53,11 +53,18 @@
       </div>
     </div>
 
-    <the-pagination />
+    <pre>{{ currentPage }}</pre>
+
+    <the-pagination
+      v-model="currentPage"
+      :total="100"
+      :items-per-page="10"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from '#imports'
 import type { CategoryInterface } from '@/shared/types/product.domain.interface.client'
 import ThePagination from '@/components/pages/admin/categories/components/ThePagination.vue'
 
@@ -70,6 +77,8 @@ defineProps<{
   columns: ColumnInterface[],
   categories: CategoryInterface[]
 }>()
+
+const currentPage = ref(1)
 </script>
 
 <style lang="scss">
