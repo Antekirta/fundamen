@@ -9,7 +9,7 @@
 
     <the-categories-list
       :is-loading="isLoading"
-      :categories="categories"
+      :items="computedItems"
       :columns="columns"
       :pagination-response="paginationRes"
       @pagination="fetchCategories"
@@ -18,49 +18,70 @@
 </template>
 
 <script lang="ts" setup>
-import type { $Fetch } from 'nitropack'
 import { AdminCategoriesPageRepository } from './repository'
-import TheCategoriesList from './components/TheCategoriesList.vue'
-import type { PaginationRequestInterface, PaginationResponseInterface } from '@/shared/types/pagination'
-import { getDefaultResponsePagination } from '@/shared/utils/helpers'
+import TheCategoriesList, { type ColumnInterface } from './components/TheDataTable/TheDataTable.vue'
+import { useDataTableItems } from './components/TheDataTable/composables/items.composable'
+import { usePagination } from './components/TheDataTable/composables/pagination.composable'
+import type { CategoryInterface } from '@/shared/types/product.domain.interface.client'
+import type { PaginationRequestInterface } from '@/shared/types/pagination'
+import { updateReactiveArray } from '@/shared/utils/helpers'
 
-const { $customFetch } = useNuxtApp()
+const { repo } = useRepo(AdminCategoriesPageRepository)
+const { columns } = useColumns()
+const { categories, isLoading, fetchCategories } = useCategories()
+const { paginationRes, updatePaginationRes } = usePagination()
+const { computedItems } = useDataTableItems<CategoryInterface>(categories, columns)
 
-const repo = new AdminCategoriesPageRepository($customFetch as $Fetch)
+onMounted(() => {
+  fetchCategories()
+})
 
-const isLoading = ref(true)
-const categories = ref([])
-let paginationRes = reactive<PaginationResponseInterface>(getDefaultResponsePagination())
-const columns = [
-  {
-    id: 'id',
-    label: 'ID'
-  },
-  {
-    id: 'Image',
-    label: 'Image'
-  },
-  {
-    id: 'Name',
-    label: 'Name'
-  },
-  {
-    id: 'Slug',
-    label: 'Slug'
+function useCategories () {
+  const isLoading = ref(true)
+  const categories = reactive<CategoryInterface[]>([])
+
+  async function fetchCategories (pagination? : PaginationRequestInterface) {
+    isLoading.value = true
+
+    const { data, meta } = await repo.getCategories(pagination)
+
+    updatePaginationRes(meta.pagination)
+
+    updateReactiveArray(categories, data)
+
+    isLoading.value = false
   }
-]
 
-fetchCategories()
+  return {
+    isLoading,
+    categories,
 
-async function fetchCategories (pagination? : PaginationRequestInterface) {
-  isLoading.value = true
+    fetchCategories
+  }
+}
 
-  const { data, meta } = await repo.getCategories(pagination)
+function useColumns () {
+  const columns : ColumnInterface[] = [
+    {
+      id: 'id',
+      label: 'ID'
+    },
+    {
+      id: 'primary_image_url',
+      label: 'Image'
+    },
+    {
+      id: 'name',
+      label: 'Name'
+    },
+    {
+      id: 'slug',
+      label: 'Slug'
+    }
+  ]
 
-  paginationRes = Object.assign({}, meta.pagination)
-
-  categories.value = data
-
-  isLoading.value = false
+  return {
+    columns
+  }
 }
 </script>

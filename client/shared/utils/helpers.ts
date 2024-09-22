@@ -11,3 +11,11 @@ export const getDefaultResponsePagination = () : PaginationResponseInterface => 
   total: 0,
   itemsPerPage: itemsPerPageDefault
 })
+
+export const updateReactiveObject = (obj: any, value: any) => {
+  Object.assign(obj, value)
+}
+
+export const updateReactiveArray = (arr: any[], newArr: any[]) => {
+  arr.splice(0, arr.length, ...newArr)
+}

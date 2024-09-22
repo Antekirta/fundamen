@@ -25,21 +25,25 @@
 
             <tbody class="the-table__body">
               <tr
-                v-for="category in categories"
-                :key="category.id"
+                v-for="(item, i) in items"
+                :key="i"
               >
-                <td class="the-table__cell--id">
-                  {{ category.id }}
+                <td
+                  v-for="column in columns"
+                  :key="column.id"
+                  class="the-table__cell"
+                >
+                  <slot
+                    v-if="hasSlot(column.id)"
+                    :name="column.id"
+                    :item="item"
+                  />
+
+                  <template v-else>
+                    {{ item[column.id].value }}
+                  </template>
                 </td>
-                <td class="the-table__cell">
-                  {{ category.primary_image_url }}
-                </td>
-                <td class="the-table__cell">
-                  {{ category.name }}
-                </td>
-                <td class="the-table__cell">
-                  {{ category.slug }}
-                </td>
+
                 <td class="the-table__cell--edit">
                   <a
                     href="#"
@@ -63,26 +67,31 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from '#imports'
-import type { CategoryInterface } from '@/shared/types/product.domain.interface.client'
-import ThePagination from '@/components/pages/admin/categories/components/ThePagination.vue'
+import ThePagination from './ThePagination.vue'
 import type { PaginationResponseInterface } from '@/shared/types/pagination'
 
 defineEmits(['pagination'])
 
-interface ColumnInterface {
+export interface ColumnInterface {
   id: string
   label: string
+}
+
+export interface ItemInterface {
+  [columnId: string]: {
+    value: string
+  }
 }
 
 defineProps<{
   isLoading: boolean,
   columns: ColumnInterface[],
-  categories: CategoryInterface[]
+  items: ItemInterface[]
   paginationResponse: PaginationResponseInterface
 }>()
 
 const currentPage = ref(1)
+const { hasSlot } = useHasSlot()
 </script>
 
 <style lang="scss">
