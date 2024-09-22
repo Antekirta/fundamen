@@ -1,4 +1,4 @@
-import { getRandom } from '../../utils/number';
+import { getRandom } from '../../shared/utils/number';
 import { NUMBER_OF_PRODUCTS } from '../settings';
 import { ProductPropertyInterface } from '../../domain/product/product.domain.interface';
 

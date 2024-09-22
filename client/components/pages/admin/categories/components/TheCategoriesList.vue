@@ -51,15 +51,14 @@
           </table>
         </div>
       </div>
+
+      <the-pagination
+        v-model="currentPage"
+        :total="paginationResponse.total"
+        :items-per-page="paginationResponse.itemsPerPage"
+        @pagination="$emit('pagination', $event)"
+      />
     </div>
-
-    <pre>{{ currentPage }}</pre>
-
-    <the-pagination
-      v-model="currentPage"
-      :total="100"
-      :items-per-page="10"
-    />
   </div>
 </template>
 
@@ -67,6 +66,9 @@
 import { ref } from '#imports'
 import type { CategoryInterface } from '@/shared/types/product.domain.interface.client'
 import ThePagination from '@/components/pages/admin/categories/components/ThePagination.vue'
+import type { PaginationResponseInterface } from '@/shared/types/pagination'
+
+defineEmits(['pagination'])
 
 interface ColumnInterface {
   id: string
@@ -74,8 +76,10 @@ interface ColumnInterface {
 }
 
 defineProps<{
+  isLoading: boolean,
   columns: ColumnInterface[],
   categories: CategoryInterface[]
+  paginationResponse: PaginationResponseInterface
 }>()
 
 const currentPage = ref(1)

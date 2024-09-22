@@ -139,7 +139,9 @@ export class SeedService {
 
     await this.categoryService.addCategories(categoriesToAdd);
 
-    this.categories = await this.categoryService.getCategories();
+    const { data } = await this.categoryService.getCategories();
+
+    this.categories = data;
 
     /** Categories to categories */
     const boundCategories = categoryBuilder.bindCategories(

@@ -8,6 +8,9 @@ import {
 } from '../../product.domain.interface';
 import { DB } from '../../product.domain.registry';
 import { ProductToCategoryService } from '../product_to_category/product_to_category.service';
+import { PaginationInterface } from '../../../../shared/interfaces/pagination';
+import { ResponseInterface } from '../../../../shared/interfaces/response';
+import { getPagination } from '../../../../shared/utils/pagination';
 
 const {
   TABLES: { C },
@@ -28,8 +31,29 @@ export class CategoryService {
   }
 
   /** GET */
-  async getCategories(): Promise<CategoryInterface[]> {
-    return this.knex.table(C);
+  async getCategories(
+    pagination?: PaginationInterface,
+  ): Promise<ResponseInterface<CategoryInterface[]>> {
+    const { page, itemsPerPage } = pagination;
+
+    if (!pagination) {
+      return this.knex.table(C);
+    }
+
+    const rows = await this.knex
+      .table(C)
+      .select('*', this.knex.raw('COUNT(*) OVER() as total'))
+      .offset((page - 1) * itemsPerPage)
+      .limit(itemsPerPage);
+
+    return {
+      data: rows,
+      meta: {
+        pagination: getPagination({
+          total: rows[0].total,
+        }),
+      },
+    };
   }
 
   async getCategoryById(id: number): Promise<CategoryInterface> {

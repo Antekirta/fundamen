@@ -1,6 +1,6 @@
 import { CategoryToAddInterface } from '../../domain/product/product.domain.interface';
 import { NUMBER_OF_CATEGORIES, NUMBER_OF_PARENT_CATEGORIES } from '../settings';
-import { getRandom } from '../../utils/number';
+import { getRandom } from '../../shared/utils/number';
 
 export class CategoryBuilder {
   build() {

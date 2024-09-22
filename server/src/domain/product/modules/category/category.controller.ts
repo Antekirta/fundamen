@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import {
@@ -13,14 +14,20 @@ import {
   CategoryToAddInterface,
 } from '../../product.domain.interface';
 import { ROUTES } from '../../product.domain.registry';
+import { PaginationRequestInterface } from '../../../../shared/interfaces/pagination';
+import { ResponseInterface } from '../../../../shared/interfaces/response';
 
 @Controller(ROUTES.CATEGORIES.BASE)
 export class CategoryController {
   constructor(private categoryService: CategoryService) {}
 
   @Get()
-  async getCategories(): Promise<CategoryInterface[]> {
-    return await this.categoryService.getCategories();
+  async getCategories(
+    @Query() pagination: PaginationRequestInterface,
+  ): Promise<ResponseInterface<CategoryInterface[]>> {
+    console.log('controller pagination: ', pagination);
+
+    return await this.categoryService.getCategories(pagination);
   }
 
   @Get(`${ROUTES.CATEGORIES.ID}/:id`)

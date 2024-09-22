@@ -1,4 +1,4 @@
-import { getRandom } from '../../utils/number';
+import { getRandom } from '../../shared/utils/number';
 
 export class ProductToCategoryBuilder {
   productsIds: number[];

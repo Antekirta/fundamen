@@ -81,8 +81,9 @@
 
 <script lang="ts" setup>
 import { ChevronLeftIcon, ChevronDoubleLeftIcon, ChevronRightIcon, ChevronDoubleRightIcon } from '@heroicons/vue/20/solid'
+import type { PaginationInterface } from '@/shared/types/pagination'
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['pagination'])
 
 const props = defineProps<{
   total: number;
@@ -156,7 +157,13 @@ function blurInput () {
 function goToPage (page: number) {
   if (page >= 1 && page <= totalPages.value) {
     currentPage.value = page
-    emit('update:modelValue', page)
+
+    const pagination : PaginationInterface = {
+      page,
+      itemsPerPage: props.itemsPerPage
+    }
+
+    emit('pagination', pagination)
   }
 }
 
