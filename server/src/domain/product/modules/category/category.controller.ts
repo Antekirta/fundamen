@@ -16,6 +16,7 @@ import {
 import { ROUTES } from '../../product.domain.registry';
 import { PaginationRequestInterface } from '../../../../shared/interfaces/pagination';
 import { ResponseInterface } from '../../../../shared/interfaces/response';
+import { SortingInterface } from '../../../../shared/interfaces/sorting';
 
 @Controller(ROUTES.CATEGORIES.BASE)
 export class CategoryController {
@@ -24,10 +25,12 @@ export class CategoryController {
   @Get()
   async getCategories(
     @Query() pagination: PaginationRequestInterface,
+    @Query() sorting: SortingInterface,
   ): Promise<ResponseInterface<CategoryInterface[]>> {
     console.log('controller pagination: ', pagination);
+    console.log('controller sorting: ', sorting);
 
-    return await this.categoryService.getCategories(pagination);
+    return await this.categoryService.getCategories(pagination, sorting);
   }
 
   @Get(`${ROUTES.CATEGORIES.ID}/:id`)

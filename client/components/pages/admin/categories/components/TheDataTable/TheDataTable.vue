@@ -11,8 +11,17 @@
                   :key="column.id"
                   scope="col"
                   class="the-table__header-cell"
+                  :class="{ 'the-table__header-cell--sortable': column.isSortable }"
                 >
                   {{ column.label }}
+
+                  <template v-if="column.isSortable">
+                    <the-sorting
+                      :column="column"
+                      :sorting="sorting"
+                      @sort="onSorting"
+                    />
+                  </template>
                 </th>
                 <th
                   scope="col"
@@ -60,7 +69,7 @@
         v-model="currentPage"
         :total="paginationResponse.total"
         :items-per-page="paginationResponse.itemsPerPage"
-        @pagination="$emit('pagination', $event)"
+        @pagination="onPagination"
       />
     </div>
   </div>
@@ -68,13 +77,16 @@
 
 <script lang="ts" setup>
 import ThePagination from './ThePagination.vue'
-import type { PaginationResponseInterface } from '@/shared/types/pagination'
+import TheSorting from './TheSorting.vue'
+import type { SortingInterface } from '@/shared/types/sorting'
+import type { PaginationResponseInterface, PaginationRequestInterface } from '@/shared/types/pagination'
 
-defineEmits(['pagination'])
+const emit = defineEmits(['update-meta', 'pagination', 'sort'])
 
 export interface ColumnInterface {
   id: string
   label: string
+  isSortable?: boolean
 }
 
 export interface ItemInterface {
@@ -83,15 +95,40 @@ export interface ItemInterface {
   }
 }
 
-defineProps<{
-  isLoading: boolean,
-  columns: ColumnInterface[],
+export interface TableMetaInterface {
+  pagination: PaginationRequestInterface
+  sorting: SortingInterface
+}
+
+const props = defineProps<{
+  isLoading: boolean
+  columns: ColumnInterface[]
   items: ItemInterface[]
   paginationResponse: PaginationResponseInterface
+  sorting: SortingInterface
 }>()
 
 const currentPage = ref(1)
+const tableMeta : TableMetaInterface = {
+  pagination: {
+    page: currentPage.value,
+    itemsPerPage: props.paginationResponse.itemsPerPage
+  },
+  sorting: props.sorting
+}
 const { hasSlot } = useHasSlot()
+
+const onPagination = (pagination: PaginationRequestInterface) => {
+  tableMeta.pagination = pagination
+
+  emit('update-meta', tableMeta)
+}
+
+const onSorting = (sorting: SortingInterface) => {
+  tableMeta.sorting = sorting
+
+  emit('update-meta', tableMeta)
+}
 </script>
 
 <style lang="scss">
@@ -114,6 +151,10 @@ const { hasSlot } = useHasSlot()
 
   &__header-cell {
     @apply py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0;
+
+    &--sortable {
+      @apply cursor-pointer;
+    }
   }
 
   &__header-cell--edit {
@@ -122,10 +163,6 @@ const { hasSlot } = useHasSlot()
 
   &__body {
     @apply divide-y divide-gray-200;
-  }
-
-  &__cell--id {
-    @apply whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0;
   }
 
   &__cell {

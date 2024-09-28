@@ -11,6 +11,8 @@ import { ProductToCategoryService } from '../product_to_category/product_to_cate
 import { PaginationInterface } from '../../../../shared/interfaces/pagination';
 import { ResponseInterface } from '../../../../shared/interfaces/response';
 import { getPagination } from '../../../../shared/utils/pagination';
+import { getSorting } from '../../../../shared/utils/sorting';
+import { SortingInterface } from '../../../../shared/interfaces/sorting';
 
 const {
   TABLES: { C },
@@ -33,6 +35,7 @@ export class CategoryService {
   /** GET */
   async getCategories(
     pagination?: PaginationInterface,
+    sorting?: SortingInterface,
   ): Promise<ResponseInterface<CategoryInterface[]>> {
     const { page, itemsPerPage } = pagination;
 
@@ -42,6 +45,7 @@ export class CategoryService {
 
     const rows = await this.knex
       .table(C)
+      .orderBy(sorting.sortBy, sorting.sortDirection)
       .select('*', this.knex.raw('COUNT(*) OVER() as total'))
       .offset((page - 1) * itemsPerPage)
       .limit(itemsPerPage);
@@ -52,6 +56,7 @@ export class CategoryService {
         pagination: getPagination({
           total: rows[0].total,
         }),
+        sorting: getSorting(sorting),
       },
     };
   }

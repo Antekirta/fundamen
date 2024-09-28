@@ -81,7 +81,7 @@
 
 <script lang="ts" setup>
 import { ChevronLeftIcon, ChevronDoubleLeftIcon, ChevronRightIcon, ChevronDoubleRightIcon } from '@heroicons/vue/20/solid'
-import type { PaginationInterface } from '@/shared/types/pagination'
+import type { PaginationRequestInterface } from '@/shared/types/pagination'
 
 const emit = defineEmits(['pagination'])
 
@@ -158,7 +158,7 @@ function goToPage (page: number) {
   if (page >= 1 && page <= totalPages.value) {
     currentPage.value = page
 
-    const pagination : PaginationInterface = {
+    const pagination : PaginationRequestInterface = {
       page,
       itemsPerPage: props.itemsPerPage
     }
