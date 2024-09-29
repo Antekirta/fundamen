@@ -12,6 +12,7 @@
                   scope="col"
                   class="the-table__header-cell"
                   :class="{ 'the-table__header-cell--sortable': column.isSortable }"
+                  :style="{width: column.width}"
                 >
                   <the-sorting
                     :column="column"
@@ -30,7 +31,12 @@
               </tr>
             </thead>
 
-            <tbody class="the-table__body">
+            <the-loader v-if="isLoading" />
+
+            <tbody
+              v-if="!isLoading"
+              class="the-table__body"
+            >
               <tr
                 v-for="(item, i) in items"
                 :key="i"
@@ -44,6 +50,7 @@
                     v-if="hasSlot(column.id)"
                     :name="column.id"
                     :item="item"
+                    :column="column"
                   />
 
                   <template v-else>
@@ -76,6 +83,7 @@
 <script lang="ts" setup>
 import ThePagination from './ThePagination.vue'
 import TheSorting from './TheSorting.vue'
+import TheLoader from './TheLoader.vue'
 import type { SortingInterface } from '@/shared/types/sorting'
 import type { PaginationResponseInterface, PaginationRequestInterface } from '@/shared/types/pagination'
 
@@ -85,6 +93,7 @@ export interface ColumnInterface {
   id: string
   label: string
   isSortable?: boolean
+  width?: string
 }
 
 export interface ItemInterface {
@@ -145,7 +154,7 @@ const onSorting = (sorting: SortingInterface) => {
   }
 
   &__table {
-    @apply min-w-full divide-y divide-gray-300;
+    @apply block min-w-full divide-y divide-gray-300;
   }
 
   &__header-cell {

@@ -1,4 +1,6 @@
 {
     "css.customData": [".vscode/tailwind.json"],
-    "vue.customData": [".vscode/tailwind.json"],
+    "vue.customData": [
+        ".vscode/tailwind.json"
+    ],
 }

@@ -52,8 +52,6 @@ import { useUserStore } from '@/stores/user/user.store'
 
 const userStore = useUserStore()
 
-console.log('userInfo: ', userStore.userInfo)
-
 const userNavigation = [
   { name: 'Your profile', href: '/admin/profile' },
   { name: 'Sign out', href: '#' }

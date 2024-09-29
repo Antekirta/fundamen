@@ -82,16 +82,19 @@ function useColumns () {
     {
       id: 'id',
       label: 'ID',
-      isSortable: true
+      isSortable: true,
+      width: '100px'
     },
     {
       id: 'primary_image_url',
-      label: 'Image'
+      label: 'Image',
+      width: '200px'
     },
     {
       id: 'name',
       label: 'Name',
-      isSortable: true
+      isSortable: true,
+      width: '300px'
     },
     {
       id: 'slug',
