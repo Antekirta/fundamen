@@ -1,5 +1,8 @@
 <template>
-  <span @click="onSortClick">{{ sortingDirection }}</span>
+  <span @click="onSortClick">
+    <slot />
+    {{ sortingDirection }}
+  </span>
 </template>
 
 <script lang="ts" setup>

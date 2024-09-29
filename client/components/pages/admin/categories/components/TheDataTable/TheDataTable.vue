@@ -13,15 +13,13 @@
                   class="the-table__header-cell"
                   :class="{ 'the-table__header-cell--sortable': column.isSortable }"
                 >
-                  {{ column.label }}
-
-                  <template v-if="column.isSortable">
-                    <the-sorting
-                      :column="column"
-                      :sorting="sorting"
-                      @sort="onSorting"
-                    />
-                  </template>
+                  <the-sorting
+                    :column="column"
+                    :sorting="sorting"
+                    @sort="onSorting"
+                  >
+                    {{ column.label }}
+                  </the-sorting>
                 </th>
                 <th
                   scope="col"
@@ -81,7 +79,7 @@ import TheSorting from './TheSorting.vue'
 import type { SortingInterface } from '@/shared/types/sorting'
 import type { PaginationResponseInterface, PaginationRequestInterface } from '@/shared/types/pagination'
 
-const emit = defineEmits(['update-meta', 'pagination', 'sort'])
+const emit = defineEmits(['update-meta'])
 
 export interface ColumnInterface {
   id: string
@@ -126,6 +124,7 @@ const onPagination = (pagination: PaginationRequestInterface) => {
 
 const onSorting = (sorting: SortingInterface) => {
   tableMeta.sorting = sorting
+  tableMeta.pagination.page = 1
 
   emit('update-meta', tableMeta)
 }

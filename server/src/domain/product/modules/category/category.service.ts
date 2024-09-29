@@ -56,7 +56,10 @@ export class CategoryService {
         pagination: getPagination({
           total: rows[0].total,
         }),
-        sorting: getSorting(sorting),
+        sorting: getSorting({
+          sortBy: sorting.sortBy,
+          sortDirection: sorting.sortDirection,
+        }),
       },
     };
   }
