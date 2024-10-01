@@ -1,22 +1,22 @@
 @mixin size-mixin() {
 	&--size {
 		&--giant {
-			@apply text-5xl;
+			@apply text-6xl;
 		}
 		&--big {
-			@apply text-4xl;
-		}
-		&--large {
 			@apply text-3xl;
 		}
-		&--medium {
+		&--large {
 			@apply text-2xl;
 		}
-		&--small {
+		&--medium {
 			@apply text-xl;
 		}
-		&--tiny {
+		&--small {
 			@apply text-lg;
+		}
+		&--tiny {
+			@apply text-sm;
 		}
 	}
 }

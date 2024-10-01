@@ -1,17 +1,17 @@
 <template>
   <NuxtLink
-      :href="item.href"
-      class="the-link group"
-      :class="[item.current ? 'the-link--current' : 'the-link--default']"
+    :href="item.href"
+    class="the-link group"
+    :class="[item.current ? 'the-link--current' : 'the-link--default']"
   >
     <component
-        :is="item.icon"
-        v-if="item.icon"
-        :class="[
+      :is="item.icon"
+      v-if="item.icon"
+      :class="[
         'the-link__icon',
         item.current ? 'the-link__icon--current' : 'the-link__icon--default'
       ]"
-        aria-hidden="true"
+      aria-hidden="true"
     />
     <slot />
   </NuxtLink>

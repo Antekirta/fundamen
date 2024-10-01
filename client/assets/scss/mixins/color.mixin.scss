@@ -1,0 +1,22 @@
+@mixin color-mixin() {
+	&--color {
+		&--dark {
+			@apply text-slate-800;
+		}
+		&--light {
+			@apply text-gray-50;
+		}
+		&--info {
+			@apply text-blue-800;
+		}
+		&--warning {
+			@apply text-amber-800;
+		}
+		&--success {
+			@apply text-green-800;
+		}
+		&--danger {
+			@apply text-rose-800;
+		}
+	}
+}

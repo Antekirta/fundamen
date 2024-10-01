@@ -20,20 +20,23 @@ withDefaults(defineProps<{
   size: sizeProp
   color: colorProp
   fontStyle: fontStyleProp,
-  font: fontProp
+  font?: fontProp
 }>(), {
   as: 'h1',
   size: 'large',
-  color: 'dark'
+  color: 'dark',
+  font: 'default'
 })
 </script>
 
 <style lang="scss">
+@import '@/assets/scss/mixins/color.mixin.scss';
 @import '@/assets/scss/mixins/size.mixin.scss';
 @import '@/assets/scss/mixins/font.mixin.scss';
 @import '@/assets/scss/mixins/font-style.mixin.scss';
 
 .the-header {
+  @include color-mixin();
   @include size-mixin();
   @include font-mixin();
   @include font-style-mixin();
@@ -41,5 +44,5 @@ withDefaults(defineProps<{
 </style>
 
 <style lang="scss">
-@import 'theme/confectionery.scss';
+// @import 'theme/confectionery.scss';
 </style>

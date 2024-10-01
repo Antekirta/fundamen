@@ -19,11 +19,12 @@ withDefaults(defineProps<{
   theme: 'dark' | 'light' | 'info' | 'warning' | 'success' | 'danger' | 'transparent-bordered' | 'transparent'
   as?: string
   link?: string
-  font: 'fancy'
+  font?: 'fancy' | 'default'
   size: 'giant' | 'big' | 'large' | 'medium' | 'small' | 'tiny'
 }>(), {
   as: 'div',
-  link: '#'
+  link: '#',
+  font: 'default'
 })
 </script>
 
