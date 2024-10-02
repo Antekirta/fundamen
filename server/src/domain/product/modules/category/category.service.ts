@@ -80,6 +80,8 @@ export class CategoryService {
   async addCategories(
     categories: CategoryToAddInterface[],
   ): Promise<Array<Pick<CategoryInterface, 'id'>>> {
+    console.log('addCategories categories: ', categories);
+
     const keysToReturn: Array<keyof CategoryInterface> = ['id'];
 
     const records = (await this.knex

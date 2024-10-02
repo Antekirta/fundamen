@@ -5,6 +5,7 @@ import type { PaginationRequestInterface } from '@/shared/types/pagination'
 import { getDefaultRequestPagination, getDefaultSorting } from '@/shared/utils/helpers'
 import type { ResponseInterface } from '@/shared/types/response'
 import type { SortingInterface } from '@/shared/types/sorting'
+import type { CategoryInterface } from '@/shared/types/domain/category'
 
 interface RequstOptionsInterface {
   pagination: PaginationRequestInterface
@@ -41,6 +42,22 @@ export class AdminCategoriesPageRepository extends Repository {
         ...(sorting || getDefaultSorting())
       },
       headers: getAuthorizationHeader()
+    })
+  }
+
+  createCategory (
+    category : Omit<CategoryInterface, 'id' | 'primary_image_url'>,
+    file : File
+  ) {
+    const formData = new FormData()
+
+    formData.append('category', JSON.stringify(category))
+    formData.append('file', file)
+
+    return this.$fetch('/categories', {
+      method: 'POST',
+      headers: getAuthorizationHeader(),
+      body: formData
     })
   }
 }
