@@ -23,16 +23,6 @@ export interface ProductsToCategoriesInterface {
     product_id: number;
 }
 
-export interface CategoryInterface {
-    id: number;
-    name: string;
-    slug: string;
-    primary_image_url?: string;
-}
-
-export interface CategoryToAddInterface
-    extends Omit<CategoryInterface, 'id' | 'slug'> {}
-
 export interface CategoryToCategoriesInterface {
     category_id: number;
     subcategory_id: number;

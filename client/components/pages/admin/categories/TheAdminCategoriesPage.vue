@@ -52,7 +52,7 @@ import type { SortingInterface } from '@/shared/types/sorting'
 import TheModal from '@/components/Atoms/other/TheModal/TheModal.vue'
 import TheHeader from '@/components/Atoms/typography/TheHeader/TheHeader.vue'
 import TheButton from '@/components/Atoms/form/buttons/TheButton/TheButton.vue'
-import type { CategoryInterface } from '@/shared/types/product.domain.interface.client'
+import type { CategoryInterface } from '@/shared/types/domain/category'
 
 const { repo } : { repo: AdminCategoriesPageRepository } = useRepo(AdminCategoriesPageRepository)
 const { columns } = useColumns()

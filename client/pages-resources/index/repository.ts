@@ -1,6 +1,6 @@
 import type { $Fetch } from 'nitropack'
-import type { CategoryInterface } from '@/shared/types/product.domain.interface.client'
 import { Repository } from '@/shared/utils/http/Repository'
+import type { CategoryInterface } from '@/shared/types/domain/category'
 
 export class IndexPageRepository extends Repository {
   public readonly $fetch: $Fetch

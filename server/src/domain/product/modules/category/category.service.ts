@@ -88,7 +88,7 @@ export class CategoryService {
       .insert(
         categories.map((category) => ({
           ...category,
-          slug: this.slugify(category.name),
+          slug: category.slug || this.slugify(category.name),
         })),
       )) as unknown as Array<Pick<CategoryInterface, 'id'>>;
 

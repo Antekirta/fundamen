@@ -12,6 +12,7 @@ interface RequstOptionsInterface {
 }
 
 export class AdminCategoriesPageRepository extends Repository {
+  static instance : any
   public readonly $fetch: $Fetch
 
   constructor ($fetch : $Fetch) {
@@ -20,13 +21,20 @@ export class AdminCategoriesPageRepository extends Repository {
     this.$fetch = $fetch
   }
 
+  static create ($fetch : $Fetch) : AdminCategoriesPageRepository {
+    if (AdminCategoriesPageRepository.instance) {
+      return AdminCategoriesPageRepository.instance
+    }
+
+    AdminCategoriesPageRepository.instance = new AdminCategoriesPageRepository($fetch)
+
+    return AdminCategoriesPageRepository.instance
+  }
+
   getCategories ({
     pagination,
     sorting
   } : RequstOptionsInterface) : Promise<ResponseInterface<any>> {
-    console.log('pagination || getDefaultRequestPagination(): ', pagination || getDefaultRequestPagination())
-    console.log('(sorting || getDefaultSorting()): ', (sorting || getDefaultSorting()))
-
     return this.$fetch('/categories', {
       params: {
         ...(pagination || getDefaultRequestPagination()),

@@ -30,8 +30,7 @@ export interface CategoryInterface {
   primary_image_url?: string;
 }
 
-export interface CategoryToAddInterface
-  extends Omit<CategoryInterface, 'id' | 'slug'> {}
+export interface CategoryToAddInterface extends Omit<CategoryInterface, 'id'> {}
 
 export interface CategoryToCategoriesInterface {
   category_id: number;

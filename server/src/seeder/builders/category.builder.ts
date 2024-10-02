@@ -9,6 +9,7 @@ export class CategoryBuilder {
     ).map((_, i) => {
       return {
         name: `Seeded category ${i + 1}`,
+        slug: '',
       };
     });
 

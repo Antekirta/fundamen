@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { CategoryInterface } from '@/shared/types/product.domain.interface.client'
 import TheImage from '@/components/Atoms/images/TheImage/TheImage.vue'
+import type { CategoryInterface } from '@/shared/types/domain/category'
 
 defineProps<{
   categories: CategoryInterface[]
