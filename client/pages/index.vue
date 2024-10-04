@@ -15,10 +15,10 @@
 
     <!--    <the-feature-section />-->
 
-    <the-categories-section
-      :categories="categories"
-      class="mt-24"
-    />
+<!--    <the-categories-section-->
+<!--      :categories="categories"-->
+<!--      class="mt-24"-->
+<!--    />-->
 
     <!--    <the-price-section />-->
 
@@ -57,7 +57,7 @@ definePageMeta({
   layout: 'main'
 })
 
-const { categories } = await useCategories()
+// const { categories } = await useCategories()
 const { slides } = useSlides()
 
 async function useCategories () {
