@@ -4,6 +4,7 @@ import {
   Delete,
   FileTypeValidator,
   Get,
+  NestInterceptor,
   Param,
   ParseFilePipe,
   Post,
@@ -23,6 +24,9 @@ import { ResponseInterface } from '../../../../shared/interfaces/response';
 import { SortingInterface } from '../../../../shared/interfaces/sorting';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
+import { UPLOAD_FOLDER } from '../../../../shared/registry';
+
+const uploadDest = `${UPLOAD_FOLDER}categories`;
 
 @Controller(ROUTES.CATEGORIES.BASE)
 export class CategoryController {
@@ -33,9 +37,6 @@ export class CategoryController {
     @Query() pagination: PaginationRequestInterface,
     @Query() sorting: SortingInterface,
   ): Promise<ResponseInterface<CategoryInterface[]>> {
-    console.log('controller pagination: ', pagination);
-    console.log('controller sorting: ', sorting);
-
     return await this.categoryService.getCategories(pagination, sorting);
   }
 
@@ -55,13 +56,13 @@ export class CategoryController {
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
-        destination: '../uploads/',
+        destination: uploadDest,
         filename: (req, file, callback) => {
           callback(null, file.originalname);
         },
       }),
-    }),
-  ) // INFO: Webstorm is being mistaken here
+    }) as unknown as NestInterceptor,
+  )
   async createCategory(
     @Body('category') category: string,
     @UploadedFile(
@@ -75,7 +76,12 @@ export class CategoryController {
     // Parse the category string into an object
     const parsedCategory: CategoryToAddInterface = JSON.parse(category);
 
-    console.log('file: ', file);
+    console.log('file.filename: ', file.filename);
+
+    const categotyToAdd: CategoryToAddInterface = {
+      ...parsedCategory,
+      primary_image_url: file.filename,
+    };
 
     // Use the service to handle category data
     await this.categoryService.addCategories([parsedCategory]);
