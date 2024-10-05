@@ -21,9 +21,9 @@
               v-for="item in navigation"
               :key="item.name"
             >
-              <TheLink :item="item">
-                {{ item.name }}
-              </TheLink>
+<!--              <TheLink :item="item">-->
+<!--                {{ item.name }}-->
+<!--              </TheLink>-->
             </li>
           </ul>
         </li>
@@ -49,7 +49,7 @@
 import {
   ChartPieIcon, Cog6ToothIcon, DocumentDuplicateIcon, HomeIcon, UsersIcon
 } from '@heroicons/vue/24/outline'
-import TheLink from '~/new-components/Atoms/TheLink/TheLink.vue'
+// import TheLink from '@/new-components/Atoms/TheLink/TheLink.vue'
 
 const route = useRoute()
 
