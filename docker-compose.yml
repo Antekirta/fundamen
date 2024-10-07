@@ -1,13 +1,32 @@
 version: '3.8'
 
 services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_PORT: ${DATABASE_PORT}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=en_US.UTF-8"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
+    networks:
+      - fundamen-network
+    command: postgres -c 'port=5433'  # Pass the custom port at startup
   nest:
     image: theantekirta/fundamen_nest
     build:
       context: ./server
       dockerfile: Dockerfile
+    depends_on:
+      - db
     ports:
       - "${BE_PORT}:${BE_PORT}"
+    networks:
+      - fundamen-network
     command: "npm run start:prod"
   nuxt:
     image: theantekirta/fundamen_nuxt
@@ -16,8 +35,15 @@ services:
       dockerfile: Dockerfile
     ports:
       - "${NUXT_HOST_PORT}:${NUXT_DOCKER_PORT}"
+    networks:
+      - fundamen-network
     env_file:
       - .env
-#    environment:
-#      - NUXT_PUBLIC_API_BASE_URL=${NUXT_PUBLIC_API_BASE_URL}
     command: "npm run prod"
+
+volumes:
+  postgres_data:
+
+networks:
+  fundamen-network:
+    driver: bridge
