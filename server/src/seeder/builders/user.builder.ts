@@ -12,6 +12,10 @@ export class UserBuilder {
     return Object.values(USER_TYPES).map((name) => ({ name }));
   }
 
+  private buildEmail() {
+    return `${Math.random().toString(12).substring(2, 10)}@gmail.com`;
+  }
+
   buildUsers(): UserToAddInterface[] {
     if (!this.userTypes || !this.userTypes.length) {
       throw new Error('User types are not initialized');
@@ -35,7 +39,7 @@ export class UserBuilder {
         first_name: 'Superadmin',
         last_name: 'Superadmin',
         user_type: userTypesIds[USER_TYPES.SUPERADMIN],
-        email: '',
+        email: this.buildEmail(),
         password: 'pass',
         created_date: `${new Date()}`,
       },
@@ -44,7 +48,7 @@ export class UserBuilder {
         first_name: 'Admin',
         last_name: 'Admin',
         user_type: userTypesIds[USER_TYPES.ADMIN],
-        email: '',
+        email: this.buildEmail(),
         password: 'pass',
         created_date: `${new Date()}`,
       },
@@ -53,7 +57,7 @@ export class UserBuilder {
         first_name: 'Client',
         last_name: 'Client',
         user_type: userTypesIds[USER_TYPES.CLIENT],
-        email: '',
+        email: this.buildEmail(),
         password: 'pass',
         created_date: `${new Date()}`,
       },

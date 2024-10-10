@@ -23,8 +23,8 @@ export class CategoryService {
   private slugify;
 
   constructor(
-    @InjectConnection() private readonly knex: Knex,
-    private readonly productToCategoryService: ProductToCategoryService,
+    @InjectConnection() protected readonly knex: Knex,
+    protected readonly productToCategoryService: ProductToCategoryService,
   ) {
     (async () => {
       const { default: slugify } = await import('@sindresorhus/slugify');
@@ -32,16 +32,11 @@ export class CategoryService {
     })();
   }
 
-  /** GET */
   async getCategories(
     pagination?: PaginationInterface,
     sorting?: SortingInterface,
   ): Promise<ResponseInterface<CategoryInterface[]>> {
     const { page, itemsPerPage } = pagination;
-
-    if (!pagination) {
-      return this.knex.table(C);
-    }
 
     const rows = await this.knex
       .table(C)
@@ -80,8 +75,6 @@ export class CategoryService {
   async addCategories(
     categories: CategoryToAddInterface[],
   ): Promise<Array<Pick<CategoryInterface, 'id'>>> {
-    console.log('addCategories categories: ', categories);
-
     const keysToReturn: Array<keyof CategoryInterface> = ['id'];
 
     const records = (await this.knex
@@ -117,9 +110,5 @@ export class CategoryService {
     await this.productToCategoryService.deleteAllProductsFromCategory(id);
 
     await this.knex.table(C).where({ id }).delete();
-  }
-
-  async clearTable(): Promise<void> {
-    await this.knex.raw(`TRUNCATE TABLE ${C} RESTART IDENTITY CASCADE`);
   }
 }

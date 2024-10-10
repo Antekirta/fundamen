@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CategoryService } from '../domain/product/modules/category/category.service';
+import { CategoryServiceSeed } from '../domain/product/modules/category/category.service.seed';
 import {
   CategoryInterface,
   ProductInterface,
@@ -59,7 +59,7 @@ export class SeedService {
   users: UserInterface[];
 
   constructor(
-    private readonly categoryService: CategoryService,
+    private readonly categoryServiceSeed: CategoryServiceSeed,
     private readonly categoryToCategoryService: CategoryToCategoryService,
     private readonly productService: ProductService,
     private readonly productToCategoryService: ProductToCategoryService,
@@ -111,7 +111,7 @@ export class SeedService {
     await this.productToCategoryService.clearTable();
     await this.categoryToCategoryService.clearTable();
 
-    await this.categoryService.clearTable();
+    await this.categoryServiceSeed.clearTable();
     await this.productService.clearTable();
     await this.userService.clearTable();
     await this.userTypeService.clearTable();
@@ -137,11 +137,13 @@ export class SeedService {
     /** Categories */
     const categoriesToAdd = categoryBuilder.build();
 
-    await this.categoryService.addCategories(categoriesToAdd);
+    await this.categoryServiceSeed.addCategories(categoriesToAdd);
 
-    const { data } = await this.categoryService.getCategories();
+    const response = await this.categoryServiceSeed.getCategoriesSeed();
 
-    this.categories = data;
+    console.log('response: ', response);
+
+    this.categories = response;
 
     /** Categories to categories */
     const boundCategories = categoryBuilder.bindCategories(
