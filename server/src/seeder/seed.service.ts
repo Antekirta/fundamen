@@ -162,7 +162,7 @@ export class SeedService {
     );
 
     /** Products */
-    await this.productService.addProductsBase(productBuilder.build());
+    await this.productService.addProducts(productBuilder.build());
 
     this.products = await this.productService.getProducts();
 

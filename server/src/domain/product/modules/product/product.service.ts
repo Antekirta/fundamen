@@ -44,7 +44,7 @@ export class ProductService {
     return this.knex.table(P);
   }
 
-  async addProductsBase(
+  async addProducts(
     products: ProductToAddInterface[],
   ): Promise<Array<Pick<ProductInterface, 'id'>>> {
     const keysToReturn: Array<keyof ProductInterface> = ['id'];

@@ -1,6 +1,9 @@
 import { getRandom } from '../../shared/utils/number';
 import { NUMBER_OF_PRODUCTS } from '../settings';
-import { ProductPropertyInterface } from '../../domain/product/product.domain.interface';
+import {
+  ProductPropertyInterface,
+  ProductToAddInterface,
+} from '../../domain/product/product.domain.interface';
 
 export class ProductBuilder {
   productTypesIds: number[];
@@ -23,7 +26,7 @@ export class ProductBuilder {
         is_active: true,
         product_type:
           this.productTypesIds[getRandom(0, this.productTypesIds.length - 1)],
-      };
+      } as ProductToAddInterface;
     });
 
     return products;
