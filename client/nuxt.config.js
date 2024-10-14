@@ -19,7 +19,6 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      API_BASE_URL: process.env.API_BASE_URL,
       STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY
     }
   },
