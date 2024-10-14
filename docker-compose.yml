@@ -15,7 +15,7 @@ services:
       - "${DATABASE_PORT}:${DATABASE_PORT}"
     networks:
       - fundamen-network
-    command: postgres -c 'port=5433'  # Pass the custom port at startup
+    command: postgres -c "port=${DATABASE_PORT}"  # Pass the custom port at startup
   nest:
     image: theantekirta/fundamen_nest
     build:
