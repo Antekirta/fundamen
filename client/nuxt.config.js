@@ -1,4 +1,12 @@
+import { resolve } from 'path'
+import { config as loadEnv } from 'dotenv'
 import svgLoader from 'vite-svg-loader'
+
+loadEnv({
+  path: resolve(__dirname, '../env.dev')
+})
+
+console.log('process.env.NUXT_DOCKER_PORT: ', process.env.NUXT_DOCKER_PORT)
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -10,6 +18,9 @@ export default defineNuxtConfig({
     '@nuxt/ui', '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt'
   ],
+  buildModules: [
+    ['@nuxtjs/dotenv', { path: '../env.dev' }]
+  ],
   build: {
     transpile: ['pinia-plugin-persistedstate']
   },
@@ -19,7 +30,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY
+      STRIPE_PUBLIC_KEY: process.env.NUXT_PUBLIC_STRIPE_PUBLIC_KEY
     }
   },
   alias: {
