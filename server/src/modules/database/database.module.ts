@@ -1,6 +1,11 @@
 import { Module } from '@nestjs/common';
 import { KnexModule } from 'nest-knexjs';
 
+console.log(
+  'database.module process.env.DATABASE_CLIENT: ',
+  process.env.DATABASE_CLIENT,
+);
+
 @Module({
   imports: [
     KnexModule.forRoot({
