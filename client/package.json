@@ -5,7 +5,7 @@
     "build": "nuxt build",
     "dev": "concurrently \"nuxi dev --dotenv ../.env.dev -v\" \"npx tailwindcss -i ./assets/global.scss -o ./dist/global.css --watch\"",
     "dev1": "nuxt dev",
-    "prod": "dotenv -e ../.env.prod -- node .output/server/index.mjs",
+    "prod": "dotenv -e ../.env -- node .output/server/index.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "storybook": "storybook dev -p 6006",
