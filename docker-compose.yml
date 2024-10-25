@@ -60,6 +60,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
+    networks:
+      - fundamen-network
     depends_on:
       - nuxt
       - nest
