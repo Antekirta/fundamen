@@ -1,7 +1,7 @@
 export default defineNuxtPlugin({
   setup () {
     const customFetch = $fetch.create({
-      baseURL: '/api'
+      baseURL: process.client ? '/api' : 'http://nest:3002'
     })
 
     return {

@@ -1,4 +1,11 @@
-import 'dotenv/config';
+import { resolve } from 'path';
+import { config as loadEnv } from 'dotenv';
+
+// INFO: It's important to load env before any modules
+loadEnv({
+  path: resolve(__dirname, '../../../.env.dev'),
+});
+
 import { NestFactory } from '@nestjs/core';
 import { SeedService } from './seed.service';
 import { SeedModule } from './seed.module';
