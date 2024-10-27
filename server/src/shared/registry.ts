@@ -1,1 +1,1 @@
-export const UPLOAD_FOLDER = '../uploads/';
+export const UPLOAD_FOLDER_CATEGORIES = `${process.env.UPLOAD_FOLDER}/categories`;

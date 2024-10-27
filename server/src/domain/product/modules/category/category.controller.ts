@@ -24,9 +24,7 @@ import { ResponseInterface } from '../../../../shared/interfaces/response';
 import { SortingInterface } from '../../../../shared/interfaces/sorting';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
-import { UPLOAD_FOLDER } from '../../../../shared/registry';
-
-const uploadDest = `${UPLOAD_FOLDER}categories`;
+import { UPLOAD_FOLDER_CATEGORIES } from '../../../../shared/registry';
 
 @Controller(ROUTES.CATEGORIES.BASE)
 export class CategoryController {
@@ -56,7 +54,7 @@ export class CategoryController {
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
-        destination: uploadDest,
+        destination: UPLOAD_FOLDER_CATEGORIES,
         filename: (req, file, callback) => {
           callback(null, file.originalname);
         },

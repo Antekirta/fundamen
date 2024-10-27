@@ -31,11 +31,14 @@ services:
       DATABASE_USER: ${DATABASE_USER}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
       DATABASE_CLIENT: ${DATABASE_CLIENT}
+      UPLOAD_FOLDER: '/var/www/static/uploads'
     build:
       context: ./server
       dockerfile: Dockerfile
     depends_on:
       - db
+    volumes:
+      - uploads:/var/www/static/uploads
     ports:
       - "${BE_PORT}:${BE_PORT}"
     networks:
@@ -58,6 +61,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - uploads:/var/www/static/uploads
     ports:
       - "80:80"
     networks:
@@ -68,6 +73,7 @@ services:
 
 volumes:
   postgres_data:
+  uploads:
 
 networks:
   fundamen-network:
